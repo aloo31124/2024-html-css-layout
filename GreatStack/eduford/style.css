@@ -1,0 +1,104 @@
+/* css 全域樣式設定 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 
+    首頁-標頭區塊 
+    1. 須包含底圖
+*/
+.header{
+    min-height: 100vh;   /* vh, wh => 為 [螢幕] 長寬之比例 */
+    width: 100%;        /* % => 為 [父元素] 之 長寬比 */
+    background-image:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/banner.png);
+    background-position: center; /* ?? 中央底圖 */
+    background-size: cover;     /* ?? 中央底圖 */
+    position: relative;
+}
+
+/* 
+    上方導覽列 
+    1. 將 a.logo b.項目 左右分開
+    2. 使用 flex
+*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 6%;
+}
+
+/* 上方導覽列 之 圖片 
+    1. 調整圖片寬度即可
+*/
+.nav img {
+    width: 150px;
+}
+
+/* 上方導覽列 之 選項列表 
+    1. flex: 數字 => ?
+    2. 文字物件靠右邊
+*/
+.nav-list {
+    flex: 1;
+    text-align: right;
+}
+
+
+/* 上方導覽列 之 選項列表  讓其中 ul-li 水平 
+    1. 將 ul-li 轉為水平, 可將其轉成 inline物件
+    2. list-style: none;   => ? 
+    3. padding: 8px 12px;   
+*/
+.nav-list ul li {
+    display: inline-block;  /* 轉成 inline物件,  */
+    list-style: none;       /* ?? */
+    padding: 8px 12px;      
+    /* position: relative;  */ /* 感覺在這沒用 ="= */
+}
+
+
+/* 上方導覽列 之 選項列表 => a href 文字 樣式顏色  
+    1. 文字設定: a.顏色: #fff, b.大小 13px
+    2. 文字底線: text-decoration 設定
+*/
+.nav-list ul li a {
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none; /* 文字底線 */
+}
+
+/* 上方導覽列 之 選項列表 設定 [自定義底線] 可 伸縮變化 
+    1. 先將 ul li 設定好基本 寬, 高, 背景顏色: #f44336, 
+    2. 該 [偽元素] 該使用 ::after 還是 ::before ? 為何?
+    3. 該 [偽元素] 該使用 block 還是 inline-block ? in-line => 會忽略 margin
+    4. margin:auto => ? 自動分配? :D
+    5. content: '' => [偽元素] 之 內容, 必須填寫
+    =================================
+*/
+.nav-list ul li::after{
+    content:'';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display:block;
+    margin:auto;
+    /* transition: 0.5s; */
+}
+
+
+/* 承接上 .nav-list ul li::after, => 增加滑鼠進入 伸縮變化 
+    1. transform 與 
+*/
+.nav-list ul li:hover:after{
+    width: 100%;
+
+    transition: 0.5s;
+}
+
+
+
+
+
