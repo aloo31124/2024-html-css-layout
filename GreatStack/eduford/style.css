@@ -464,8 +464,7 @@ nav {
             1. h2 標頭, p 內容文字 => 須讓 div campus 與 文字置中
             2. .row 包覆三個 文字說明卡.campus-col
             3. 文字說明卡.facilities-col 包含元素: img , h3 , p
-             => 效果: 
-
+             => 效果: 無
 */
 .facilities{
     width: 80%;
@@ -506,7 +505,6 @@ nav {
 .facilities-col {
     border-radius: 10px;
     margin-bottom: 5%;
-    text-align: left;
     flex-basis: 31%;
 }
 
@@ -516,5 +514,75 @@ nav {
 }
 
 
+
+
+/*
+    八, testimonials 感言, 學生感想區塊 
+            1. h2 標頭, p 內容文字 => 須讓 div campus 與 文字置中
+            2. .row 包覆三個 文字說明卡.campus-col
+            3. 文字說明卡.facilities-col 包含元素: img , p, h3 => h3在底部
+             => 效果: 無
+ */
+
+.testimonials {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 略 */
+.testimonials h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.testimonials h3 {
+    text-align: left;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* 略 */
+.testimonials p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+/* 略 */
+.testimonials .row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*   */
+.testimonials-col {
+    flex-basis: 44%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #fff3f3;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+}
+
+.testimonials-col .bi {
+    color: #f44336;
+}
+
+
+/* 圓型照片 */
+.testimonials-col img {
+    height: 40px;
+    border-radius: 40px;
+
+    margin-left: 5px;
+    margin-right: 30px;
+}
 
 
