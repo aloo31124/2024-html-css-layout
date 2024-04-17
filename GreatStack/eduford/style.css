@@ -454,3 +454,67 @@ nav {
 
 
 
+
+
+
+
+/* 
+
+    七, div facilities 設施列表 
+            1. h2 標頭, p 內容文字 => 須讓 div campus 與 文字置中
+            2. .row 包覆三個 文字說明卡.campus-col
+            3. 文字說明卡.facilities-col 包含元素: img , h3 , p
+             => 效果: 
+
+*/
+.facilities{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 略 */
+.facilities h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.facilities h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* 略 */
+.facilities p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+/* 略 */
+.facilities .row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* facilities-col flex-basis: 31%;  */
+.facilities-col {
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    flex-basis: 31%;
+}
+
+.facilities-col img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+
