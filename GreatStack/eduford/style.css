@@ -165,7 +165,7 @@ nav {
 
     background: transparent; /* ? */
     position: relative; /* ? */
-    cursor: pointer; /* ? */
+    cursor: pointer; /* ? 可以改變滑鼠游標的形狀 */
 }
 
 /* 滑鼠移入.hero-btn 後, 顯示紅色  
@@ -180,15 +180,29 @@ nav {
 }
 
 /* 縮小螢幕, 小於700px時, 將 導覽列之選單切至左側滿高, 底色為紅 #f44336
+    => 基本設定:
+        .text-box h1 {
+            font-size: 20px;
+        }
+        .nav-list {
+            padding: 30px;
+        }
+
     1. nav-list 基本設定: 底色, 寬:200px, text-align: left;
     2. nav-list 定位如何設定? => 左上角, 滿高如何設定? vh
     3. nav-list 放置於上方 z-*: 2
     4. 須讓內容文字換行, 將 ul li 轉為 display?
+
+    5. 右側導覽列, close icon 樣式
  */
 @media(max-width:700px) {
     /* 略 */
     .text-box h1 {
         font-size: 20px;
+    }
+    /* 略 */
+    .nav-list {
+        padding: 30px;
     }
     /* 4. 須讓內容文字換行, 將 ul li 轉為 display? */
     .nav-list ul li {
@@ -207,6 +221,20 @@ nav {
         z-index: 2;
         text-align: left;
     }
+
+    /* 5. 右側導覽列, close icon 樣式 */
+    nav .bi {
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
 }
+
+
+
+
 
 
