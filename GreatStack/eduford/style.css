@@ -179,3 +179,34 @@ nav {
     transition: 1s;
 }
 
+/* 縮小螢幕, 小於700px時, 將 導覽列之選單切至左側滿高, 底色為紅 #f44336
+    1. nav-list 基本設定: 底色, 寬:200px, text-align: left;
+    2. nav-list 定位如何設定? => 左上角, 滿高如何設定? vh
+    3. nav-list 放置於上方 z-*: 2
+    4. 須讓內容文字換行, 將 ul li 轉為 display?
+ */
+@media(max-width:700px) {
+    /* 略 */
+    .text-box h1 {
+        font-size: 20px;
+    }
+    /* 4. 須讓內容文字換行, 將 ul li 轉為 display? */
+    .nav-list ul li {
+        display: block;
+    }
+    /* nav-list 1~3設定 */
+    .nav-list {
+        background: #f44336;
+        width: 200px;
+
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 100vh;
+
+        z-index: 2;
+        text-align: left;
+    }
+}
+
+
