@@ -236,6 +236,11 @@ nav {
 
 }
 
+@media(min-width:700px) {
+    nav .bi {
+        display: none;
+    }
+}
 
 
 
