@@ -61,7 +61,7 @@ nav {
     display: inline-block;  /* 轉成 inline物件,  */
     list-style: none;       /* ?? */
     padding: 8px 12px;      
-    /* position: relative; */ /* 感覺在這沒用嗎? ="= */
+    position: relative;  /* 感覺在這沒用嗎? ="= */
 }
 
 
@@ -201,7 +201,7 @@ nav {
         font-size: 20px;
     }
     /* 略 */
-    .nav-list {
+    .nav-list ul {
         padding: 30px;
     }
     /* 4. 須讓內容文字換行, 將 ul li 轉為 display? */
@@ -243,6 +243,83 @@ nav {
 }
 
 
+
+/* 
+    五, 第二層 課程介紹列表 => 如下元素:
+        1. h2 標頭, p 內容文字 => 須讓 div course 與 文字置中 => 使用 width + margin
+        2. 如何文字 垂直自中 ?
+        3. padding: 20px;
+ */
+
+.course {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 略 */
+.course h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.course p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+/* 略 */
+.course h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.course .row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* 文字說明卡.course-col  
+    1. 基礎設定:
+        background: #fff3f3;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        padding: 20px 12px;
+    2. 使用 box-sizing 與 flex效果 , 設定文字說明卡間距, 抓寬 
+*/
+.course-col {
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+
+    box-sizing: border-box;
+    flex-basis: 31%;
+}
+
+/* 文字說明卡.course-col  
+    => 滑鼠移入產生陰影 box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+ */
+.course-col:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 螢幕縮小, 讓說明字卡 變成單行
+    => 可從 .row 調整 flex效果
+ */
+@media(max-width:700px) {
+    .row {
+        flex-direction: column;
+    }
+}
 
 
 

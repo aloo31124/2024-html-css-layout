@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <!-- 
+        https://www.youtube.com/watch?v=oYRda7UtuhA&t=1085s
+     -->
 
     <!-- google font 文字 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +75,49 @@
 
      </div>
 
+     <!-- 
+        五, 第二層 課程介紹列表 => 如下元素:
+            1. h2 標頭, p 內容文字 => 須讓 div course 與 文字置中
+            2. .row 包覆三個 文字說明卡.course-col 
+            3. 文字說明卡.course-col 包含元素: h3, p 內容文字
+     -->
+     <div class="course">
+        <h2>我們的課程</h2>
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+        </p>
+
+        <div class="row">
+            <div class="course-col">
+                <h3>課程 1</h3>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Illum deserunt qui dicta fugiat inventore molestias expedita vero 
+                    perspiciatis excepturi tempore atque eos id quis veniam aspernatur quos, 
+                    temporibus minima odit.
+                </p>
+            </div>
+            <div class="course-col">
+                <h3>課程 2</h3>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Illum deserunt qui dicta fugiat inventore molestias expedita vero 
+                    perspiciatis excepturi tempore atque eos id quis veniam aspernatur quos, 
+                    temporibus minima odit.
+                </p>
+            </div>
+            <div class="course-col">
+                <h3>課程 3</h3>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                    Illum deserunt qui dicta fugiat inventore molestias expedita vero 
+                    perspiciatis excepturi tempore atque eos id quis veniam aspernatur quos, 
+                    temporibus minima odit.
+                </p>
+            </div>
+        </div>
+     </div>
+
      <!-- 四, js 顯示,隱藏 右側選單 
         1. 使用 onclick 觸發事件, 取得 id = nav-list 元素
         2. hidenMenu(), showMenu() 隱藏 與呈現
@@ -79,6 +125,7 @@
         4. 於 css 加入滑動動畫效果
         -->
      <script>
+
         let navList = document.getElementById("nav-list");
         function hidenMenu() {
             navList.style.right = "-400px";
