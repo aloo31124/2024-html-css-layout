@@ -118,7 +118,42 @@
         </div>
      </div>
 
-     <!-- campus 校園介紹圖塊 -->
+    <!-- 六, campus 校園介紹圖塊 
+            1. h2 標頭, p 內容文字 => 須讓 div campus 與 文字置中
+            2. .row 包覆三個 文字說明卡.campus-col
+            3. 文字說明卡.campus-col 包含元素: img , div .layer > h3
+             => 當滑鼠移入 文字說明卡時, layer背景轉紅 , h3標題自下而上呈現
+
+    -->
+
+     <div class="campus">
+        <h2>我們的校園</h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Labore delectus nam praesentium voluptatibus sapiente? 
+        </p>
+
+        <div class="row">
+            <div class="campus-col">
+                <img src="images/london.png">
+                <div class="layer">
+                    <h3>LONDON</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                <img src="images/newyork.png">
+                <div class="layer">
+                    <h3>NEW YORK</h3>
+                </div>
+            </div>
+            <div class="campus-col">
+                <img src="images/washington.png">
+                <div class="layer">
+                    <h3>WASHINGTON</h3>
+                </div>
+            </div>
+        </div>
+     </div>
 
      <!-- facilities 設施列表 -->
 
