@@ -220,6 +220,9 @@ nav {
 
         z-index: 2;
         text-align: left;
+
+
+        transition: 1s; /* 縮放動畫 */
     }
 
     /* 5. 右側導覽列, close icon 樣式 */
