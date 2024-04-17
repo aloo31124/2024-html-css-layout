@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>danson lin 偽類</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <h1>CSS伪类和伪元素的区别 - Web前端工程师面试题讲解
+    </h1>
+    https://www.youtube.com/watch?v=KOlKP-w-QKw
+    <br>
+    
+    <!-- ///////////////////////////////////////////// -->
+    <h1>範例1: input 輸入</h1>
+    <p>
+        1. 新增一個輸入框 input , 與 輸出結果空間 h2
+        <br>
+        2. 若輸入值超出輸入框範圍, 則改變顏色 gold, 使用何種偽類: out-of-range
+        <br>
+        3. 多個偽類可對同個元素進行 拼接,如：
+        <br>
+        => 承接2, 輸入超出範圍,雖改變顏色, 但鍵盤不輸入後，則復原
+        <br>
+        4. 超出範圍, 使用 ::after 偽元素 在 h2 產生 文字 content:""
+        <br>
+        5. ::before 與 ::after 偽元素不可寫在一起，不能拼接
+    </p>
+    
+    <h2>請輸入數字</h2>
+    <input type="number" min="1" max="10">
+    <h2>結果： </h2>
+    
+    <!-- ///////////////////////////////////////////// -->
+
+    <h1>範例2: checkbox 複選, 顯示勾選提醒問字</h1>
+    <p>
+        1. 勾選後, 會顯示文字提醒
+        <br>
+        2. 先使用 ::after 偽元素 產生 提醒文字
+        <br>
+        3. 後續新增另一個 ::after偽元素, 使用 :checked 檢查是否被勾選
+        <br>
+        4. ::after偽元素 一定要放在 :checked 偽類的 後面, 
+    </p>
+    <div class="ch2-box">
+        <input type="checkbox">
+        <input type="checkbox">
+        <input type="checkbox">
+    </div>
+
+    <!-- ///////////////////////////////////////////// -->
+
+    <h1>範例3: ol-li 序列, 偶數改變顏色 glod</h1>
+    
+    1. 使用 :nth-child() 偽類, 將偶數項目改為 黃色 glod
+    <br>
+    2. 使用 ::first-letter 將第一個字母改為紅色
+    <br>
+
+    <ol>
+        <li>第1件事</li>
+        <li>第2件事</li>
+        <li>第3件事</li>
+        <li>第4件事</li>
+        <li>第5件事</li>
+    </ol>
+    
+
+    <!-- ///////////////////////////////////////////// -->
+
+
+</body>
+</html>

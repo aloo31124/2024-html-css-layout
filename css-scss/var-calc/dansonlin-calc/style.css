@@ -1,0 +1,43 @@
+
+.container1 {
+    width: 100%;
+    height: 400px;
+    background: gold;
+    padding-top: calc(50vh - var(--item-height)/2);
+    padding-left: calc(50vw - var(--item-width)/2);
+
+    --item-width: 200px;
+    --item-height: 200px;
+}
+
+.item1 {
+    width: var(--item-width);
+    height: var(--item-height);
+    background: red;
+}
+
+/* //////////////////////////////////////////// */
+
+.container2 {
+    width: 100%;
+    height: 400px;
+    background: gold;
+
+    --item-width: calc(100% - 50px);
+}
+
+.item2 {
+    width: calc(100% - 100px);
+    height: 90%;
+    background: red;
+}
+
+
+
+
+
+/* //////////////////////////////////////////// */
+
+
+
+

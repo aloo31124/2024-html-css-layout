@@ -1,0 +1,16 @@
+
+
+input[type="radio"]{
+    accent-color:green;
+}
+  
+
+input[type="radio"] {
+    border-color: red;
+}
+
+input[type="radio"]:checked {
+    background-color: red;
+}
+
+
