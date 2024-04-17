@@ -12,7 +12,12 @@
 .header{
     min-height: 100vh;   /* vh, wh => 為 [螢幕] 長寬之比例 */
     width: 100%;        /* % => 為 [父元素] 之 長寬比 */
-    background-image:linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/banner.png);
+    background-image:
+        linear-gradient(
+            rgba(4,9,30,0.7),
+            rgba(4,9,30,0.7)
+        ),
+        url(images/banner.png);
     background-position: center; /* ?? 中央底圖 */
     background-size: cover;     /* ?? 中央底圖 */
     position: relative;
@@ -56,7 +61,7 @@ nav {
     display: inline-block;  /* 轉成 inline物件,  */
     list-style: none;       /* ?? */
     padding: 8px 12px;      
-    /* position: relative;  */ /* 感覺在這沒用 ="= */
+    /* position: relative; */ /* 感覺在這沒用嗎? ="= */
 }
 
 
@@ -94,11 +99,83 @@ nav {
 */
 .nav-list ul li:hover:after{
     width: 100%;
-
     transition: 0.5s;
 }
 
 
+/* 首頁 網頁標頭 內 之 說明文字 
+    => div text-box 內容文字, 如下三種元素:
+    1. h1 標頭
+    2. p 段落說明文字
+    3. a href 紅色按鈕, 滑鼠移入產生顏色
+ */
+
+/* div text-box 內容文字, 設定:
+    1. 基本設定 a.文字顏色: #fff, b.文字垂直置中 text-align, c.寬度為父元素 90%
+    2. 絕對定位 absolute, top,  讓該 內容文字 text-box 放置於 螢幕中央
+    3. !! left + transform: translate(-50%, -50%) 進行平移
+ */
+.text-box{
+    width: 90%;
+    color: #fff;
+    text-align: center;
+    
+    /* 絕對定位, text-box 放置於 螢幕中央 */   
+    position: absolute;
+    top:50%;
+
+    left:50%;
+    transform: translate(-50%, -50%); /* 平移 */
+}
+
+/* 略 */
+.text-box h1{
+    font-size: 62px;
+}
+
+/* 略 */
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: #fff;
+}
 
 
+/* 白色按鈕, 滑鼠移入可切換為 紅色
+    1. 基礎設定: 
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 12px 34px;
+        font-size: 13px;
+    2. a href 不要有底線 :)
+    3. display block 還是 inline-block ? inline?  => margin
+    4. ???? :)
+        background: transparent;
+        position: relative;
+        cursor: pointer;
+ */
+.hero-btn {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+
+    text-decoration: none;
+    display: inline-block;
+
+    background: transparent; /* ? */
+    position: relative; /* ? */
+    cursor: pointer; /* ? */
+}
+
+/* 滑鼠移入.hero-btn 後, 顯示紅色  
+    border:  1px solid #f44336;
+    background: #f44336;
+    1秒伸縮切換
+*/
+.hero-btn:hover {
+    border:  1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+}
 
