@@ -539,7 +539,6 @@ nav {
 
 /* 略 */
 .testimonials h3 {
-    text-align: left;
     font-weight: 600;
     margin: 10px 0;
 }
@@ -585,4 +584,32 @@ nav {
     margin-right: 30px;
 }
 
+
+
+/*
+    九, call to action 回復區塊, 如下元素:
+            1. 背景圖片
+            2. h2 副標題 : 立刻報名課程
+            3. a href => 聯絡我們, 超連結
+*/
+
+.cta {
+    margin: 100px auto;
+    width: 80%;
+    background-image: 
+        linear-gradient(
+            rgba(0,0,0,0.7),
+            rgba(0,0,0,0.7)
+        ),url(images/banner2.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.cta h2 {
+    color: #fff;
+    margin-bottom: 40px;
+}
 
