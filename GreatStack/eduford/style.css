@@ -78,7 +78,7 @@ nav {
 /* 上方導覽列 之 選項列表 設定 [自定義底線] 可 伸縮變化 
     1. 先將 ul li 設定好基本 寬, 高, 背景顏色: #f44336, 
     2. 該 [偽元素] 該使用 ::after 還是 ::before ? 為何?
-    3. 該 [偽元素] 該使用 block 還是 inline-block ? in-line => 會忽略 margin
+    3. !! 該 [偽元素] 該使用 block 還是 inline-block ? inline => 會忽略 margin
     4. margin:auto => ? 自動分配? :D
     5. content: '' => [偽元素] 之 內容, 必須填寫
     =================================
@@ -97,7 +97,7 @@ nav {
 /* 承接上 .nav-list ul li::after, => 增加滑鼠進入 伸縮變化 
     1. transform 與 
 */
-.nav-list ul li:hover:after{
+.nav-list ul li:hover::after{
     width: 100%;
     transition: 0.5s;
 }
@@ -120,7 +120,7 @@ nav {
     color: #fff;
     text-align: center;
     
-    /* 絕對定位, text-box 放置於 螢幕中央 */   
+    /* ! 絕對定位, text-box 放置於 螢幕中央 */   
     position: absolute;
     top:50%;
 
