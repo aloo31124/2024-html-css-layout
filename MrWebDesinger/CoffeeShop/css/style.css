@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+/* ========= 共用設定 start ========= 
+    => 保留不練習
+*/
+
+/* 
+    設定通用變數
+ */
+:root {
+    --main-color: #d3ad7f;
+    --black: #13131a;
+    --bg: #010103;
+    --border: .1rem solid rgba(255,255,255,.3);
+}
+
+
+/* 
+    設定通用選擇器
+*/
+* {
+    font-family: 'Roboto', sans-serif; /* 字體為 roboto */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; /* ? => outline 與 border 差異  */
+    text-decoration: none;
+    text-transform: capitalize; /* ? */
+    transition: .2s linear;
+}
+
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding: 9rem;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+}
+
+/* 如下三個設定 滑動滾輪軌道與區塊設定 */
+html::-webkit-scrollbar {
+    width: .8rem;
+}
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+html::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: .5rem;
+}
+
+/* [保留] [通用按鈕] 樣式 
+    => 效果: 使用 .btn => 滑鼠移入, 寬度變長
+*/
+.btn {
+    display: inline-block; /* 保留 margin */
+    margin-top: 1rem;
+    padding: .7rem 3rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background-color: var(--main-color);
+    cursor: pointer;
+}
+.btn:hover {
+    letter-spacing: .2rem;
+}
+
+
+/* ========= 共用設定 end ========= */
+
+ /* 網頁標頭 header
+    1. 基本設定: padding: 1.5rem 7%;
+    2. flex 設定, nav 常見 between 排版
+    3. 使用 position + left top right... 讓上方 導覽列展開
+    4. background, border 使用 --bg, --border變數
+  */
+.header {
+    padding: 1.5rem 7%;
+    border-bottom: var(--border);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background: var(--bg);
+    border: var(--border);
+
+    z-index: 1000;
+}
+
+/* img logo 圖寬度, 6rem */
+.header .logo img {
+    width: 6rem;
+}
+
+/* 導覽列 .navbar a 
+        1. 基本字體設定
+            color: #fff;
+            margin: 0 1rem;
+            font-size: 1.6rem;
+        2. 滑鼠移入:hover, 選單文字會呈現底線, 顏色為 main-color
+        3. border-bottom 
+            => padding-bottom: .5rem  下移效果
+        note: 不使用 [偽元素] 喔! :)
+ */
+
+.header .navbar a {
+    color: #fff;
+    margin: 0 1rem;
+    font-size: 1.6rem;
+}
+
+.header .navbar a:hover {
+    border-bottom: .1rem solid var(--main-color);
+    padding-bottom: .5rem;
+}
+
+/* 導覽列 icon 設定
+ */
+.header .icons div {
+    color: var(--main-color);
+    cursor: pointer; /* 滑鼠游標 */
+    font-size: 2.5rem;
+    margin-left: 2rem;
+}
+
+.header .icons div:hover {
+    color: #fff;
+}
+
+
+/* 導覽列 漢堡icon menu-btn 
+    => css 選id 寫法 # , 將其隱藏
+*/
+#menu-btn {
+    display: none;
+}
+
+
+/* 
+    搜尋外框 search-form
+       1. 基本設定: 
+            background: #fff;
+            width: 50rem;
+            height: 5rem;
+        2. 文字置中
+        3. 搜尋外框,定位在 header 下方, 使用何種定位 
+        4. display: flex; => 呈現 input + 搜尋icon 
+        5. 預設隱藏 [搜尋外框] transform: scaleY(0) + transform-origin: top
+ */
+.header .search-form {
+    background: #fff;
+    width: 50rem;
+    height: 5rem;
+
+    align-items: center; /* 文字置中 */
+
+    position: absolute; /* 搜尋外框,定位在 header 下方, 使用何種定位 @_@ */
+    top: 115%;
+    right: 7%;
+
+    display: flex;
+
+    transform: scaleY(0); /* 預設隱藏 */
+    transform-origin: top;
+}
+
+.header .search-form.active {
+    transform: scaleY(1); /* 顯示 */
+}
+
+/* 搜尋外框內的 輸入bar input
+    1. 基本設定
+        font-size: 1.6rem;
+        color: var(--black);
+        padding: 1rem;
+        
+    2. 如何讓 內部的 input, 輸入框消失, 提示: 滿版
+    3. input 如何隱藏邊框 , 提示: border
+ */
+.header .search-form input {
+    font-size: 1.6rem;
+    color: var(--black);
+    padding: 1rem;
+    
+    /* 1. 如何讓 內部的 input, 輸入框消失, 提示: 滿版 */
+    height: 100%;
+    width: 100%;
+    
+    text-transform:none; /* ? */
+    border: none;
+}
+
+
+/* [保留] 搜尋外框內 搜尋icon 初始設定 */
+.header .search-form label {
+    cursor: pointer;
+    font-size: 2.2rem;
+    margin-right: 1.5rem;
+    color: var(--black);
+}
+
+/* 搜尋外框內 搜尋icon => 滑鼠移入, 變色 --main-color */
+.header .search-form label:hover {
+    color: var(--main-color);
+}
+
+/* 外層右選單容器: cart-items-container  
+    1. 基本設定:
+        right: 0;
+        height: (100vh - 9.5rem);
+        width: 35rem;
+        background: #fff;
+        padding: 0 1.5rem;
+    2. height 高度加減? 
+    3. 預設隱藏 => right: -100%
+
+*/
+.header .cart-items-container {
+    height: calc(100vh - 9.5rem);
+    width: 35rem;
+    background: #fff;
+    padding: 0 1.5rem;
+
+    border: 1px solid #fff;
+    position: absolute;
+    top:100%; /* 抓取父親物件的高 */
+    right: -100%; /* 預設隱藏 */
+}
+
+.header .cart-items-container.active {
+    right: 0; /* 顯示 */
+}
+
+
+
+/* 項目卡 .cart-item  */
+.header .cart-items-container .cart-item {
+    margin: 2rem 0;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+    display: flex;
+}
+
+
+/* 取消icon 
+    1. 基本樣式設定:
+        font-size: 2rem;
+        color: var(--black);
+        cursor: pointer;
+    2. 需要使用何種定位, 將其 [取消icon] 顯示於 item 後方
+*/
+.header .cart-items-container .cart-item .fa-times {
+    font-size: 2rem;
+    color: var(--black);
+    cursor: pointer;
+
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+/* 取消icon 滑鼠移入, 顯示main-color 顏色  */
+.header .cart-items-container .cart-item .fa-times:hover {
+    color: var(--main-color);
+}
+
+/* 設定 item 商品圖片寬度 7rem */
+.header .cart-items-container .cart-item img {
+    width: 7rem;
+}
+
+/* 略 */
+.header .cart-items-container .cart-item .content h3 {
+    font-size: 2rem;
+    color: var(--black);
+    padding-bottom: .5rem;
+}
+
+/* 略 */
+.header .cart-items-container .cart-item .content .price {
+    font-size: 1.5rem;
+    color: var(--main-color);
+}
+
+/* 略 
+    => 按鈕 寬度滿版
+*/
+.header .cart-items-container .btn {
+    width: 100%;
+    text-align: center;
+}
+
+
+@media (max-width:991px) {
+
+    #menu-btn {
+        display: inline-block;
+    }
+
+    /* 導覽列 內 選項 
+        1. 基本設定:
+            background: #fff;
+            width: 30rem;
+            height: calc(100vh - 9.5rem);
+        2. 使用何種定位在上方? 
+        3. 預設隱藏 right: -100%;
+    */
+    .header .navbar {
+        position: absolute;
+        top:100%;
+        right: -100%; /* 預設隱藏 */
+
+        background: #fff;
+        width: 30rem;
+        height: calc(100vh - 9.5rem);
+    }
+
+    .header .navbar a {
+        color: var(--black);
+        display: block;
+        margin: 1.5rem;
+        padding: .5rem;
+        font-size: 2rem;
+    }
+
+    /* .navbar.active => 後代選擇器, 需連接再一起 */
+    .header .navbar.active {
+        right: 0;
+    }
+    
+}
+
+
+
+
+
+
+
+
