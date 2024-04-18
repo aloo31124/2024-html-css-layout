@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <!-- 網頁標頭 header start 
+    <!-- 一, 網頁標頭 header start 
         => 包含 如下: 
             1. logo圖示: a href # .logo 包含 img
             2. 導覽列: nav .navbar 有7個 a href 選項: home, about, menu, products, review, contact, blogo
@@ -32,7 +32,7 @@
             <img src="./images/logo.png" alt="">
         </a>
 
-        <!-- 導覽列 => navbar a 
+        <!-- 二, 導覽列 => navbar a 
             ...
             3. border-bottom 
                 => padding-bottom: .5rem  下移效果
@@ -48,7 +48,7 @@
             <a href="#blogo">blogo</a>
         </nav>
 
-        <!-- 導覽列icon區 
+        <!-- 三-1, 導覽列icon區 
                 => 效果: 點選 搜尋icon fa-bars, 顯示搜尋框
         -->
         <div class="icons">
@@ -57,7 +57,7 @@
             <div class="fas fa-bars" id="menu-btn"></div>
         </div>
 
-        <!-- 搜尋框 
+        <!-- 三-2,搜尋框 
             1. div .search 為外層, 包覆內部兩元素: input + label
             2. input type="search" id="search-box" placeholder="輸入商品..."
             3. label for="search-box" class="fas fa-search"
@@ -67,7 +67,7 @@
             <label for="search-box" class="fas fa-search"></label>
         </div>
 
-        <!-- 右選單, html 結構如下: 
+        <!-- 四, 右選單, html 結構如下: 
                 1. 外層右選單容器: cart-items-container 
                 2. 內層包覆 4個 項目卡 .cart-item => cart-item-01.png ~ cart-item-04.png
                 3. 項目卡: cart-item
@@ -116,10 +116,124 @@
 
     </header>
     <!-- 網頁標頭 header end -->
-    
+
+
+    <!-- 五, home 首頁 start -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>fresh coffee in the morning</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Ex minima consectetur distinctio, vitae accusantium labore 
+                numquam exercitationem ipsa voluptatem voluptate similique hic.
+            </p>
+            <a href="#" class="btn">get yours now</a>
+        </div>
+    </section>
+    <!-- 五, home 首頁 end -->
+
+
+    <!-- 六, about關於我們 start -->
+    <section class="about" id="about">
+        <h1 class="heading">
+            <span>about</span>
+            us
+        </h1>
+        <div class="row">
+            <div class="image">
+                <img src="./images/about-img.png" alt="">
+            </div>
+            <div class="content">
+                <h3>what make our coffee special?</h3>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Ex minima consectetur distinctio, vitae accusantium labore 
+                    numquam exercitationem ipsa voluptatem voluptate similique hic.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Ex minima consectetur distinctio, vitae accusantium labore 
+                    numquam exercitationem ipsa voluptatem voluptate similique hic.
+                </p>
+                <p>
+                    Ex minima consectetur distinctio, vitae accusantium labore 
+                    numquam exercitationem ipsa voluptatem voluptate similique hic.
+                </p>
+                <a href="#" class="btn">learn more</a>
+            </div>
+        </div>
+    </section>
+    <!-- 六, about關於我們 end -->
+
+    <!-- 七, menu菜單 start -->
+    <section class="menu" id="menu">
+
+        <h1 class="heading">
+            our
+            <span>menu</span>
+        </h1>
+
+        <div class="box-container">
+            <div class="box">
+                <img src="./images/menu-1.png" alt="">
+                <h3>tasty and helty</h3>
+                <div class="price">
+                    $15.99
+                    <span>20.99</span>
+                </div>
+                <a href="" class="btn">add to cart</a>
+            </div>
+            <div class="box">
+                <img src="./images/menu-1.png" alt="">
+                <h3>tasty and helty</h3>
+                <div class="price">
+                    $15.99
+                    <span>20.99</span>
+                </div>
+                <a href="" class="btn">add to cart</a>
+            </div>
+            <div class="box">
+                <img src="./images/menu-1.png" alt="">
+                <h3>tasty and helty</h3>
+                <div class="price">
+                    $15.99
+                    <span>20.99</span>
+                </div>
+                <a href="" class="btn">add to cart</a>
+            </div>
+            <div class="box">
+                <img src="./images/menu-1.png" alt="">
+                <h3>tasty and helty</h3>
+                <div class="price">
+                    $15.99
+                    <span>20.99</span>
+                </div>
+                <a href="" class="btn">add to cart</a>
+            </div>
+            <div class="box">
+                <img src="./images/menu-1.png" alt="">
+                <h3>tasty and helty</h3>
+                <div class="price">
+                    $15.99
+                    <span>20.99</span>
+                </div>
+                <a href="" class="btn">add to cart</a>
+            </div>
+            <div class="box">
+                <img src="./images/menu-1.png" alt="">
+                <h3>tasty and helty</h3>
+                <div class="price">
+                    $15.99
+                    <span>20.99</span>
+                </div>
+                <a href="" class="btn">add to cart</a>
+            </div>
+        </div>
+
+    </section>
+    <!-- 七, menu菜單 end -->
+
 
     <!-- js link -->
     <script src="./js/script.js"></script> 
-    
+
 </body>
 </html>

@@ -41,6 +41,25 @@ body {
     background: var(--bg);
 }
 
+section {
+    padding: 2rem 7%;
+}
+
+/* section區塊內 標題 */
+section .heading {
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: 3.5rem;
+    font-size: 4rem;
+}
+
+/* section區塊內 標題 span 重點標註 */
+section .heading span {
+    color: var(--main-color);
+    text-transform: uppercase;
+}
+
 /* 如下三個設定 滑動滾輪軌道與區塊設定 */
 html::-webkit-scrollbar {
     width: .8rem;
@@ -343,8 +362,121 @@ html::-webkit-scrollbar-thumb {
 
 
 
+/* 五, home 首頁
+    => RWD 縮小, 文字置中略
+    
+*/
+.home {
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    /* 背景圖片 */
+    background: url(../images/home-image.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home .content {
+    max-width: 60rem;
+}
+
+.home .content h3 {
+    font-size: 6rem;
+    text-transform: uppercase; /* 大寫 */
+}
+
+.home .content p {
+    font-size: 2rem;
+    font-weight: lighter;
+    line-height: 1.8;
+    padding: 1rem 0;
+    color: #eee;
+}
+
+
+
+/* 六, about關於我們 */
+
+.about .row {
+    display: flex;
+    align-items: center;
+    background: var(--black);
+    flex-wrap: wrap;
+
+    color: #fff;
+}
+
+.about .row .image {
+    flex:1 1 45rem;
+}
+
+.about .row .image img {
+    width: 100%;
+}
+
+.about .row .content {
+    flex:1 1 45rem;
+    padding: 2rem;
+}
+
+.about .row .content h3 {
+    font-size: 3rem;
+    color: #fff;
+}
+
+.about .row .content p {
+    font-size: 1.6rem;
+    color: #fff;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
 
 
 
 
+/* 七, menu菜單 start */
+
+.menu .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.menu .box-container .box {
+    padding: 5rem;
+    text-align: center;
+    border: var(--border);
+}
+
+.menu .box-container .box img {
+    width: 8rem;
+    border-radius: 4rem;
+}
+
+.menu .box-container .box h3 {
+    color: #fff;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.menu .box-container .box .price {
+    color: #fff;
+    font-size: 2.5rem;
+    padding: 2rem 0;
+}
+
+.menu .box-container .box .price span {
+    color: #fff;
+    font-size: 1.5rem;
+    text-decoration: line-through;
+}
+
+.menu .box-container .box:hover {
+    background: #fff;
+}
+.menu .box-container .box:hover > *{
+    color: var(--black);
+}
 
