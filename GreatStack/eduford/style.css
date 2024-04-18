@@ -613,3 +613,39 @@ nav {
     margin-bottom: 40px;
 }
 
+
+
+/*
+    十, footer 頁尾 
+        1. h3標頭, p => 內文
+        2. icon 社群
+ */
+
+.footer {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 略 */
+.footer h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.footer p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+.footer .bi {
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
