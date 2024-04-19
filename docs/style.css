@@ -1,18 +1,122 @@
 
+@charset "UTF-8";
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  text-transform: capitalize;
+}
+
+html {
+  /* overflow-x: hidden; */
+}
+
+body {
+  background: #0d0d0d;
+  padding-bottom: 6.5rem;
+}
 
 
-.container {
-    width: 800px;
-    margin: auto;
+section {
+    padding: 5rem 9%;
+}
+
+.heading {
+    text-align: center;
+    color: #fff;
+    font-size: 6rem;
+    margin-bottom: 3rem;
+}
+  
+.heading span {
+    color: crimson;
+}
+  
+
+
+.portfolio {
     text-align: center;
 }
+  
+  .portfolio .box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(31rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .portfolio .box-container .box {
+    height: 30rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .portfolio .box-container .box:hover .content {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  
+  .portfolio .box-container .box img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  
+  .portfolio .box-container .box .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #1a1a1a;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 2rem;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    -webkit-transition: .2s linear;
+    transition: .2s linear;
+  }
 
-.container h1 {
-    font-size: 50px;
-}
-
-.container h2 {
-    font-size: 25px;
-}
-
-
+.portfolio .box-container .box .content h3 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  
+  .portfolio .box-container .box .content p {
+    padding: 1rem 0;
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #aaa;
+  }
+  
+  .portfolio .box-container .box .content a {
+    font-size: 2rem;
+    color: crimson;
+  }
+  
+  .portfolio .box-container .box .content a:hover {
+    color: #fff;
+  }
+  
