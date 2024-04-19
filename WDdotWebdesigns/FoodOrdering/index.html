@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Ordering Website</title>
+    <!-- 
+        https://www.youtube.com/watch?v=nZvD6u6QdtA
+        => 1. 旋轉餐盤
+        => 2. 畫動呈現
+     -->
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+
+    <div class="box">
+        <h2>動畫測試</h2>
+        <div class="container">
+            <div class="img-box up animate">
+                <div class="image up animate"><img src="./assets/slider/food1.png" alt=""></div>
+            </div>
+        </div>
+        <div class="img-box left animate">
+            <div class="image left animate"><img src="./assets/slider/food2.png" alt=""></div>
+        </div>
+    </div>
+    
+    <!-- 
+        main>.hero>.container>h1+span+.slider>.thumb-big+.thumb-nav
+    -->
+    <main>
+        <div class="hero">
+            <div class="container">
+                <h1></h1>
+                <span></span>
+                <div class="slider">
+
+                    <div class="thumb-big up animate">
+                        <!-- 
+                            .wrapper>.item>.main>.tags.link-slide>span+.price+a
+                         -->
+                         <div class="wrapper">
+                            <div class="item">
+                                <div class="main">
+                                    <div class="tags link-slide">
+                                        <span>Breakfast</span>
+                                        <div class="price">$12.99</div>
+                                        <a href="#">Order Now!</a>
+                                    </div>
+                                    <div class="image"><img src="./assets/slider/food1.png" alt=""></div>
+                                </div>
+                            </div>
+                         </div>
+                         <div class="wrapper">
+                            <div class="item">
+                                <div class="main">
+                                    <div class="tags link-slide">
+                                        <span>Breakfast</span>
+                                        <div class="price">$12.99</div>
+                                        <a href="#">Order Now!</a>
+                                    </div>
+                                    <div class="image"><img src="./assets/slider/food2.png" alt=""></div>
+                                </div>
+                            </div>
+                         </div>
+                         <div class="wrapper">
+                            <div class="item">
+                                <div class="main">
+                                    <div class="tags link-slide">
+                                        <span>Breakfast</span>
+                                        <div class="price">$12.99</div>
+                                        <a href="#">Order Now!</a>
+                                    </div>
+                                    <div class="image"><img src="./assets/slider/food3.png" alt=""></div>
+                                </div>
+                            </div>
+                         </div>
+
+                    </div>
+
+                    <div class="thumb-nav">
+                        <ul>
+                            <li>
+                                <div class="tiem">
+                                    <h4>
+                                        Breakfast food
+                                        <br>
+                                        <span>
+                                            half boiled egg
+                                        </span>
+                                    </h4>
+                                    <div class="thumbnail">
+                                        <img src="./assets/slider/food1.png" alt="">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="./script.js"></script>
+</body>
+</html>
