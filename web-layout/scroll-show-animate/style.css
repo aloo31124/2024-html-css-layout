@@ -1,8 +1,12 @@
 /* 
-    滑鼠滾動 on scroll 動畫效果
+    滑鼠滾動 on scroll 動畫效果 start
  */
 
- .up.animate {
+.animate-up-outsite-container  {
+    transform:  translateY(-150px);
+}
+
+.up.animate {
     transform:  translateY(150px);
 }
 .left.animate {
@@ -20,6 +24,15 @@
     transform: translateY(0) translateX(0);
 }
 
+/* 滑鼠滾動 on scroll 動畫效果 end */
 
+.animate-up-outsite-container  {
+    transform:  translateY(-150px);
+}
 
+.red-box {
+    width: 500px;
+    height: 500px;
+    background: red;
+}
 

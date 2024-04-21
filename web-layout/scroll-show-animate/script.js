@@ -1,6 +1,6 @@
 
 /*
-    滑鼠滾動 on scroll 動畫效果
+    滑鼠滾動 on scroll 動畫效果 start
 */
 const io = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -16,5 +16,5 @@ box.forEach((el) => {
     io.observe(el);
 })
 
-
+/* 滑鼠滾動 on scroll 動畫效果 end */
 
