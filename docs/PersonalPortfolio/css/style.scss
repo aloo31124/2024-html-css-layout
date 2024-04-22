@@ -113,9 +113,18 @@ section {
 
 
 
-
-
-
+    /* 滑鼠滾動 進度條 start  */
+    .scroll-progress-bar {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+        background: crimson;   
+        height: .8rem; 
+        width: 20px;
+        z-index: 100;
+    }
+    /* 滑鼠滾動 進度條 end  */
 
 
 .home {
@@ -167,6 +176,7 @@ section {
             padding: 1rem 0;
         }
     }
+
 }
 
 

@@ -105,6 +105,20 @@ section {
   color: crimson;
 }
 
+/* 滑鼠滾動 進度條 start  */
+.scroll-progress-bar {
+  position: absolute;
+  top: 90%;
+  left: 0;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+  background: crimson;   
+  height: .8rem; 
+  width: 0;
+  z-index: 100;
+}
+/* 滑鼠滾動 進度條 end  */
+
+
 .home {
   display: -webkit-box;
   display: -ms-flexbox;
