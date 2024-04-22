@@ -1,0 +1,651 @@
+/* css 全域樣式設定 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 
+    首頁-標頭區塊 
+    1. 須包含底圖
+*/
+.header{
+    min-height: 100vh;   /* vh, wh => 為 [螢幕] 長寬之比例 */
+    width: 100%;        /* % => 為 [父元素] 之 長寬比 */
+    background-image:
+        linear-gradient(
+            rgba(4,9,30,0.7),
+            rgba(4,9,30,0.7)
+        ),
+        url(images/banner.png);
+    background-position: center; /* ?? 中央底圖 */
+    background-size: cover;     /* ?? 中央底圖 */
+    position: relative;
+}
+
+/* 
+    上方導覽列 
+    1. 將 a.logo b.項目 左右分開
+    2. 使用 flex
+*/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 6%;
+}
+
+/* 上方導覽列 之 圖片 
+    1. 調整圖片寬度即可
+*/
+.nav img {
+    width: 150px;
+}
+
+/* 上方導覽列 之 選項列表 
+    1. flex: 數字 => ?
+    2. 文字物件靠右邊
+*/
+.nav-list {
+    flex: 1;
+    text-align: right;
+}
+
+
+/* 上方導覽列 之 選項列表  讓其中 ul-li 水平 
+    1. 將 ul-li 轉為水平, 可將其轉成 inline物件
+    2. list-style: none;   => ? 
+    3. padding: 8px 12px;   
+*/
+.nav-list ul li {
+    display: inline-block;  /* 轉成 inline物件,  */
+    list-style: none;       /* ?? */
+    padding: 8px 12px;      
+    position: relative;  /* 感覺在這沒用嗎? ="= */
+}
+
+
+/* 上方導覽列 之 選項列表 => a href 文字 樣式顏色  
+    1. 文字設定: a.顏色: #fff, b.大小 13px
+    2. 文字底線: text-decoration 設定
+*/
+.nav-list ul li a {
+    color: #fff;
+    font-size: 13px;
+    text-decoration: none; /* 文字底線 */
+}
+
+/* 上方導覽列 之 選項列表 設定 [自定義底線] 可 伸縮變化 
+    1. 先將 ul li 設定好基本 寬, 高, 背景顏色: #f44336, 
+    2. 該 [偽元素] 該使用 ::after 還是 ::before ? 為何?
+    3. !! 該 [偽元素] 該使用 block 還是 inline-block ? inline => 會忽略 margin
+    4. margin:auto => ? 自動分配? :D
+    5. content: '' => [偽元素] 之 內容, 必須填寫
+    =================================
+*/
+.nav-list ul li::after{
+    content:'';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display:block;
+    margin:auto;
+    /* transition: 0.5s; */
+}
+
+
+/* 承接上 .nav-list ul li::after, => 增加滑鼠進入 伸縮變化 
+    1. transform 與 
+*/
+.nav-list ul li:hover::after{
+    width: 100%;
+    transition: 0.5s;
+}
+
+
+/* 首頁 網頁標頭 內 之 說明文字 
+    => div text-box 內容文字, 如下三種元素:
+    1. h1 標頭
+    2. p 段落說明文字
+    3. a href 紅色按鈕, 滑鼠移入產生顏色
+ */
+
+/* div text-box 內容文字, 設定:
+    1. 基本設定 a.文字顏色: #fff, b.文字垂直置中 text-align, c.寬度為父元素 90%
+    2. 絕對定位 absolute, top,  讓該 內容文字 text-box 放置於 螢幕中央
+    3. !! left + transform: translate(-50%, -50%) 進行平移
+ */
+.text-box{
+    width: 90%;
+    color: #fff;
+    text-align: center;
+    
+    /* ! 絕對定位, text-box 放置於 螢幕中央 */   
+    position: absolute;
+    top:50%;
+
+    left:50%;
+    transform: translate(-50%, -50%); /* 平移 */
+}
+
+/* 略 */
+.text-box h1{
+    font-size: 62px;
+}
+
+/* 略 */
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 14px;
+    color: #fff;
+}
+
+
+/* 白色按鈕, 滑鼠移入可切換為 紅色
+    1. 基礎設定: 
+        color: #fff;
+        border: 1px solid #fff;
+        padding: 12px 34px;
+        font-size: 13px;
+    2. a href 不要有底線 :)
+    3. display block 還是 inline-block ? inline?  => margin
+    4. ???? :)
+        background: transparent;
+        position: relative;
+        cursor: pointer;
+ */
+.hero-btn {
+    color: #fff;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+
+    text-decoration: none;
+    display: inline-block;
+
+    background: transparent; /* ? */
+    position: relative; /* ? */
+    cursor: pointer; /* ? 可以改變滑鼠游標的形狀 */
+}
+
+/* 滑鼠移入.hero-btn 後, 顯示紅色  
+    border:  1px solid #f44336;
+    background: #f44336;
+    1秒伸縮切換
+*/
+.hero-btn:hover {
+    border:  1px solid #f44336;
+    background: #f44336;
+    transition: 1s;
+}
+
+/* 縮小螢幕, 小於700px時, 將 導覽列之選單切至左側滿高, 底色為紅 #f44336
+    => 基本設定:
+        .text-box h1 {
+            font-size: 20px;
+        }
+        .nav-list {
+            padding: 30px;
+        }
+
+    1. nav-list 基本設定: 底色, 寬:200px, text-align: left;
+    2. nav-list 定位如何設定? => 左上角, 滿高如何設定? vh
+    3. nav-list 放置於上方 z-*: 2
+    4. 須讓內容文字換行, 將 ul li 轉為 display?
+
+    5. 右側導覽列, close icon 樣式
+ */
+@media(max-width:700px) {
+    /* 略 */
+    .text-box h1 {
+        font-size: 20px;
+    }
+    /* 略 */
+    .nav-list ul {
+        padding: 30px;
+    }
+    /* 4. 須讓內容文字換行, 將 ul li 轉為 display? */
+    .nav-list ul li {
+        display: block;
+    }
+    /* nav-list 1~3設定 */
+    .nav-list {
+        background: #f44336;
+        width: 200px;
+
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 100vh;
+
+        z-index: 2;
+        text-align: left;
+
+
+        transition: 1s; /* 縮放動畫 */
+    }
+
+    /* 5. 右側導覽列, close icon 樣式 */
+    nav .bi {
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+}
+
+@media(min-width:700px) {
+    nav .bi {
+        display: none;
+    }
+}
+
+
+
+/* 
+    五, 第二層 課程介紹列表 => 如下元素:
+        1. h2 標頭, p 內容文字 => 須讓 div course 與 文字置中 => 使用 width + margin
+        2. 如何文字 垂直自中 ?
+        3. padding: 20px;
+ */
+
+.course {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* 略 */
+.course h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.course p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+/* 略 */
+.course h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.course .row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* 文字說明卡.course-col  
+    1. 基礎設定:
+        background: #fff3f3;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        padding: 20px 12px;
+    2. 使用 box-sizing 與 flex效果 , 設定文字說明卡間距, 抓寬 
+*/
+.course-col {
+    background: #fff3f3;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 20px 12px;
+
+    box-sizing: border-box;
+    flex-basis: 31%;
+}
+
+/* 文字說明卡.course-col  
+    => 滑鼠移入產生陰影 box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+ */
+.course-col:hover {
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* 螢幕縮小, 讓說明字卡 變成單行
+    => 可從 .row 調整 flex效果
+ */
+@media(max-width:700px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+
+
+
+/*
+    六, campus 校園介紹圖塊 
+            1. h2 標頭, p 內容文字 => 須讓 div campus 與 文字置中
+            2. .row 包覆三個 文字說明卡.campus-col
+            3. 文字說明卡.campus-col 包含元素: img , div .layer > h3
+             => 當滑鼠移入 文字說明卡時, layer背景轉紅 , h3標題自下而上呈現
+ */
+.campus{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 略 */
+.campus h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.campus h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* 略 */
+.campus p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+/* 略 */
+.campus .row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* 
+    3. 文字說明卡.campus-col 包含元素: img , div .layer > h3
+        => 當滑鼠移入 文字說明卡時, layer背景轉紅 , h3標題自下而上呈現
+*/
+
+/* 
+  ?? 保留
+ */
+.campus .campus-col {
+
+    flex-basis: 32%;
+
+    border-radius: 10px;
+    margin-bottom: 30px;
+    position: relative; /* 相對定位 排開 */
+    overflow: hidden;
+}
+
+/* 圖片寬滿版 */
+.campus .campus-col img {
+    width: 100%;
+}
+
+
+/*
+  layer 背景滿版,長寬100%, 
+    1. 使用何種定位? 
+    2. background: transparent; 
+ */
+.layer {
+    height: 100%;
+    width: 100%;
+
+    top: 0;
+    left: 0;
+    position: absolute;
+
+    background: transparent; 
+}
+
+/*
+  滑鼠移入 .layer > hover, 呈現紅色:  rgba(226,0,0,0.7);, + 動畫轉場
+ */
+.layer:hover {
+    background: rgba(226,0,0,0.7);
+    transition: 0.5s;
+}
+
+
+/*  1. layer 內 h3 文字基本設定:
+        width: 100%;
+        font-weight: 500;
+        color: #fff;
+        font-size: 26px;
+    2. 初始定位
+    3. transform: translateX(-50%); => transform: translateX(-50%); 定位, 位移 
+    4. opacity: 0; => 隱藏
+ */
+.layer h3 {
+    width: 100%;
+    font-weight: 500;
+    color: #fff;
+    font-size: 26px;
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    
+    transform: translateX(-50%); /* 定位, 位移 */
+    opacity: 0; /* 隱藏 */
+}
+
+/* 
+    layer 當滑鼠移入時, layer 中之 h3 由下往上滑動
+      1. .layer h3 :hover 寫法? 
+      2. opacity: 1; => 顯示
+      3. 轉場動畫秒數
+ */
+.layer:hover h3 {
+    bottom: 49%; /* 底部距離 */
+    opacity: 1;
+    transition: 0.5s;
+}
+
+
+
+
+
+
+
+/* 
+
+    七, div facilities 設施列表 
+            1. h2 標頭, p 內容文字 => 須讓 div campus 與 文字置中
+            2. .row 包覆三個 文字說明卡.campus-col
+            3. 文字說明卡.facilities-col 包含元素: img , h3 , p
+             => 效果: 無
+*/
+.facilities{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 略 */
+.facilities h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.facilities h3 {
+    text-align: center;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* 略 */
+.facilities p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+/* 略 */
+.facilities .row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* facilities-col flex-basis: 31%;  */
+.facilities-col {
+    border-radius: 10px;
+    margin-bottom: 5%;
+    flex-basis: 31%;
+}
+
+.facilities-col img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+
+
+/*
+    八, testimonials 感言, 學生感想區塊 
+            1. h2 標頭, p 內容文字 => 須讓 div campus 與 文字置中
+            2. .row 包覆三個 文字說明卡.campus-col
+            3. 文字說明卡.facilities-col 包含元素: img , p, h3 => h3在底部
+             => 效果: 無
+ */
+
+.testimonials {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 略 */
+.testimonials h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.testimonials h3 {
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+/* 略 */
+.testimonials p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+/* 略 */
+.testimonials .row {
+    margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*   */
+.testimonials-col {
+    flex-basis: 44%;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    text-align: left;
+    background: #fff3f3;
+    padding: 25px;
+    cursor: pointer;
+    display: flex;
+}
+
+.testimonials-col .bi {
+    color: #f44336;
+}
+
+
+/* 圓型照片 */
+.testimonials-col img {
+    height: 40px;
+    border-radius: 40px;
+
+    margin-left: 5px;
+    margin-right: 30px;
+}
+
+
+
+/*
+    九, call to action 回復區塊, 如下元素:
+            1. 背景圖片
+            2. h2 副標題 : 立刻報名課程
+            3. a href => 聯絡我們, 超連結
+*/
+
+.cta {
+    margin: 100px auto;
+    width: 80%;
+    background-image: 
+        linear-gradient(
+            rgba(0,0,0,0.7),
+            rgba(0,0,0,0.7)
+        ),url(images/banner2.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.cta h2 {
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+
+
+/*
+    十, footer 頁尾 
+        1. h3標頭, p => 內文
+        2. icon 社群
+ */
+
+.footer {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* 略 */
+.footer h2 {
+    font-size: 36px;
+    font-weight: 600; /* 字體粗度 */
+}
+
+/* 略 */
+.footer p {   
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px; /* ? 字體行距 */
+}
+
+.footer .bi {
+    color: #f44336;
+    margin: 0 13px;
+    cursor: pointer;
+    padding: 18px 0;
+}
+
