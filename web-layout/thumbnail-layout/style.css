@@ -1,0 +1,55 @@
+
+.box-container {
+    margin-bottom: 2rem;
+    text-align: center;
+    display: flex;
+    gap: 1rem;
+    padding: 1.5rem;
+}
+  
+ .box-container .box {
+    height: 20rem;
+    overflow: hidden;
+    position: relative;
+  }
+ 
+/* 縮圖說明區塊 */
+.box-container .box .box-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+    background: #1a1a1a;
+    transform: translateY(-100%);
+}
+
+.box-container .box:hover .box-content {
+    transform: translateY(0%);
+    transition: .2s linear;
+ }
+  
+ .box-container .box img {
+    height: 100%;
+    width: 100%;
+  }
+
+  
+  
+   .box-container .box .box-content h3 {
+    font-size: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: normal;
+  }
+  
+   .box-container .box .box-content p {
+    padding: 1rem 0;
+    font-size: 1rem;
+    line-height: 1;
+    color: #aaa;
+  }
+
+
+

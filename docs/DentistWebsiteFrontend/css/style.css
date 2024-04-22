@@ -94,6 +94,8 @@ section{
 .link-btn:hover{
    background-color: var(--black);
    color:var(--white);
+   font-size: 2rem;
+   transition: .2s linear;
 }
 
 .header{
@@ -197,6 +199,13 @@ section{
    border-radius: .5rem;
 }
 
+.services .box-container .box:hover {
+   background-color: var(--blue);
+   box-shadow: var(--white);
+   color: var(--white);
+}
+
+
 .services .box-container .box img{
    margin:1rem 0;
    height: 4rem;
@@ -207,6 +216,15 @@ section{
    padding:1rem 0;
    color:var(--black);
 }
+
+.services .box-container .box:hover h3 {
+   color: var(--white);
+}
+.services .box-container .box:hover p {
+   color: var(--white);
+}
+
+
 
 .services .box-container .box p{
    font-size: 1.5rem;
@@ -226,6 +244,29 @@ section{
    border-radius: .5rem;
    text-align: center;
    box-shadow: var(--box-shadow);
+   
+   overflow: hidden;
+}
+
+.process .box-container .box .box-txt-content{
+   position: absolute;
+   top: 0;
+   left: 0;
+
+   height: 100%;
+   width: 100%;
+   background: #1a1a1a;
+   transform: translateY(-100%);
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.process .box-container .box:hover .box-txt-content{
+   transform: translateY(0);
+   transition: .2s linear;
+   opacity: 0.8;
 }
 
 .process .box-container .box img{
