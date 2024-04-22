@@ -1,0 +1,27 @@
+/* 
+ ref https://youtu.be/CoQ_WGp5LHU?t=801
+ */
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    z-index: 100;
+}
+
+.scroll-progress-bar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    background: red;   
+    height: .8rem; 
+    width: 0;
+}
+
+.container {
+    width: 100%;
+    position: absolute;
+    top: 80%;
+}
