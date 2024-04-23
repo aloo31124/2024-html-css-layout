@@ -20,7 +20,7 @@ document.addEventListener("mousemove", (e) => {
         mouseMove.style.left = mouseMoveLeft + "px";
     }    
     
-    //反向移動
+    //水平反向移動
     const revertMouseMove = document.querySelector(".revert-mouse-move");
     mouseRevertMoveTop = 100 + (y*0.1);
     mouseRevertMoveLeft = 500 + (x*0.1);

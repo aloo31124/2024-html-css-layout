@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>carousel slide</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    
+    <div class="container">
+        <h1>我是個標題!yo~</h1>
+
+        
+        <div class="tab-list">
+            <label class="tab" for="control-1">1</label>
+            <label class="tab" for="control-2">2</label>
+            <label class="tab" for="control-3">3</label>
+        </div>
+        
+        <ul class="slides">
+            <input type="radio" id="control-1" name="control" checked>
+            <input type="radio" id="control-2" name="control">
+            <input type="radio" id="control-3" name="control">
+
+            <li class="slide">1</li>
+            <li class="slide">2</li>
+            <li class="slide">3</li>
+
+
+            <!-- 
+             1.在三張輪播圖下方，加入一個 div ，用於 controler 
+             2.將該 controls 命名為 controls-visible
+             3. 加入三個 label 標籤
+             4. label for 對應 inpu radio 的 id
+            -->
+
+            <div class="controls-visible">
+                <label for="control-1"></label>
+                <label for="control-2"></label>
+                <label for="control-3"></label>
+            </div>
+
+        </ul>
+    </div>
+    
+
+    <script src="./script.js"></script>
+
+</body>
+</html>

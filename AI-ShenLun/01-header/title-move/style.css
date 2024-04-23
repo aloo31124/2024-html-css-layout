@@ -53,7 +53,7 @@ section {
 
 /* 3.  (滑鼠滾到) 載入後delay0.5秒 fadein start */
 .s1 h1 {
-    transition: 0.5s;
+    transition: 2s;
 }
 
 .s1 h2 {
@@ -72,4 +72,24 @@ section {
 /* 4. 形象動畫頁的文字會隨scroll平移x軸 (左右移動) ,最多到字的底,對齊艾陞倫英文的左右底 end */
 
 
+
+
+
+/* css 動畫呈現三種速度, 分別是 1秒, 4秒, 1秒 start */
+/* Animation for 1 second */
+.animation-1s {
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-name: animation1;
+  }
+  
+  @keyframes animation1 {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100px); /* Move 100 pixels to the right */
+    }
+  }
+/* css 動畫呈現三種速度, 分別是 1秒, 4秒, 1秒 end */
 
