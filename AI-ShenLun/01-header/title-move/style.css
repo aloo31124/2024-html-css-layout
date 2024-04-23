@@ -1,0 +1,75 @@
+
+
+
+section {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.s1  {
+    background: burlywood;
+}
+
+.s2 {
+    background: lightblue;
+}
+
+
+
+/* 
+    滑鼠滾動 on scroll 動畫效果 start
+ */
+
+.animate-container  {
+    border: white solid 2px;
+}
+
+.up.animate {
+    transform:  translateY(150px);
+}
+.left.animate {
+    transform:  translateX(-100px);
+}
+.right.animate {
+    transform:  translateX(100px);
+}
+:where(.up, .left, .right).animate > * {
+    opacity: 0;
+    transition: 1s;
+}
+:where(.up, .left, .right).animate.this > * {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+}
+
+/* 滑鼠滾動 on scroll 動畫效果 end */
+
+
+/* 3.  (滑鼠滾到) 載入後delay0.5秒 fadein start */
+.s1 h1 {
+    transition: 0.5s;
+}
+
+.s1 h2 {
+    transition: 5s;
+}
+/* 3.  (滑鼠滾到) 載入後delay0.5秒 fadein end */
+
+
+/* 4. 形象動畫頁的文字會隨scroll平移x軸 (左右移動) ,最多到字的底,對齊艾陞倫英文的左右底 start */
+.title-right {
+}
+
+.title-left {
+}
+
+/* 4. 形象動畫頁的文字會隨scroll平移x軸 (左右移動) ,最多到字的底,對齊艾陞倫英文的左右底 end */
+
+
+
