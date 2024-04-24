@@ -26,6 +26,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     text-align: center;
 }
 h1 {
@@ -371,5 +372,74 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 }
 /* 服務項目列表 end */
 
+
+/* 作品集 start */
+.portfolio-block {
+    background: #F1B41B;
+    color: white;
+}
+
+.portfolio-block h3 {
+    opacity: 1;
+    -webkit-text-stroke: 1px #d6a21d; /* 邊框 */
+    margin-bottom: 50px;
+}
+
+.slide-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-tab-list {
+    max-width: 40%;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 60px;
+}
+.slide-tab-list .tab {
+    border: #FFFFFF solid 1px;
+    padding: 5px 20px;
+    height: 20px;
+    border-radius: 15px;
+}
+.slide-tab-list .tab:hover {
+    background: #FFFFFF;
+    color: #F1B41B;
+}
+/* 作品集 end */
+
+
+/* 頁尾 start */
+.footer {
+    height: 25vh; /* 高度占瀏覽器 1/4 */
+    background: #00407E;
+    color: #FFFFFF;
+}
+
+.footer .item-list {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    gap: 10px;
+}
+/* 頁尾 end */
 
 
