@@ -1,6 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 
 /* 共用設定 start */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+    font-family: "DFPZongYiW9-B5"; /* 自訂義 */
+    src: url("./fonts/DFPZongYiW9-B5.TTF") format("truetype");
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,24 +31,99 @@ h1 {
 }
 h2 {
     font-size: 125px;
-    color: #000000;
+    font-family: "DFPZongYiW9-B5";
     font-weight: 400;
+    -webkit-text-stroke: 1px #000000; /* 邊框 */
+    color: #FFFFFF;
+    opacity: 0.5;
 }
-/* DFPZongYiW9-B5 */
 h3 {
     font-size: 64px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px #000000; /* 邊框 */
+    color: #FFFFFF;
+    opacity: 0.5;
 }
 /* 共用設定 end */
 
-.header-animation {
-    background: #FFFFFF;
-}
-.header-animation p {
-    font-size: 24px;
+
+/* 上方導覽列 start */
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px auto;
+    position: fixed;
+    z-index: 999;
 }
 
+nav .nav-centent {
+    min-width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background: #FFFFFF;
+
+    padding: 0 5px;
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: 1px 5px 10px #C3C3C3;
+}
+
+nav .nav-centent .logo img {
+    width: 45px;
+    padding: 0 20px;
+}
+
+nav .nav-centent .item-list .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+nav .nav-centent .item-list .item label {
+    font-size: 20px;
+    padding: 0 5px;
+}
+
+nav .nav-centent .item-list .item img {
+    padding: 0 5px;
+    max-width: 25px;
+}
+/* 上方導覽列 end */
+
+
+/* 網頁標頭 過場動畫 start */
+.header-animation .move-right {
+    position: relative;
+    right: -100px;
+}
+
+.header-animation .move-left {
+    position: relative;
+    left: -100px;
+}
+
+.header-animation .center-title {
+    padding: 40px 0;
+}
+
+.header-animation .center-title p {
+    font-size: 24px;
+}
+/* 網頁標頭 過場動畫 end */
+
+
+/* 報價流程 start */
 .price-work-flow {
     background: #FFFDFA;
 }
+/* 報價流程 end */
+
 
 
