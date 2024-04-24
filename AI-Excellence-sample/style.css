@@ -15,8 +15,21 @@
 * {
     margin: 0;
     padding: 0;
-    /* font-family: 'Nunito', sans-serif; */
-    font-family: "DFPZongYiW9-B5";
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none; border:none;
+}
+
+:root {
+    --primary-orange: #F1B41B;
+    --primary-orange-shadow: #d6a21d;
+    --primary-blue: #00407E;
+    --primary-white: #FFFFFF;
+    --primary-black: #000000;
+    --gray: #231F20;
+    --light-gray: #C3C3C3;
+    --light-orange: #FFFDFA
 }
 
 section {
@@ -31,7 +44,7 @@ section {
 }
 h1 {
     font-size: 128px;
-    color: #000000;
+    color: var(--primary-black);
 
     /* Doppio One */
     font-family: "Doppio One", sans-serif;
@@ -43,8 +56,8 @@ h2 {
 
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
-    -webkit-text-stroke: 1px #000000; /* 邊框 */
-    color: #FFFFFF;
+    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    color: var(--primary-white);
     opacity: 0.5;
 }
 h3 {
@@ -52,8 +65,8 @@ h3 {
 
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
-    -webkit-text-stroke: 1px #000000; /* 邊框 */
-    color: #FFFFFF;
+    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    color: var(--primary-white);
     opacity: 0.5;
 }
 p {
@@ -62,9 +75,13 @@ p {
     font-weight: 400;
     font-style: normal;
 }
-
 label {
     /* jf-openhuninn-2.0 */
+    font-family: "jf-openhuninn-2.0", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+a {
     font-family: "jf-openhuninn-2.0", sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -90,18 +107,27 @@ nav .nav-centent {
     justify-content: center;
     align-items: center;
 
-    background: #FFFFFF;
+    background: var(--primary-white);
 
     padding: 0 5px;
     height: 60px;
     border-radius: 30px;
-    box-shadow: 1px 5px 10px #C3C3C3;
+    box-shadow: 1px 5px 10px var(--light-gray);
 }
 
 nav .nav-centent .logo img {
     width: 45px;
     padding: 0 20px;
 }
+
+nav .nav-centent .item-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
 
 nav .nav-centent .item-list .item {
     display: flex;
@@ -110,9 +136,11 @@ nav .nav-centent .item-list .item {
     padding: 10px;
 }
 
-nav .nav-centent .item-list .item label {
-    font-size: 20px;
+
+nav .nav-centent .item-list .item a{
     padding: 0 5px;
+    font-size: 20px;
+    color: var(--primary-black);
 }
 
 nav .nav-centent .item-list .item img {
@@ -149,7 +177,7 @@ nav .nav-centent .item-list .item img {
 
 /* 報價流程 start */
 .price-work-flow {
-    background: #FFFDFA;
+    background: var(--light-orange);
 }
 
 .price-work-flow .left-little-img {
@@ -167,7 +195,7 @@ nav .nav-centent .item-list .item img {
 }
 
 .price-work-flow p {
-    color: #231F20;
+    color: var(--gray);
     line-height: 30px;
     font-size: 20px;    
     padding: 10px 0;
@@ -196,7 +224,7 @@ nav .nav-centent .item-list .item img {
 
 .slide-price-work-flow .tab-list label {
     font-size: 45px;
-    color: #231F20;
+    color: var(--gray);
 }
 
 .slides {
@@ -229,7 +257,7 @@ nav .nav-centent .item-list .item img {
     /* 字體調整 */
     font-family: Helvetica;
     font-size: 120px;
-    color: #fff;
+    color: var(--primary-white);
 
 
     /* 圖片輪播移動效果 */
@@ -270,7 +298,7 @@ input[type="radio"] {
     display: inline-block;
     width: 10px;
     height: 10px;
-    background-color: #F1B41B;
+    background-color: var(--primary-orange);
     border-radius: 5px;
 
     transition: 0.25s;
@@ -284,19 +312,19 @@ input[type="radio"] {
 
 */
 input[type="radio"]:nth-of-type(1):checked~.controls-visible label:nth-of-type(1) {
-    background-color: #d6a21d;
+    background-color: var(--primary-orange-shadow);
     width: 20px;
 }
 input[type="radio"]:nth-of-type(2):checked~.controls-visible label:nth-of-type(2) {
-    background-color: #d6a21d;
+    background-color: var(--primary-orange-shadow);
     width: 20px;
 }
 input[type="radio"]:nth-of-type(3):checked~.controls-visible label:nth-of-type(3) {
-    background-color: #d6a21d;
+    background-color: var(--primary-orange-shadow);
     width: 20px;
 }
 input[type="radio"]:nth-of-type(4):checked~.controls-visible label:nth-of-type(4) {
-    background-color: #d6a21d;
+    background-color: var(--primary-orange-shadow);
     width: 20px;
 }
 /*  使用 CSS Selector 選擇器 讓 三張卡片左右位移*/
@@ -335,14 +363,14 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 }
 
 .service-list .left-block .item h4 {
-    color: #000000;
+    color: var(--primary-black);
     opacity: 0.6;
     font-size: 40px;
     font-weight: 400;
 }
 
 .service-list .left-block .item p {
-    color: #000000;
+    color: var(--primary-black);
     opacity: 0.2;
     font-size: 20px;
     font-weight: 100;
@@ -375,13 +403,14 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 
 /* 作品集 start */
 .portfolio-block {
-    background: #F1B41B;
+    background: var(--primary-orange);
     color: white;
+    border-radius: 100px 100px 0 0;
 }
 
 .portfolio-block h3 {
     opacity: 1;
-    -webkit-text-stroke: 1px #d6a21d; /* 邊框 */
+    -webkit-text-stroke: 1px var(--primary-orange); /* 邊框 */
     margin-bottom: 50px;
 }
 
@@ -401,17 +430,17 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 .slide-tab-list .tab {
-    border: #FFFFFF solid 1px;
+    border: var(--primary-white) solid 1px;
     padding: 5px 20px;
     height: 20px;
     border-radius: 15px;
 }
 .slide-tab-list .tab:hover {
-    background: #FFFFFF;
-    color: #F1B41B;
+    background: var(--primary-white);
+    color: var(--primary-orange);
 }
 /* 作品集 end */
 
@@ -419,8 +448,8 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 /* 頁尾 start */
 .footer {
     height: 25vh; /* 高度占瀏覽器 1/4 */
-    background: #00407E;
-    color: #FFFFFF;
+    background: var(--primary-blue);
+    color: var(--primary-white);
 }
 
 .footer .item-list {
@@ -437,7 +466,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     gap: 10px;
 }
 /* 頁尾 end */
