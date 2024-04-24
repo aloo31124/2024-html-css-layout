@@ -1,5 +1,4 @@
 
-
 /* 共用設定 start */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
@@ -100,13 +99,17 @@ nav .nav-centent .item-list .item img {
 
 /* 網頁標頭 過場動畫 start */
 .header-animation .move-right {
-    position: relative;
-    right: -100px;
+    width: 100%;
+}
+.header-animation .move-right h2 {
+    text-align: right;
 }
 
 .header-animation .move-left {
-    position: relative;
-    left: -100px;
+    width: 100%;
+}
+.header-animation .move-left h2 {
+    text-align: left;
 }
 
 .header-animation .center-title {
@@ -122,8 +125,173 @@ nav .nav-centent .item-list .item img {
 /* 報價流程 start */
 .price-work-flow {
     background: #FFFDFA;
+    position: absolute;
+}
+
+.price-work-flow .left-little-img {
+    position: absolute;
+    top: 150px;
+    left: 350px;
+    width: 100px;
+}
+
+.price-work-flow .right-img {
+    position: absolute;
+    top: 100px;
+    right: 150px;
+    width: 500px;
+}
+
+.price-work-flow p {
+    color: #231F20;
+    line-height: 30px;
+    font-size: 20px;    
+    padding: 10px 0;
+
+    margin-bottom: 60px; /* 下方距離 */
 }
 /* 報價流程 end */
 
+
+/* 報價流程-輪播圖 start */
+.slide-price-work-flow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-price-work-flow .tab-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 500px;
+    padding: 20px 0;
+}
+
+.slide-price-work-flow .tab-list label {
+    font-size: 45px;
+    color: #231F20;
+}
+
+.slides {
+    position: relative;
+    width: 800px;
+    height: 400px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.slide {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 字體調整 */
+    font-family: Helvetica;
+    font-size: 120px;
+    color: #fff;
+
+
+    /* 圖片輪播移動效果 */
+    transition: .5s transform ease-in-out;
+}
+
+.slide:nth-of-type(1) {
+    left: 0;
+}
+
+.slide:nth-of-type(2) {
+    left: 100%;
+}
+
+.slide:nth-of-type(3) {
+    left: 200%;
+}
+
+.slide:nth-of-type(4) {
+    left: 300%;
+}
+
+input[type="radio"] {
+    position: relative;
+    z-index: 100;
+
+    display: none;
+}
+
+.controls-visible {
+    position: absolute;
+    width: 100%;
+    bottom: 12px;
+    text-align: center;
+}
+
+.controls-visible label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #F1B41B;
+    border-radius: 5px;
+
+    transition: 0.25s;
+}
+
+/*         
+
+使用 css Selector 選擇器 讓 下方選單radio 做樣式改變
+    1. input[..= radio ] :nth-of-type(1):checked 判斷第幾個 radio 被選擇 
+    2. 使用 ~ 符號對應同層的 label
+
+*/
+input[type="radio"]:nth-of-type(1):checked~.controls-visible label:nth-of-type(1) {
+    background-color: #d6a21d;
+    width: 20px;
+}
+input[type="radio"]:nth-of-type(2):checked~.controls-visible label:nth-of-type(2) {
+    background-color: #d6a21d;
+    width: 20px;
+}
+input[type="radio"]:nth-of-type(3):checked~.controls-visible label:nth-of-type(3) {
+    background-color: #d6a21d;
+    width: 20px;
+}
+input[type="radio"]:nth-of-type(4):checked~.controls-visible label:nth-of-type(4) {
+    background-color: #d6a21d;
+    width: 20px;
+}
+
+
+
+/*  使用 CSS Selector 選擇器 讓 三張卡片左右位移
+*/
+input[type="radio"]:nth-of-type(1):checked ~.slide{
+    transform: translateX(0%);            
+}
+input[type="radio"]:nth-of-type(2):checked ~.slide{
+    transform: translateX(-100%);            
+}
+input[type="radio"]:nth-of-type(3):checked ~.slide{
+    transform: translateX(-200%);            
+}
+input[type="radio"]:nth-of-type(4):checked ~.slide{
+    transform: translateX(-300%);            
+}
+/* 報價流程-輪播圖 end */
 
 
