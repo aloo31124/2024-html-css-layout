@@ -141,9 +141,13 @@ nav .text-bounce-button-container {
 
 nav .text-bounce-button {
     height: 5px;
-    width: 50px;
+    width: 10%;
     border-radius: 2.5px;
     background: var(--primary-blue);
+
+    position: relative;
+    top:-15%;
+    left: 22%;
 }
 
 nav .nav-centent {
