@@ -133,6 +133,19 @@ nav {
     z-index: 999;
 }
 
+nav .text-bounce-button-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+nav .text-bounce-button {
+    height: 5px;
+    width: 50px;
+    border-radius: 2.5px;
+    background: var(--primary-blue);
+}
+
 nav .nav-centent {
     min-width: 100px;
     display: flex;
@@ -180,6 +193,8 @@ nav .nav-centent .item-list .item img {
     padding: 0 5px;
     max-width: 25px;
 }
+
+
 /* 上方導覽列 end */
 
 
