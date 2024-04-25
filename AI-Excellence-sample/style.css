@@ -289,15 +289,15 @@ nav .nav-centent .item-list .item img {
 
 .price-work-flow .left-little-img {
     position: absolute;
-    top: 150vh;
-    left: 350px;
+    top: 135vh;
+    left: 10vw;
     width: 100px;
 }
 
 .price-work-flow .right-img {
     position: absolute;
     top: 110vh;
-    right: 150px;
+    right: 5vw;
     width: 500px;
 }
 
@@ -467,6 +467,8 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 
 .service-list .left-block .left-img {
     position: absolute;
+    top: 210vh;
+    left: 15vw;
 }
 
 .service-list .left-block .item h4 {

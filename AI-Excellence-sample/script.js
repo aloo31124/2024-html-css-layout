@@ -84,22 +84,27 @@ document.addEventListener("mousemove", (e) => {
     let y = e.pageY;
 
     //同向移動
-    const mouseMove = document.querySelector(".left-little-img");
-    mouseMoveTop = 1200 + (y*0.1);
-    mouseMoveLeft = 100 + (x*0.1);
-    if(mouseMoveTop<1250 || mouseMoveLeft<150) {
-        mouseMove.style.top = mouseMoveTop + "px";
-        mouseMove.style.left = mouseMoveLeft + "px";
-    }    
+    let leftLittleImage = document.querySelector(".left-little-img");
+    let leftLittleImageTop = 135 + y * 0.005 ;
+    let leftLittleImageLeft = 10 + x * 0.005;
+    leftLittleImage.style.top = leftLittleImageTop + "vh";
+    leftLittleImage.style.left = leftLittleImageLeft + "vw";
     
     //水平反向移動
-    const revertMouseMove = document.querySelector(".right-img");
-    mouseRevertMoveTop = 1100 + (y*0.1);
-    mouseRevertMoveLeft = 100 + (x*0.1);
-    if(mouseRevertMoveTop<1150 || mouseRevertMoveLeft<850) {
-        revertMouseMove.style.top = mouseRevertMoveTop + "px";
-        revertMouseMove.style.right = mouseRevertMoveLeft + "px";
-    }
+    let rightImage = document.querySelector(".right-img");
+    let rightImageTop = 110 + y * 0.005;
+    let rightImageRight = 5 + x * 0.005;
+    rightImage.style.top = rightImageTop + "vh";
+    rightImage.style.right = rightImageRight + "vw";
+
+    
+    //同向移動
+    let LeftImage = document.querySelector(".left-img");
+    let LeftImageTop = 210 + y * 0.005 ;
+    let LeftImageLeft = 15 + x * 0.005;
+    LeftImage.style.top = LeftImageTop + "vh";
+    LeftImage.style.left = LeftImageLeft + "vw";
+    
 
 });
 
