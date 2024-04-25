@@ -70,6 +70,7 @@ h3 {
     -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
     color: var(--primary-white);
     opacity: 0.5;
+    z-index: 1;
 }
 p {
     /* jf-openhuninn-2.0 */
@@ -95,24 +96,22 @@ a {
 .text-color-transition {
     position: relative;
 }
-
-.text-color-transition h3 {
-    opacity: 0.5;
-}
 .text-color-transition::before {
     content: attr(data-text);
     position: absolute;
     width: 0;
     height: 100%;
     overflow: hidden;
+
     color: var(--primary-blue);
-    -webkit-text-stroke: 1px var(--primary-blue);     
-    transition: 1s;
-    z-index: 2;
-    opacity: 1;
+    -webkit-text-stroke: 1px var(--primary-blue);
+    transition: 1s linear;
 }
 .text-color-transition:hover::before {
     width: 100%;
+}
+.text-color-transition:hover {
+    opacity: 1;
 }
 /* 文字水平變色 end */
 
@@ -211,7 +210,7 @@ nav .nav-centent .item-list .item {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    padding: 5px 10px;
 }
 
 
