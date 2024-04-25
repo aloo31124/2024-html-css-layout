@@ -273,7 +273,7 @@ nav .nav-centent .item-list .item img {
 }
 
 .price-work-flow h3 {
-    margin-top: 10%;
+    margin-top: 20%;
 }
 
 .price-work-flow .left-little-img {
@@ -507,7 +507,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 .portfolio-block h3 {
     opacity: 1;
     -webkit-text-stroke: 1px var(--primary-orange); /* 邊框 */
-    margin-top: 12%;
+    margin-top: 20%;
     margin-bottom: 2%;
 }
 
