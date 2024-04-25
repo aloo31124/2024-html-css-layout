@@ -1,0 +1,44 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #252839;
+}
+
+.title-animate {
+    position: relative;
+    font-size: 14vw;
+    color: #252839;
+    -webkit-text-stroke: 0.3vw #329d52;
+    text-transform: uppercase;
+}
+.title-animate:hover::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    color: #01fe87;
+    -webkit-text-stroke: 0.3vw #329d52;
+
+    overflow: hidden;
+    animation: text-animate 4s linear;
+}
+@keyframes text-animate {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+

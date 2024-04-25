@@ -1,0 +1,74 @@
+
+body {
+    background: rgb(25, 25, 25);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+
+section {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+/* 文字水平變色 start */
+.text-color-transition {
+    font-size: 15rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.text-color-transition {
+    color: transparent;
+    -webkit-text-stroke: 3px darkmagenta;
+    position: relative;
+}
+.text-color-transition::before {
+    content: "HOVER!";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    color: darkmagenta;
+    
+    border-right: 8px solid darkmagenta;
+    transition: 1s ease-in-out;
+}
+.text-color-transition:hover::before {
+    width: 100%;
+}
+/* 文字水平變色 end */
+
+
+/* 中文次測試 */
+
+.text-color-transition2 {
+    font-size: 15rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.text-color-transition2 {
+    color: transparent;
+    -webkit-text-stroke: 3px darkmagenta;
+    position: relative;
+}
+.text-color-transition2::before {
+    content: "報價流程";
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    overflow: hidden;
+    color: darkmagenta;
+    
+    border-right: 8px solid darkmagenta;
+    transition: 1s ease-in-out;
+}
+.text-color-transition2:hover::before {
+    width: 100%;
+}
+
