@@ -29,3 +29,45 @@ function scrollProgressBar() {
 /* scroll 移動標頭 end */
 
 
+
+
+/* 導覽列 
+    https://stackoverflow.com/questions/59573722/how-can-i-set-a-css-keyframes-in-javascript
+*/
+let navItem1 = document.querySelector("#nav-item1");
+navItem1.addEventListener("click", () => {
+    showNavItemAnimate(22);
+});
+let navItem2 = document.querySelector("#nav-item2");
+navItem2.addEventListener("click", () => {
+    showNavItemAnimate(45);
+
+});
+let navItem3 = document.querySelector("#nav-item3");
+navItem3.addEventListener("click", () => {
+    showNavItemAnimate(65);
+});
+let navItem4 = document.querySelector("#nav-item4");
+navItem4.addEventListener("click", () => {
+    showNavItemAnimate(85);
+});
+
+function showNavItemAnimate(leftSize) {
+    let textBounceButton = document.querySelector(".text-bounce-button");
+    textBounceButton.style.left = leftSize + "%";
+    textBounceButton.style.transition  = "0.5s";
+    textBounceButton.animate([
+        // key frames
+        { width: '20px' },
+        { width: '50px' },
+        { width: '45px' },
+        { width: '60px' },
+        { width: '40px' },
+        { width: '60px' },
+      ], {
+        // sync options
+        duration: 500,
+        iterations: 2,
+      });
+}
+
