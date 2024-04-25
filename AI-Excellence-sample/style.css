@@ -172,7 +172,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    margin: 50px auto;
+    margin: 2% auto;
     position: fixed;
     z-index: 999;
 }
@@ -270,6 +270,10 @@ nav .nav-centent .item-list .item img {
 /* 報價流程 start */
 .price-work-flow {
     background: var(--light-orange);
+}
+
+.price-work-flow h3 {
+    margin-top: 10%;
 }
 
 .price-work-flow .left-little-img {
@@ -503,7 +507,12 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 .portfolio-block h3 {
     opacity: 1;
     -webkit-text-stroke: 1px var(--primary-orange); /* 邊框 */
-    margin-bottom: 50px;
+    margin-top: 12%;
+    margin-bottom: 2%;
+}
+
+.portfolio-block p {
+    margin-bottom: 2%;
 }
 
 .slide-container {
@@ -512,6 +521,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5%;
 }
 
 .slide-tab-list {
@@ -522,7 +532,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     justify-content: center;
     align-items: center;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10%;
 }
 .slide-tab-list .tab {
     border: var(--primary-white) solid 1px;
