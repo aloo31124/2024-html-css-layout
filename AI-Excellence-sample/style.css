@@ -116,53 +116,9 @@ a {
 /* 文字水平變色 end */
 
 
-/* 文字彈性底線動畫 start */
-.text-bounce-button-blue-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    position: relative;
-}
-.text-bounce-button-blue {}
-.text-bounce-button-blue:hover:after {
-    content: "";
-    width: 80%;
-    height: 5px;
-    border-radius: 2.5px;
-    background: var(--primary-blue);
-    display: inline-block;
-    position: absolute;
-    top: 100%;
-    animation: text-bounce-butto-animation 1s linear;
-}
-@keyframes text-bounce-butto-animation {
-    20% {
-        width: 30%;
-    }
-    40% {
-        width: 90%
-    }
-    50% {
-        width: 40%
-    }
-    60% {
-        width: 95%
-    }
-    70% {
-        width: 60%
-    }
-    80% {
-        width: 100%
-    }
-    90% {
-        width: 70%;
-    }
-    100% {
-        width: 100%;
-    }
-}
-/* 文字彈性底線動畫 end */
+/* 移動底線區塊動畫 start  => 待補充 */
+
+/* 移動底線區塊動畫 end */
 /* =========================== 共用設定 end =========================== */
 
 
