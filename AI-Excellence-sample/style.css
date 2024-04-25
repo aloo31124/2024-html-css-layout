@@ -98,7 +98,6 @@ a {
 .text-color-transition::before {
     content: attr(data-text);
     position: absolute;
-    opacity: 1;
     width: 0%;
     height: 100%;
     overflow: hidden;
