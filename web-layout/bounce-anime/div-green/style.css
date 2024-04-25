@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 彈性動畫 start */
+.box {
+    width: 250px;
+    height: 150px;
+    background: yellowgreen;
+    margin: 80px auto;
+    cursor: pointer;
+}
+.text:hover, .box:hover {
+    animation: bounce 1s linear;
+}
+
+@keyframes bounce {
+    20%, 50%, 80%, to {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-30px);
+    }
+    70% {
+        transform: translateY(-15px);
+    }
+    90% {
+        transform: translateY(-4px);
+    }
+}
+/* 彈性動畫 end */
+
+
+section {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    /* text-align: center; */
+}
+
+
+/* 文字彈性底線動畫 start */
+.text-bounce-button {}
+.text-bounce-button:hover:after {
+    content: "";
+    width: 100%;
+    height: 5px;
+    border-radius: 2.5px;
+    background: blue;
+    display:block;
+    margin:auto;
+    animation: text-bounce-butto-animation 1s linear;
+}
+@keyframes text-bounce-butto-animation {
+    20% {
+        width: 80%;
+    }
+    40% {
+        width: 90%
+    }
+    50% {
+        width: 65%
+    }
+    60% {
+        width: 95%
+    }
+    70% {
+        width: 70%
+    }
+    80% {
+        width: 100%
+    }
+    90% {
+        width: 80%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+/* 文字彈性底線動畫 end */
+
+
+
+
+
