@@ -20,7 +20,7 @@ box.forEach((el) => {
 /* 滑鼠滾動 on scroll 動畫效果 end */
 
 
-/* 滑鼠滾動 進度條 start 
+/* scroll 移動標頭 進度條 start 
     ref https://youtu.be/CoQ_WGp5LHU?t=801
 */
 
@@ -49,4 +49,4 @@ function scrollProgressBar() {
 }
 
 
-/* 滑鼠滾動 進度條 end */
+/* scroll 移動標頭 進度條 end */

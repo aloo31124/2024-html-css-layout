@@ -228,19 +228,34 @@ nav .nav-centent .item-list .item img {
 
 
 /* 網頁標頭 過場動畫 start */
-.header-animation .move-right {
+.header-animation .move-from-right {
+    /* 在右側 */
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
-.header-animation .move-right h2 {
-    text-align: right;
+.header-animation .move-from-right h2 {
+    display: flex;
+}
+.header-animation .move-from-right .move-from-right-padding {
+    width: 0;
 }
 
-.header-animation .move-left {
+.header-animation .move-from-left {
+    /* 在左側 */
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
 }
-.header-animation .move-left h2 {
+.header-animation .move-from-left h2 {
     text-align: left;
 }
+.header-animation .move-from-left .move-from-left-padding {
+    width: 0;
+}
+
 
 .header-animation .center-title {
     padding: 40px 0;
