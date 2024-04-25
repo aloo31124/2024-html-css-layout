@@ -53,20 +53,24 @@ navItem4.addEventListener("click", () => {
 });
 
 function showNavItemAnimate(leftSize) {
-    let textBounceButton = document.querySelector(".text-bounce-button");
-    textBounceButton.style.left = leftSize + "%";
-    textBounceButton.style.transition  = "0.5s";
-    textBounceButton.animate([
+    let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
+    textBounceBottomBox.style.left = leftSize + "%";
+    textBounceBottomBox.style.transition  = "0.5s";
+
+    let textBounceBottom = document.querySelector(".text-bounce-bottom");
+    textBounceBottom.animate([
         // key frames
+        { width: '10px' },
+        { width: '50px' },
         { width: '20px' },
         { width: '50px' },
+        { width: '35px' },
+        { width: '50px' },
         { width: '45px' },
-        { width: '60px' },
-        { width: '40px' },
-        { width: '60px' },
+        { width: '50px' },
       ], {
         // sync options
-        duration: 500,
+        duration: 1000,
         iterations: 2,
       });
 }

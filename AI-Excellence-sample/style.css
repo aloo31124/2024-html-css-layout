@@ -116,9 +116,6 @@ a {
 /* 文字水平變色 end */
 
 
-/* 移動底線區塊動畫 start  => 待補充 */
-
-/* 移動底線區塊動畫 end */
 /* =========================== 共用設定 end =========================== */
 
 
@@ -133,23 +130,33 @@ nav {
     z-index: 999;
 }
 
-nav .text-bounce-button-container {
+nav .text-bounce-bottom-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* align-items: center;  */ /* 造成 藍色底線無法位移*/
 }
 
-nav .text-bounce-button {
+nav .text-bounce-bottom-box {
     height: 5px;
     width: 10%;
+    position: relative;
+    top: -15%;
+    left: 22%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav .text-bounce-bottom-box .text-bounce-bottom {
+    height: 5px;
+    width: 100%;
     border-radius: 2.5px;
     background: var(--primary-blue);
 
-    position: relative;
-    top:-15%;
-    left: 22%;
-
     animation: text-bounce-button-animation 1s linear;
+
 }
 
 @keyframes text-bounce-button-animation {
