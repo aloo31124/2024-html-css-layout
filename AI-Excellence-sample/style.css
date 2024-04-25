@@ -528,6 +528,17 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     margin-bottom: 5%;
 }
 
+.slide-container .slide-protfolio-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-container .slide-protfolio-list img {
+    width: 80%;
+}
+
 .slide-tab-list {
     max-width: 40%;
     flex-wrap: wrap;
