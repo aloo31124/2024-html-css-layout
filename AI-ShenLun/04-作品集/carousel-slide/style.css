@@ -1,18 +1,58 @@
 
-.container {
+
+@import url('./fonts/doppio-one.css');
+@font-face {
+    font-family: "DFPZongYiW9-B5"; /* 自訂義 */
+    src: url("./fonts/DFPZongYiW9-B5.TTF") format("truetype");
+}
+@font-face {
+    font-family: "jf-openhuninn-2.0"; /* 自訂義 */
+    src: url("./fonts/jf-openhuninn-2.0.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nunito', sans-serif; => 移除初始文字 */
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none; 
+    border:none;
+    
+}
+
+:root {
+    --primary-orange: #F1B41B;
+    --primary-orange-shadow: #d6a21d;
+    --primary-blue: #00407E;
+    --primary-white: #FFFFFF;
+    --primary-black: #000000;
+    --gray: #231F20;
+    --light-gray: #C3C3C3;
+    --light-orange: #FFFDFA
+}
+
+
+section {
+    width: 100%;
+    height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    align-items: center; 
+    /* text-align: center; */
 }
 
-.tab-list {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
+
+
+
+
+/* 作品集 start */
+.portfolio-block {
+    background: var(--primary-orange);
+    color: var(--primary-white);
+    border-radius: 100px 100px 0 0;
 }
 
 .computer-background-img {
@@ -32,7 +72,7 @@
 
     width: 445px;    
     height: 290px;     
-    background-color: #eee;
+    background-color: var(--primary-white);
 
     list-style: none;
     margin: 0;
@@ -46,6 +86,9 @@
     padding: 0;
     width: inherit;
     height: inherit;
+
+    
+    background-color: lightblue;
 
     position: absolute;
     top: 0;
@@ -69,18 +112,42 @@
 }
 
 .slide:nth-of-type(1) {
-    background-color: red;
+    left: 0;
 }
-
 .slide:nth-of-type(2) {
-    background-color: yellow;
     left: 100%;
 }
-
 .slide:nth-of-type(3) {
-    background-color: blue;
     left: 200%;
 }
+.slide:nth-of-type(4) {
+    left: 300%;
+}
+.slide:nth-of-type(5) {
+    left: 400%;
+}
+.slide:nth-of-type(6) {
+    left: 500%;
+}
+.slide:nth-of-type(7) {
+    left: 600%;
+}
+.slide:nth-of-type(8) {
+    left: 700%;
+}
+.slide:nth-of-type(9) {
+    left: 800%;
+}
+.slide:nth-of-type(10) {
+    left: 900%;
+}
+.slide:nth-of-type(11) {
+    left: 1000%;
+}
+.slide:nth-of-type(12) {
+    left: 1100%;
+}
+
 
 input[type="radio"] {
     position: relative;
@@ -105,35 +172,28 @@ input[type="radio"] {
     border: 2px solid #fff;
 }
 
-.tab-list .tab {
-    width: 100px;
-    height: 100px;
-    background: lightblue;
+.slide-tab-list {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.slide-tab-list .tab {
+    border: white solid 1px;
+    padding: 5px 20px;
+    height: 20px;
+    border-radius: 15px;
+}
+.slide-tab-list .tab:hover {
+    background: var(--primary-white);
+    color: var(--primary-orange);
 }
 
 /*         
-
-使用 css Selector 選擇器 讓 下方選單radio 做樣式改變
-    1. input[..= radio ] :nth-of-type(1):checked 判斷第幾個 radio 被選擇 
-    2. 使用 ~ 符號對應同層的 label
-
-*/
-
-input[type="radio"]:nth-of-type(1):checked~.controls-visible label:nth-of-type(1) {
-    background-color: black;
-}
-
-input[type="radio"]:nth-of-type(2):checked~.controls-visible label:nth-of-type(2) {
-    background-color: black;
-}
-
-input[type="radio"]:nth-of-type(3):checked~.controls-visible label:nth-of-type(3) {
-    background-color: black;
-}
-
-/*         
-使用 CSS Selector 選擇器 讓 三張卡片左右位移
-
+    使用 CSS Selector 選擇器 讓 三張卡片左右位移
 */
 input[type="radio"]:nth-of-type(1):checked ~.slide{
     transform: translateX(0%);            
@@ -144,3 +204,33 @@ input[type="radio"]:nth-of-type(2):checked ~.slide{
 input[type="radio"]:nth-of-type(3):checked ~.slide{
     transform: translateX(-200%);            
 }
+input[type="radio"]:nth-of-type(4):checked ~.slide{
+    transform: translateX(-300%);            
+}
+input[type="radio"]:nth-of-type(5):checked ~.slide{
+    transform: translateX(-400%);            
+}
+input[type="radio"]:nth-of-type(6):checked ~.slide{
+    transform: translateX(-500%);            
+}
+input[type="radio"]:nth-of-type(7):checked ~.slide{
+    transform: translateX(-600%);            
+}
+input[type="radio"]:nth-of-type(8):checked ~.slide{
+    transform: translateX(-700%);            
+}
+input[type="radio"]:nth-of-type(9):checked ~.slide{
+    transform: translateX(-800%);            
+}
+input[type="radio"]:nth-of-type(10):checked ~.slide{
+    transform: translateX(-900%);            
+}
+input[type="radio"]:nth-of-type(11):checked ~.slide{
+    transform: translateX(-1000%);            
+}
+input[type="radio"]:nth-of-type(12):checked ~.slide{
+    transform: translateX(-1100%);            
+}
+
+
+/* 作品集 end */
