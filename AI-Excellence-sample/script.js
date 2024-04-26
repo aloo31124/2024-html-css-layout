@@ -95,8 +95,7 @@ function showNavItemAnimate(leftSize) {
 
 
 
-
-
+/* 背景圖 位移 start */
 document.addEventListener("mousemove", (e) => {
     let x = e.pageX;
     let y = e.pageY;
@@ -131,4 +130,41 @@ document.addEventListener("mousemove", (e) => {
     rightLogo.style.right = rightLogoRight + "vw";
 
 });
+/* 背景圖 位移 end */
+
+
+
+
+/* 報價流程 輪播圖 start */
+let control1 = document.querySelector("#control1");
+let control2 = document.querySelector("#control2");
+let control3 = document.querySelector("#control3");
+let control4 = document.querySelector("#control4");
+
+control1.addEventListener("click", () => {
+    defaultControl();
+    control1.style.color = "#F1B41B";
+});
+control2.addEventListener("click", () => {
+    defaultControl();
+    control2.style.color = "#F1B41B";
+});
+control3.addEventListener("click", () => {
+    defaultControl();
+    control3.style.color = "#F1B41B";
+});
+control4.addEventListener("click", () => {
+    defaultControl();
+    control4.style.color = "#F1B41B";
+});
+
+function defaultControl(){
+    control1.style.color = "#231F20";
+    control2.style.color = "#231F20";
+    control3.style.color = "#231F20";
+    control4.style.color = "#231F20";
+}
+/* 報價流程 輪播圖 end */
+
+
 

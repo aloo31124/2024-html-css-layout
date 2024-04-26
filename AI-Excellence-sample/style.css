@@ -292,8 +292,7 @@ nav .nav-centent .item-list .item img {
 }
 .header-animation .move-from-right .move-from-right-padding {
     width: 0;
-    animation: text-bounce-button-animation 3s linear;
-    transform: 2s;
+    animation: slogan-big-move-animation 2s linear;
 }
 .header-animation .move-from-left {
     /* 在左側 */
@@ -304,8 +303,7 @@ nav .nav-centent .item-list .item img {
 }
 .header-animation .move-from-left .move-from-left-padding {
     width: 0;
-    animation: slogan-big-move-animation 3s linear;
-    transform: 2s;
+    animation: slogan-big-move-animation 2s linear;
 }
 @keyframes slogan-big-move-animation {
     50% {
