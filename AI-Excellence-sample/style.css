@@ -15,7 +15,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Nunito', sans-serif;
+    /* font-family: 'Nunito', sans-serif; => 移除初始文字 */
     text-decoration: none;
     text-transform: capitalize;
     outline: none; 
@@ -115,33 +115,6 @@ a {
     transform: translateY(0) translateX(0);
 }
 /* 滑鼠滾動 on scroll 動畫效果 end */
-
-/* 文字水平變色 start */
-.text-color-transition-container {
-}
-.text-color-transition {
-    position: relative;
-}
-.text-color-transition::before {
-    content: attr(data-text);
-    position: absolute;
-    width: 0;
-    height: 100%;
-    overflow: hidden;
-
-    color: var(--primary-blue);
-    -webkit-text-stroke: 1px var(--primary-blue);
-    transition: 1s linear;
-}
-.text-color-transition:hover::before {
-    width: 100%;
-}
-.text-color-transition:hover {
-    opacity: 1;
-}
-/* 文字水平變色 end */
-
-
 /* =========================== 共用設定 end =========================== */
 
 
@@ -321,8 +294,16 @@ nav .nav-centent .item-list .item img {
     background: var(--light-orange);
 }
 
-.price-work-flow h2 {
-    margin-top: 30%;
+.price-work-flow .text-color-transition {
+    margin-top: 5%;
+
+    font-size: 64px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+    z-index: 1;
 }
 
 .price-work-flow .left-little-img {
@@ -512,6 +493,18 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     align-items: center;
 }
 
+.service-list .text-color-transition {
+    margin-top: 5%;
+
+    font-size: 64px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+    z-index: 1;
+}
+
 .service-list .left-block {
     display: flex;
     flex-direction: column;
@@ -577,14 +570,20 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     border-radius: 100px 100px 0 0;
 }
 
-.portfolio-block h2 {
-    opacity: 1;
-    -webkit-text-stroke: 1px var(--primary-orange); /* 邊框 */
+.portfolio-block .text-color-transition {
     margin-top: 20%;
-    margin-bottom: 2%;
+
+    font-size: 64px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+    z-index: 1;
 }
 
 .portfolio-block p {
+    margin-top: 5%;
     margin-bottom: 2%;
 }
 
