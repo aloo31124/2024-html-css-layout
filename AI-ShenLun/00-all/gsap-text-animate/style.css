@@ -1,0 +1,44 @@
+
+
+@import url('./fonts/doppio-one.css');
+@font-face {
+    font-family: "DFPZongYiW9-B5"; /* 自訂義 */
+    src: url("./fonts/DFPZongYiW9-B5.TTF") format("truetype");
+}
+@font-face {
+    font-family: "jf-openhuninn-2.0"; /* 自訂義 */
+    src: url("./fonts/jf-openhuninn-2.0.ttf") format("truetype");
+}
+
+
+body {
+    margin: 0;
+}
+
+section {
+    height: 100vh;
+    
+    background: #FFFDFA;
+    color: white;
+    
+    
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}    
+
+.text-color-transition {
+    font-size: 64px;
+
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+    z-index: 1;
+    
+}
