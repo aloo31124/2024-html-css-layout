@@ -1,14 +1,30 @@
 
 
-/* scroll 移動標頭 start 
-    ref https://youtu.be/CoQ_WGp5LHU?t=801
+/*
+    滑鼠滾動 on scroll 動畫效果 start
 */
+const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.intersectionRatio > 0) {
+            entry.target.classList.add('this')
+        }
+    })
+});
+const box = document.querySelectorAll('.animate');
 
+box.forEach((el) => {
+    io.observe(el);
+});
+/* 滑鼠滾動 on scroll 動畫效果 end */
+
+
+
+
+/* scroll 移動 標頭 start */
 window.onscroll = () => {
     // 滑鼠滾動時, 觸發
     scrollProgressBar();
 }
-
 function scrollProgressBar() {
     
     let moveFromRight = document.querySelector(".move-from-right-padding");
@@ -24,8 +40,6 @@ function scrollProgressBar() {
         moveFromLeft.style.width = percentage + "%";
     }
 }
-
-
 /* scroll 移動標頭 end */
 
 
@@ -87,14 +101,14 @@ document.addEventListener("mousemove", (e) => {
     let x = e.pageX;
     let y = e.pageY;
 
-    //同向移動
+    //報價流程-左側小星星: 垂直同向, 水平同向移動
     let leftLittleImage = document.querySelector(".left-little-img");
     let leftLittleImageTop = 135 + y * 0.005 ;
     let leftLittleImageLeft = 10 + x * 0.005;
     leftLittleImage.style.top = leftLittleImageTop + "vh";
     leftLittleImage.style.left = leftLittleImageLeft + "vw";
     
-    //水平反向移動
+    //報價流程-右側背景圖: 垂直同向, 水平反向移動
     let rightImage = document.querySelector(".right-img");
     let rightImageTop = 110 + y * 0.005;
     let rightImageRight = 5 + x * 0.005;
@@ -102,13 +116,19 @@ document.addEventListener("mousemove", (e) => {
     rightImage.style.right = rightImageRight + "vw";
 
     
-    //同向移動
+    //服務項目-右側背景圖: 垂直同向, 水平同向移動
     let LeftImage = document.querySelector(".left-img");
     let LeftImageTop = 210 + y * 0.005 ;
     let LeftImageLeft = 15 + x * 0.005;
     LeftImage.style.top = LeftImageTop + "vh";
     LeftImage.style.left = LeftImageLeft + "vw";
-    
+
+    //服務項目-logo背景圖: 垂直同向, 水平反向移動
+    let rightLogo = document.querySelector(".right-logo");
+    let rightLogoTop = 240 + y * 0.002;
+    let rightLogoRight = 20 + x * 0.002;
+    rightLogo.style.top = rightLogoTop + "vh";
+    rightLogo.style.right = rightLogoRight + "vw";
 
 });
 
