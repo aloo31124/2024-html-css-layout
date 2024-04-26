@@ -233,8 +233,6 @@ nav .nav-centent .item-list .item img {
     padding: 0 5px;
     max-width: 25px;
 }
-
-
 /* 上方導覽列 end */
 
 
@@ -284,7 +282,7 @@ nav .nav-centent .item-list .item img {
 }
 
 .price-work-flow h3 {
-    margin-top: 20%;
+    margin-top: 30%;
 }
 
 .price-work-flow .left-little-img {
@@ -303,11 +301,15 @@ nav .nav-centent .item-list .item img {
 
 .price-work-flow p {
     color: var(--gray);
-    line-height: 30px;
+    line-height: 25px;
     font-size: 20px;    
-    padding: 10px 0;
+    padding: 2px 0;
 
-    margin-bottom: 60px; /* 下方距離 */
+    margin-top: 2%; /* 上方距離 */
+}
+
+.price-work-flow .slide-container {
+    margin-top: 2%;
 }
 /* 報價流程 end */
 
@@ -326,7 +328,7 @@ nav .nav-centent .item-list .item img {
     justify-content: space-between;
     align-items: center;
     min-width: 500px;
-    padding: 20px 0;
+    padding: 5px 0;
 }
 
 .slide-price-work-flow .tab-list label {
@@ -344,6 +346,10 @@ nav .nav-centent .item-list .item img {
     padding: 0;
 
     overflow: hidden;
+}
+
+.slide h3{
+    margin-top: 0;
 }
 
 .slide {
