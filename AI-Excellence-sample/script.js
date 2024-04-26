@@ -34,6 +34,10 @@ function scrollProgressBar() {
 /* 導覽列 
     https://stackoverflow.com/questions/59573722/how-can-i-set-a-css-keyframes-in-javascript
 */
+let logo = document.querySelector("#logo");
+logo.addEventListener("click", () => {
+    showNavItemAnimate(2);
+});
 let navItem1 = document.querySelector("#nav-item1");
 navItem1.addEventListener("click", () => {
     showNavItemAnimate(22);

@@ -54,15 +54,6 @@ h1 {
     font-style: normal;
 }
 h2 {
-    font-size: 125px;
-
-    font-family: "DFPZongYiW9-B5";
-    font-weight: 400;
-    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
-    color: var(--primary-white);
-    opacity: 0.5;
-}
-h3 {
     font-size: 64px;
 
     font-family: "DFPZongYiW9-B5";
@@ -142,7 +133,7 @@ nav .text-bounce-bottom-box {
     width: 10%;
     position: relative;
     top: -15%;
-    left: 22%;
+    left: 2%;
 
     display: flex;
     flex-direction: column;
@@ -244,13 +235,31 @@ nav .nav-centent .item-list .item img {
     flex-direction: row;
     justify-content: flex-end;
 }
-.header-animation .move-from-right h2 {
+
+.header-animation .center-title {
+    padding: 40px 0;
+}
+
+.header-animation .center-title .slogan-little {
+    font-size: 24px;
+}
+
+/* 網頁標頭 移動標頭 效果 */
+.slogan-big-move {
     display: flex;
+
+    font-size: 125px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 0.5;
 }
 .header-animation .move-from-right .move-from-right-padding {
     width: 0;
+    animation: text-bounce-button-animation 3s linear;
+    transform: 2s;
 }
-
 .header-animation .move-from-left {
     /* 在左側 */
     width: 100%;
@@ -258,20 +267,18 @@ nav .nav-centent .item-list .item img {
     flex-direction: row;
     justify-content: flex-start;
 }
-.header-animation .move-from-left h2 {
-    text-align: left;
-}
 .header-animation .move-from-left .move-from-left-padding {
     width: 0;
+    animation: slogan-big-move-animation 3s linear;
+    transform: 2s;
 }
-
-
-.header-animation .center-title {
-    padding: 40px 0;
-}
-
-.header-animation .center-title p {
-    font-size: 24px;
+@keyframes slogan-big-move-animation {
+    50% {
+        width: 30px;
+    }
+    100% {
+        width: 0px;
+    }
 }
 /* 網頁標頭 過場動畫 end */
 
@@ -281,7 +288,7 @@ nav .nav-centent .item-list .item img {
     background: var(--light-orange);
 }
 
-.price-work-flow h3 {
+.price-work-flow h2 {
     margin-top: 30%;
 }
 
@@ -349,6 +356,15 @@ nav .nav-centent .item-list .item img {
 }
 
 .slide h3{
+    font-size: 64px;
+
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 0.5;
+    z-index: 1;
+
     margin-top: 0;
 }
 
@@ -477,7 +493,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     left: 15vw;
 }
 
-.service-list .left-block .item h4 {
+.service-list .left-block .item h3 {
     color: var(--primary-black);
     opacity: 0.6;
     font-size: 40px;
@@ -506,7 +522,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     width: 20%;
 }
 
-.service-list .right-block h3 {
+.service-list .right-block h2 {
     margin-bottom: 150px;
 }
 
@@ -523,7 +539,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     border-radius: 100px 100px 0 0;
 }
 
-.portfolio-block h3 {
+.portfolio-block h2 {
     opacity: 1;
     -webkit-text-stroke: 1px var(--primary-orange); /* 邊框 */
     margin-top: 20%;
