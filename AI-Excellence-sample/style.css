@@ -361,6 +361,7 @@ nav .nav-centent .item-list .item img {
     align-items: center;
     min-width: 350px;
     padding: 5px 0;
+    z-index: 999;
 }
 
 .slide-price-work-flow .tab-list label {
@@ -446,6 +447,7 @@ input[type="radio"] {
     width: 100%;
     bottom: 12px;
     text-align: center;
+    z-index: 999;
 }
 
 .controls-visible label {
@@ -606,22 +608,22 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 }
 
 .computer-background-img {
-    width: 690px;    
-    height: 450px;       
+    position: relative;
+    width: 600px;    
+    height: 400px;       
     background-image:
         url("./images/portfolio-slide/bg-computer.png");
     background-position: center; /* ?? 中央底圖 */
     background-size: cover;     /* ?? 中央底圖 */
-    position: relative;
 }
 
 .portfolio-slide-list {
     position: relative;
-    top: 50px;
-    left: 116px;
+    top: 45px;
+    left: 95px;
 
-    width: 446px;    
-    height: 290px;     
+    width: 400px;    
+    height: 260px;     
     background-color: var(--primary-white);
 
     list-style: none;
@@ -812,7 +814,7 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
 /* 通用 RWD */
-@media (max-width: 500px) {
+@media (max-width: 800px) {
     * {
         text-align: center;
     }
@@ -892,7 +894,7 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
     /* 作品集 電腦輪播圖 */
     .portfolio-block {
-        height: 140vh;
+        height: 110vh;
     }
     .computer-background-img {
         width: 400px;    
