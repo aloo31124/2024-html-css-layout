@@ -200,11 +200,14 @@ function defaultControl(){
 
 
 /* 報價流程 拖曳 start */
-const slide = document.querySelector(".slide");
+const slide1 = document.querySelector("#slide1");
+const slide2 = document.querySelector("#slide2");
+const slide3 = document.querySelector("#slide3");
+const slide4 = document.querySelector("#slide4");
 let isDragging = false;
 let startX, startY;
 
-slide.addEventListener("mousedown", (event) => {
+slide1.addEventListener("mousedown", (event) => {
     console.log("mousedown!");
     isDragging = true;
     startX = event.clientX;
@@ -216,9 +219,11 @@ document.addEventListener("mousemove", (event) => {
 
     console.log("mousedown! and mousemove !! ");
     const offsetX = event.clientX - startX;
-    //const offsetY = event.clientY - startY;
-    slide.style.left = `${offsetX}px`;
-    //slide1.style.top = `${offsetY}px`;
+    //slide1.style.left = `${offsetX}px`;
+    slide1.style.transform = "translateX(-100%)"
+    slide2.style.transform = "translateX(-100%)"
+    slide3.style.transform = "translateX(-100%)"
+    slide4.style.transform = "translateX(-100%)"
   }
 });
 
