@@ -11,7 +11,6 @@ const io = new IntersectionObserver(entries => {
     })
 });
 const box = document.querySelectorAll('.animate');
-
 box.forEach((el) => {
     io.observe(el);
 });
@@ -199,5 +198,34 @@ function defaultControl(){
 }
 /* 報價流程 輪播圖 end */
 
+
+/* 報價流程 拖曳 start */
+const slide = document.querySelector(".slide");
+let isDragging = false;
+let startX, startY;
+
+slide.addEventListener("mousedown", (event) => {
+    console.log("mousedown!");
+    isDragging = true;
+    startX = event.clientX;
+    //startY = event.clientY;
+});
+
+document.addEventListener("mousemove", (event) => {
+  if (isDragging) {
+
+    console.log("mousedown! and mousemove !! ");
+    const offsetX = event.clientX - startX;
+    //const offsetY = event.clientY - startY;
+    slide.style.left = `${offsetX}px`;
+    //slide1.style.top = `${offsetY}px`;
+  }
+});
+
+document.addEventListener("mouseup", () => {
+    console.log("mouseup!~~ stop!");
+    isDragging = false;
+});
+/* 報價流程 拖曳 end */
 
 
