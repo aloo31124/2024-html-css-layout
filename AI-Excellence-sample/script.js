@@ -82,7 +82,7 @@ function scrollProgressBar() {
 */
 let logo = document.querySelector("#logo");
 logo.addEventListener("click", () => {
-    showNavItemAnimate(2);
+    showNavItemAnimate(3);
 });
 let navItem1 = document.querySelector("#nav-item1");
 navItem1.addEventListener("click", () => {

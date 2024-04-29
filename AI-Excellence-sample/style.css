@@ -138,10 +138,10 @@ nav .text-bounce-bottom-container {
 
 nav .text-bounce-bottom-box {
     height: 5px;
-    width: 10%;
+    width: 8%;
     position: relative;
     top: -15%;
-    left: 2%;
+    left: 3%;
 
     display: flex;
     flex-direction: column;
@@ -289,13 +289,16 @@ nav .nav-centent .item-list .item img {
 /* 網頁標頭 過場動畫 end */
 
 
-/* 報價流程 start */
+/* 報價流程 start 
+    => h2 區塊標頭
+    => 下方輪播圖 高度需 RWD, 否則易跑版
+*/
 .price-work-flow {
     background: var(--light-orange);
 }
 
 .price-work-flow .text-color-transition {
-    margin-top: 5%;
+    margin-top: 10%;
 
     font-size: 64px;
     font-family: "DFPZongYiW9-B5";
@@ -360,7 +363,7 @@ nav .nav-centent .item-list .item img {
 .slides {
     position: relative;
     width: 800px;
-    height: 400px;
+    height: 300px;
 
     list-style: none;
     margin: 0;
@@ -369,7 +372,7 @@ nav .nav-centent .item-list .item img {
     overflow: hidden;
 }
 
-.slide h3{
+.slide h3 {
     font-size: 64px;
 
     font-family: "DFPZongYiW9-B5";
