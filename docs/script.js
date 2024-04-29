@@ -177,7 +177,7 @@ document.addEventListener("mousemove", (e) => {
     //服務項目-logo背景圖: 垂直同向, 水平反向移動
     let rightLogo = document.querySelector(".right-logo");
     let rightLogoTop = 240 + y * 0.002;
-    let rightLogoRight = 20 + x * 0.002;
+    let rightLogoRight = 5 + x * 0.002;
     rightLogo.style.top = rightLogoTop + "vh";
     rightLogo.style.right = rightLogoRight + "vw";
 

@@ -47,6 +47,7 @@ section {
 h1 {
     font-size: 128px;
     color: var(--primary-black);
+    text-align: center;
 
     /* Doppio One */
     font-family: "Doppio One", sans-serif;
@@ -98,11 +99,11 @@ a {
 .right.animate {
     transform:  translateX(100px);
 }
-:where(.up, .left, .right).animate > * {
+:where(.up, .right).animate > * {
     opacity: 0;
     transition: 1s;
 }
-:where(.up, .left, .right).animate.this > * {
+:where(.up, .right).animate.this > * {
     opacity: 0.5;
     transform: translateY(0) translateX(0);
 }
@@ -112,7 +113,15 @@ a {
 }
 :where(.left-black).animate.this > * {
     opacity: 1;
-    transform: translateY(0) translateX(0);
+    transform: translateX(100px);
+}
+:where(.left).animate > * {
+    opacity: 0;
+    transition: 1s;
+}
+:where(.left).animate.this > * {
+    opacity: 1;
+    transform: translateX(100px);
 }
 /* 滑鼠滾動 on scroll 動畫效果 end */
 /* =========================== 共用設定 end =========================== */
@@ -250,6 +259,7 @@ nav .nav-centent .item-list .item img {
 
 .header-animation .center-title .slogan-little {
     font-size: 24px;
+    text-align: center;
 }
 
 /* 網頁標頭 移動標頭 效果 */
@@ -532,6 +542,10 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     left: 15vw;
 }
 
+.service-list .left-block .item {
+    z-index: 50;
+}
+
 .service-list .left-block .item h3 {
     color: var(--primary-black);
     opacity: 0.6;
@@ -551,8 +565,8 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 .right-logo {
     position: absolute;
     top: 240vh;
-    right: 20vw;
-    width: 500px;
+    right: 5vw;
+    width: 400px;
 }
 
 .service-list .right-block {
@@ -588,6 +602,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     top: -10%;
     left: 12%;
     width: 10%;
+    z-index: 20;
 }
 
 .portfolio-block .text-color-transition {
@@ -838,6 +853,12 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
         border-radius: 15px;
     }
     /* 作品集 end */
+
+    /* 服務項目列表 start */
+    .service-list .left-block {
+        padding: 0 20px;
+    }
+    /* 服務項目列表 end */
     
 }
 @media (max-width: 800px) {
@@ -865,15 +886,15 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .header-animation .slogan-big-move {
         font-size: 75px;        
     }
-    .header-animation h1 {
-        text-align: right;
-    }
     /* 網頁標頭 過場動畫 end */
 
 
     /* 報價流程 start */
     .price-work-flow .text-color-transition { /* h2 */
         font-size: 50px;
+    }
+    .price-work-flow {
+        padding: 0 10px;
     }
     .price-work-flow img {
         display: none;
@@ -898,6 +919,9 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     }
     .service-list img {
         display: none;
+    }
+    .service-list .left-block {
+        padding: 0 10px;
     }
     .service-list .left-block .item h3 {
         font-size: 25px;
