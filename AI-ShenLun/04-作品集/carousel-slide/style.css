@@ -81,7 +81,7 @@ section {
     overflow: hidden;
 }
 
-.slide {
+.portfolio-slide {
     margin: 0;
     padding: 0;
     width: inherit;
@@ -111,14 +111,14 @@ section {
     transition: .5s transform ease-in-out;
 }
 
-.slide img {
+.portfolio-slide img {
     margin: 0;
     padding: 0;
     width: inherit;
     height: inherit;
 }
 
-.slide a {
+.portfolio-slide a {
     margin: 0;
     padding: 0;
     width: inherit;
@@ -126,40 +126,40 @@ section {
 }
 
 
-.slide:nth-of-type(1) {
+.portfolio-slide:nth-of-type(1) {
     left: 0;
 }
-.slide:nth-of-type(2) {
+.portfolio-slide:nth-of-type(2) {
     left: 100%;
 }
-.slide:nth-of-type(3) {
+.portfolio-slide:nth-of-type(3) {
     left: 200%;
 }
-.slide:nth-of-type(4) {
+.portfolio-slide:nth-of-type(4) {
     left: 300%;
 }
-.slide:nth-of-type(5) {
+.portfolio-slide:nth-of-type(5) {
     left: 400%;
 }
-.slide:nth-of-type(6) {
+.portfolio-slide:nth-of-type(6) {
     left: 500%;
 }
-.slide:nth-of-type(7) {
+.portfolio-slide:nth-of-type(7) {
     left: 600%;
 }
-.slide:nth-of-type(8) {
+.portfolio-slide:nth-of-type(8) {
     left: 700%;
 }
-.slide:nth-of-type(9) {
+.portfolio-slide:nth-of-type(9) {
     left: 800%;
 }
-.slide:nth-of-type(10) {
+.portfolio-slide:nth-of-type(10) {
     left: 900%;
 }
-.slide:nth-of-type(11) {
+.portfolio-slide:nth-of-type(11) {
     left: 1000%;
 }
-.slide:nth-of-type(12) {
+.portfolio-slide:nth-of-type(12) {
     left: 1100%;
 }
 
@@ -187,7 +187,7 @@ input[type="radio"] {
     border: 2px solid #fff;
 }
 
-.slide-tab-list {
+.portfolio-slide-tab-list {
     width: 80%;
     display: flex;
     flex-direction: row;
@@ -196,13 +196,13 @@ input[type="radio"] {
     gap: 1rem;
 }
 
-.slide-tab-list .tab {
+.portfolio-slide-tab-list .tab {
     border: white solid 1px;
     padding: 5px 20px;
     height: 20px;
     border-radius: 15px;
 }
-.slide-tab-list .tab:hover {
+.portfolio-slide-tab-list .tab:hover {
     background: var(--primary-white);
     color: var(--primary-orange);
 }
@@ -210,40 +210,40 @@ input[type="radio"] {
 /*         
     使用 CSS Selector 選擇器 讓 三張卡片左右位移
 */
-input[type="radio"]:nth-of-type(1):checked ~.slide{
+input[type="radio"]:nth-of-type(1):checked ~.portfolio-slide{
     transform: translateX(0%);            
 }
-input[type="radio"]:nth-of-type(2):checked ~.slide{
+input[type="radio"]:nth-of-type(2):checked ~.portfolio-slide{
     transform: translateX(-100%);            
 }
-input[type="radio"]:nth-of-type(3):checked ~.slide{
+input[type="radio"]:nth-of-type(3):checked ~.portfolio-slide{
     transform: translateX(-200%);            
 }
-input[type="radio"]:nth-of-type(4):checked ~.slide{
+input[type="radio"]:nth-of-type(4):checked ~.portfolio-slide{
     transform: translateX(-300%);            
 }
-input[type="radio"]:nth-of-type(5):checked ~.slide{
+input[type="radio"]:nth-of-type(5):checked ~.portfolio-slide{
     transform: translateX(-400%);            
 }
-input[type="radio"]:nth-of-type(6):checked ~.slide{
+input[type="radio"]:nth-of-type(6):checked ~.portfolio-slide{
     transform: translateX(-500%);            
 }
-input[type="radio"]:nth-of-type(7):checked ~.slide{
+input[type="radio"]:nth-of-type(7):checked ~.portfolio-slide{
     transform: translateX(-600%);            
 }
-input[type="radio"]:nth-of-type(8):checked ~.slide{
+input[type="radio"]:nth-of-type(8):checked ~.portfolio-slide{
     transform: translateX(-700%);            
 }
-input[type="radio"]:nth-of-type(9):checked ~.slide{
+input[type="radio"]:nth-of-type(9):checked ~.portfolio-slide{
     transform: translateX(-800%);            
 }
-input[type="radio"]:nth-of-type(10):checked ~.slide{
+input[type="radio"]:nth-of-type(10):checked ~.portfolio-slide{
     transform: translateX(-900%);            
 }
-input[type="radio"]:nth-of-type(11):checked ~.slide{
+input[type="radio"]:nth-of-type(11):checked ~.portfolio-slide{
     transform: translateX(-1000%);            
 }
-input[type="radio"]:nth-of-type(12):checked ~.slide{
+input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     transform: translateX(-1100%);            
 }
 
