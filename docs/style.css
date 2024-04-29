@@ -1,122 +1,958 @@
 
-@charset "UTF-8";
+/* =========================== 共用設定 start =========================== */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Doppio+One&display=swap'); */
+@import url('./fonts/doppio-one.css');
+@font-face {
+    font-family: "DFPZongYiW9-B5"; /* 自訂義 */
+    src: url("./fonts/DFPZongYiW9-B5.TTF") format("truetype");
+}
+@font-face {
+    font-family: "jf-openhuninn-2.0"; /* 自訂義 */
+    src: url("./fonts/jf-openhuninn-2.0.ttf") format("truetype");
+}
+
 * {
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  text-decoration: none;
-  outline: none;
-  border: none;
-  text-transform: capitalize;
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nunito', sans-serif; => 移除初始文字 */
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none; 
+    border:none;
+    
 }
 
-html {
-  /* overflow-x: hidden; */
+:root {
+    --primary-orange: #F1B41B;
+    --primary-orange-shadow: #d6a21d;
+    --primary-blue: #00407E;
+    --primary-white: #FFFFFF;
+    --primary-black: #000000;
+    --gray: #231F20;
+    --light-gray: #C3C3C3;
+    --light-orange: #FFFDFA
 }
-
-body {
-  background: #0d0d0d;
-  padding-bottom: 6.5rem;
-}
-
 
 section {
-    padding: 5rem 9%;
-}
-
-.heading {
-    text-align: center;
-    color: #fff;
-    font-size: 6rem;
-    margin-bottom: 3rem;
-}
-  
-.heading span {
-    color: crimson;
-}
-  
-
-
-.portfolio {
-    text-align: center;
-}
-  
-  .portfolio .box-container {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (minmax(31rem, 1fr))[auto-fit];
-        grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .portfolio .box-container .box {
-    height: 30rem;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .portfolio .box-container .box:hover .content {
-    -webkit-transform: translateY(0%);
-            transform: translateY(0%);
-  }
-  
-  .portfolio .box-container .box img {
-    height: 100%;
     width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-  }
-  
-  .portfolio .box-container .box .content {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    /* text-align: center; */
+}
+h1 {
+    font-size: 128px;
+    color: var(--primary-black);
+
+    /* Doppio One */
+    font-family: "Doppio One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+h2 {
+    font-size: 64px;
+
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 0.5;
+    z-index: 1;
+}
+p {
+    /* jf-openhuninn-2.0 */
+    font-family: "jf-openhuninn-2.0", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+label {
+    /* jf-openhuninn-2.0 */
+    font-family: "jf-openhuninn-2.0", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+a {
+    font-family: "jf-openhuninn-2.0", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 滑鼠滾動 on scroll 動畫效果 start */
+.animate-container  {
+    border: white solid 2px;
+}
+
+.up.animate {
+    transform:  translateY(150px);
+}
+.left-black.animate {
+    transform:  translateX(-100px);
+}
+.left.animate {
+    transform:  translateX(-100px);
+}
+.right.animate {
+    transform:  translateX(100px);
+}
+:where(.up, .left, .right).animate > * {
+    opacity: 0;
+    transition: 1s;
+}
+:where(.up, .left, .right).animate.this > * {
+    opacity: 0.5;
+    transform: translateY(0) translateX(0);
+}
+:where(.left-black).animate > * {
+    opacity: 0;
+    transition: 1s;
+}
+:where(.left-black).animate.this > * {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+}
+/* 滑鼠滾動 on scroll 動畫效果 end */
+/* =========================== 共用設定 end =========================== */
+
+
+/* 上方導覽列 start */
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 2% auto;
+    position: fixed;
+    z-index: 999;
+}
+
+nav .text-bounce-bottom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center;  */ /* 造成 藍色底線無法位移*/
+}
+
+nav .text-bounce-bottom-box {
+    height: 5px;
+    width: 7%;
+    position: relative;
+    top: -15%;
+    left: 4%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav .text-bounce-bottom-box .text-bounce-bottom {
+    height: 5px;
+    width: 100%;
+    border-radius: 2.5px;
+    background: var(--primary-blue);
+
+    animation: text-bounce-button-animation 1s linear;
+
+}
+
+@keyframes text-bounce-button-animation {
+    20% {
+        width: 5px;
+    }
+    40% {
+        width: 50px;
+    }
+    50% {
+        width: 10px;
+    }
+    60% {
+        width: 50px;
+    }
+    70% {
+        width: 10px;
+    }
+    80% {
+        width: 50px;
+    }
+    90% {
+        width: 40px;
+    }
+    100% {
+        width: 60px;
+    }
+}
+
+nav .nav-centent {
+    min-width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    background: var(--primary-white);
+
+    padding: 0 5px;
+    height: 60px;
+    border-radius: 30px;
+    box-shadow: 1px 5px 10px var(--light-gray);
+}
+
+nav .nav-centent .logo img {
+    width: 45px;
+    padding: 0 20px;
+}
+
+nav .nav-centent .item-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+nav .nav-centent .item-list .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+
+nav .nav-centent .item-list .item a{
+    padding: 0 5px;
+    font-size: 20px;
+    color: var(--primary-black);
+}
+
+nav .nav-centent .item-list .item img {
+    padding: 0 5px;
+    max-width: 25px;
+}
+/* 上方導覽列 end */
+
+
+/* 網頁標頭 過場動畫 start */
+.header-animation .move-from-right {
+    /* 在右側 */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.header-animation .center-title {
+    padding: 40px 0;
+}
+
+.header-animation .center-title .slogan-little {
+    font-size: 24px;
+}
+
+/* 網頁標頭 移動標頭 效果 */
+.slogan-big-move {
+    display: flex;
+
+    font-size: 125px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 0.5;
+}
+.header-animation .move-from-right .move-from-right-padding {
+    width: 0;
+    animation: slogan-big-move-animation 2s linear;
+}
+.header-animation .move-from-left {
+    /* 在左側 */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.header-animation .move-from-left .move-from-left-padding {
+    width: 0;
+    animation: slogan-big-move-animation 2s linear;
+}
+@keyframes slogan-big-move-animation {
+    50% {
+        width: 30px;
+    }
+    100% {
+        width: 0px;
+    }
+}
+
+.icon-double-down-arr {
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transition: 2s;
+    cursor: pointer; /* 滑鼠游標 */
+}
+/* 網頁標頭 過場動畫 end */
+
+
+/* 報價流程 start 
+    => h2 區塊標頭
+    => 下方輪播圖 高度需 RWD, 否則易跑版
+*/
+.price-work-flow {
+    background: var(--light-orange);
+}
+
+.price-work-flow .text-color-transition {
+    margin-top: 5%;
+
+    font-size: 64px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+    z-index: 1;
+}
+
+.price-work-flow .left-little-img {
+    position: absolute;
+    top: 135vh;
+    left: 10vw;
+    width: 100px;
+}
+
+.price-work-flow .right-img {
+    position: absolute;
+    top: 110vh;
+    right: 5vw;
+    width: 500px;
+}
+
+.price-work-flow p {
+    color: var(--gray);
+    line-height: 25px;
+    font-size: 20px;    
+    padding: 2px 0;
+
+    margin-top: 2%; /* 上方距離 */
+}
+
+.price-work-flow .slide-container {
+    margin-top: 2%;
+}
+/* 報價流程 end */
+
+
+/* 報價流程-輪播圖 start */
+.slide-price-work-flow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-price-work-flow .tab-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 350px;
+    padding: 5px 0;
+    z-index: 999;
+}
+
+.slide-price-work-flow .tab-list label {
+    font-size: 45px;
+    color: var(--gray);
+}
+
+.slides {
+    position: relative;
+    width: 800px;
+    height: 300px;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.slide h3 {
+    font-size: 64px;
+
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 0.5;
+    z-index: 1;
+
+    margin-top: 0;
+}
+
+.slide {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+
     position: absolute;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 100%;
-    background: #1a1a1a;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-flow: column;
-            flex-flow: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding: 2rem;
-    -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
-    -webkit-transition: .2s linear;
-    transition: .2s linear;
-  }
 
-.portfolio .box-container .box .content h3 {
-    font-size: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* 字體調整 */
+    font-family: Helvetica;
+    font-size: 120px;
+    color: var(--primary-white);
+
+
+    /* 圖片輪播移動效果 */
+    transition: .5s transform ease-in-out;
+}
+
+.slide:nth-of-type(1) {
+    left: 0;
+}
+
+.slide:nth-of-type(2) {
+    left: 100%;
+}
+
+.slide:nth-of-type(3) {
+    left: 200%;
+}
+
+.slide:nth-of-type(4) {
+    left: 300%;
+}
+
+input[type="radio"] {
+    position: relative;
+    z-index: 100;
+
+    display: none;
+}
+
+.controls-visible {
+    position: absolute;
+    width: 100%;
+    bottom: 12px;
+    text-align: center;
+    z-index: 999;
+}
+
+.controls-visible label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary-orange);
+    border-radius: 5px;
+
+    transition: 0.25s;
+}
+
+/*         
+
+使用 css Selector 選擇器 讓 下方選單radio 做樣式改變
+    1. input[..= radio ] :nth-of-type(1):checked 判斷第幾個 radio 被選擇 
+    2. 使用 ~ 符號對應同層的 label
+
+*/
+input[type="radio"]:nth-of-type(1):checked~.controls-visible label:nth-of-type(1) {
+    background-color: var(--primary-orange-shadow);
+    width: 20px;
+}
+input[type="radio"]:nth-of-type(2):checked~.controls-visible label:nth-of-type(2) {
+    background-color: var(--primary-orange-shadow);
+    width: 20px;
+}
+input[type="radio"]:nth-of-type(3):checked~.controls-visible label:nth-of-type(3) {
+    background-color: var(--primary-orange-shadow);
+    width: 20px;
+}
+input[type="radio"]:nth-of-type(4):checked~.controls-visible label:nth-of-type(4) {
+    background-color: var(--primary-orange-shadow);
+    width: 20px;
+}
+/*  使用 CSS Selector 選擇器 讓 三張卡片左右位移*/
+input[type="radio"]:nth-of-type(1):checked ~.slide{
+    transform: translateX(0%);            
+}
+input[type="radio"]:nth-of-type(2):checked ~.slide{
+    transform: translateX(-100%);            
+}
+input[type="radio"]:nth-of-type(3):checked ~.slide{
+    transform: translateX(-200%);            
+}
+input[type="radio"]:nth-of-type(4):checked ~.slide{
+    transform: translateX(-300%);            
+}
+/* 報價流程-輪播圖 end */
+
+
+/* 服務項目列表 start */
+.service-list {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-list .text-color-transition {
+    margin-top: 5%;
+
+    font-size: 64px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+    z-index: 1;
+}
+
+.service-list .left-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.service-list .left-block .left-img {
+    position: absolute;
+    top: 210vh;
+    left: 15vw;
+}
+
+.service-list .left-block .item h3 {
+    color: var(--primary-black);
+    opacity: 0.6;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.service-list .left-block .item p {
+    color: var(--primary-black);
+    opacity: 0.2;
+    font-size: 20px;
+    font-weight: 100;
+    line-height: 30px;
+    padding: 20px 0;
+}
+
+.right-logo {
+    position: absolute;
+    top: 240vh;
+    right: 20vw;
+    width: 500px;
+}
+
+.service-list .right-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    text-align: left;
+    width: 20%;
+    height: 50%;
+}
+
+
+.service-list .right-block h2 {
+    margin-bottom: 40%;
+}
+
+.service-list .right-block img {
+    width: 200px;
+}
+/* 服務項目列表 end */
+
+/* 作品集 start */
+.portfolio-block {
+    background: var(--primary-orange);
+    color: var(--primary-white);
+    border-radius: 100px 100px 0 0;
+    position: relative;
+}
+
+.background-round-traingle {
+    position: absolute;
+    top: -10%;
+    left: 12%;
+    width: 10%;
+}
+
+.portfolio-block .text-color-transition {
+    margin-top: 6%;
+
+    font-size: 64px;
+    font-family: "DFPZongYiW9-B5";
+    font-weight: 400;
+    -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
+    color: var(--primary-white);
+    opacity: 1;
+    z-index: 1;
+}
+
+.portfolio-block p {
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+
+.computer-background-img {
+    position: relative;
+    width: 600px;    
+    height: 400px;       
+    background-image:
+        url("./images/portfolio-slide/bg-computer.png");
+    background-position: center; /* ?? 中央底圖 */
+    background-size: cover;     /* ?? 中央底圖 */
+}
+
+.portfolio-slide-list {
+    position: relative;
+    top: 45px;
+    left: 95px;
+
+    width: 400px;    
+    height: 260px;     
+    background-color: var(--primary-white);
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.portfolio-slide {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+
+    
+    background-color: lightblue;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+    /* flex如下三個常見效果，置中: */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    /* 字體調整 */
+    font-family: Helvetica;
+    font-size: 120px;
     color: #fff;
-    text-transform: uppercase;
-    font-weight: normal;
-  }
-  
-  .portfolio .box-container .box .content p {
-    padding: 1rem 0;
-    font-size: 1.5rem;
-    line-height: 2;
-    color: #aaa;
-  }
-  
-  .portfolio .box-container .box .content a {
-    font-size: 2rem;
-    color: crimson;
-  }
-  
-  .portfolio .box-container .box .content a:hover {
-    color: #fff;
-  }
-  
+
+
+    /* 圖片輪播移動效果 */
+    transition: .5s transform ease-in-out;
+}
+
+.portfolio-slide img {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.portfolio-slide a {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+}
+
+
+.portfolio-slide:nth-of-type(1) {
+    left: 0;
+}
+.portfolio-slide:nth-of-type(2) {
+    left: 100%;
+}
+.portfolio-slide:nth-of-type(3) {
+    left: 200%;
+}
+.portfolio-slide:nth-of-type(4) {
+    left: 300%;
+}
+.portfolio-slide:nth-of-type(5) {
+    left: 400%;
+}
+.portfolio-slide:nth-of-type(6) {
+    left: 500%;
+}
+.portfolio-slide:nth-of-type(7) {
+    left: 600%;
+}
+.portfolio-slide:nth-of-type(8) {
+    left: 700%;
+}
+.portfolio-slide:nth-of-type(9) {
+    left: 800%;
+}
+.portfolio-slide:nth-of-type(10) {
+    left: 900%;
+}
+.portfolio-slide:nth-of-type(11) {
+    left: 1000%;
+}
+.portfolio-slide:nth-of-type(12) {
+    left: 1100%;
+}
+
+
+input[type="radio"] {
+    position: relative;
+    z-index: 100;
+
+    display: none;
+}
+
+.portfolio-slide-tab-list {
+    max-width: 700px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.portfolio-slide-tab-list .tab {
+    border: white solid 1px;
+    padding: 5px 20px;
+    height: 20px;
+    border-radius: 15px;
+}
+.portfolio-slide-tab-list .tab:hover {
+    background: var(--primary-white);
+    color: var(--primary-orange);
+}
+
+/*         
+    使用 CSS Selector 選擇器 讓 三張卡片左右位移
+*/
+input[type="radio"]:nth-of-type(1):checked ~.portfolio-slide{
+    transform: translateX(0%);            
+}
+input[type="radio"]:nth-of-type(2):checked ~.portfolio-slide{
+    transform: translateX(-100%);            
+}
+input[type="radio"]:nth-of-type(3):checked ~.portfolio-slide{
+    transform: translateX(-200%);            
+}
+input[type="radio"]:nth-of-type(4):checked ~.portfolio-slide{
+    transform: translateX(-300%);            
+}
+input[type="radio"]:nth-of-type(5):checked ~.portfolio-slide{
+    transform: translateX(-400%);            
+}
+input[type="radio"]:nth-of-type(6):checked ~.portfolio-slide{
+    transform: translateX(-500%);            
+}
+input[type="radio"]:nth-of-type(7):checked ~.portfolio-slide{
+    transform: translateX(-600%);            
+}
+input[type="radio"]:nth-of-type(8):checked ~.portfolio-slide{
+    transform: translateX(-700%);            
+}
+input[type="radio"]:nth-of-type(9):checked ~.portfolio-slide{
+    transform: translateX(-800%);            
+}
+input[type="radio"]:nth-of-type(10):checked ~.portfolio-slide{
+    transform: translateX(-900%);            
+}
+input[type="radio"]:nth-of-type(11):checked ~.portfolio-slide{
+    transform: translateX(-1000%);            
+}
+input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
+    transform: translateX(-1100%);            
+}
+/* 作品集 end */
+
+
+/* 頁尾 start */
+.footer {
+    height: 25vh; /* 高度占瀏覽器 1/4 */
+    background: var(--primary-blue);
+    color: var(--primary-white);
+}
+
+.footer .item-list {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    gap: 10px;
+}
+/* 頁尾 end */
+
+
+
+/* 通用 RWD */
+@media (max-width: 1500px) {
+    /* 作品集 電腦輪播圖 */
+    .portfolio-block {
+        height: 105vh;
+    }
+    .computer-background-img {
+        width: 400px;    
+        height: 300px;       
+        background-image:
+            url("./images/portfolio-slide/bg-computer-little.png");
+    }
+    .portfolio-slide-list {
+        position: relative;
+        top: 20px;
+        left: 34px;
+    
+        width: 325px;     
+        height: 200px;
+    }
+    .portfolio-slide-tab-list .tab {
+        height: 20px;
+        border-radius: 15px;
+    }
+    /* 作品集 end */
+    
+}
+@media (max-width: 800px) {
+    * {
+        text-align: center;
+    }
+    h1 {
+        font-size: 80px;
+    }
+    img {
+        max-width: 500px;
+    }
+
+    /* 上方導覽列 start */
+    .text-bounce-bottom-container .text-bounce-bottom-box .text-bounce-bottom {
+        display: none;
+    }
+    .text-bounce-bottom-container .nav-centent .item-list .item a {
+        display: none;
+    }
+    /* 上方導覽列 end */
+    
+
+    /* 網頁標頭 過場動畫 start */
+    .header-animation .slogan-big-move {
+        font-size: 75px;        
+    }
+    .header-animation h1 {
+        text-align: right;
+    }
+    /* 網頁標頭 過場動畫 end */
+
+
+    /* 報價流程 start */
+    .price-work-flow .text-color-transition { /* h2 */
+        font-size: 50px;
+    }
+    .price-work-flow img {
+        display: none;
+    }
+    .price-work-flow p {
+        font-size: 15px;
+    }
+    .price-work-flow .slide-price-work-flow .tab-list label {
+        font-size: 25px;
+    }
+
+    .price-work-flow .slide-price-work-flow .slides {
+        width: 380px;
+        height: 300px;
+    }
+    /* 報價流程 end */
+
+
+    /* 服務項目列表 start */
+    .service-list .text-color-transition { /* h2 */
+        font-size: 50px;
+    }
+    .service-list img {
+        display: none;
+    }
+    .service-list .left-block .item h3 {
+        font-size: 25px;
+    }
+    .service-list .left-block .item p {
+        font-size: 15px;
+        line-height: 20px;
+        padding: 10px 0;
+    }
+    /* 服務項目列表 end */
+
+
+    /* 作品集 start */
+    .portfolio-block .text-color-transition { /* h2 */
+        font-size: 50px;
+    }
+    .portfolio-block p { 
+        font-size: 15px;
+    }
+
+    /* 作品集 電腦輪播圖 */
+    .portfolio-block {
+        height: 110vh;
+    }
+    .computer-background-img {
+        width: 400px;    
+        height: 300px;       
+        background-image:
+            url("./images/portfolio-slide/bg-computer-little.png");
+    }
+    .portfolio-slide-list {
+        position: relative;
+        top: 20px;
+        left: 34px;
+    
+        width: 325px;     
+        height: 200px;
+    }
+    .portfolio-slide-tab-list .tab {
+        height: 20px;
+        border-radius: 15px;
+    }
+    /* 作品集 end */
+
+
+    /* 頁尾 start */
+    .footer {
+        height: 60vh;
+    }
+    .footer .item-list {
+        flex-direction: column;
+    }
+    /* 頁尾 end */
+}
+
+
+
+
