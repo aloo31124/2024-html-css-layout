@@ -359,7 +359,7 @@ nav .nav-centent .item-list .item img {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-width: 500px;
+    min-width: 350px;
     padding: 5px 0;
 }
 
@@ -722,7 +722,7 @@ input[type="radio"] {
 }
 
 .portfolio-slide-tab-list {
-    width: 80%;
+    max-width: 700px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -808,5 +808,123 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     gap: 10px;
 }
 /* 頁尾 end */
+
+
+
+/* 通用 RWD */
+@media (max-width: 500px) {
+    * {
+        text-align: center;
+    }
+    h1 {
+        font-size: 80px;
+    }
+    img {
+        max-width: 500px;
+    }
+
+    /* 上方導覽列 start */
+    .text-bounce-bottom-container .text-bounce-bottom-box .text-bounce-bottom {
+        display: none;
+    }
+    .text-bounce-bottom-container .nav-centent .item-list .item a {
+        display: none;
+    }
+    /* 上方導覽列 end */
+    
+
+    /* 網頁標頭 過場動畫 start */
+    .header-animation .slogan-big-move {
+        font-size: 75px;        
+    }
+    .header-animation h1 {
+        text-align: right;
+    }
+    /* 網頁標頭 過場動畫 end */
+
+
+    /* 報價流程 start */
+    .price-work-flow .text-color-transition { /* h2 */
+        font-size: 50px;
+    }
+    .price-work-flow img {
+        display: none;
+    }
+    .price-work-flow p {
+        font-size: 15px;
+    }
+    .price-work-flow .slide-price-work-flow .tab-list label {
+        font-size: 25px;
+    }
+
+    .price-work-flow .slide-price-work-flow .slides {
+        width: 380px;
+        height: 300px;
+    }
+    /* 報價流程 end */
+
+
+    /* 服務項目列表 start */
+    .service-list .text-color-transition { /* h2 */
+        font-size: 50px;
+    }
+    .service-list img {
+        display: none;
+    }
+    .service-list .left-block .item h3 {
+        font-size: 25px;
+    }
+    .service-list .left-block .item p {
+        font-size: 15px;
+        line-height: 20px;
+        padding: 10px 0;
+    }
+    /* 服務項目列表 end */
+
+
+    /* 作品集 start */
+    .portfolio-block .text-color-transition { /* h2 */
+        font-size: 50px;
+    }
+    .portfolio-block p { 
+        font-size: 15px;
+    }
+
+    /* 作品集 電腦輪播圖 */
+    .portfolio-block {
+        height: 140vh;
+    }
+    .computer-background-img {
+        width: 400px;    
+        height: 300px;       
+        background-image:
+            url("./images/portfolio-slide/bg-computer-little.png");
+    }
+    .portfolio-slide-list {
+        position: relative;
+        top: 20px;
+        left: 34px;
+    
+        width: 325px;     
+        height: 200px;
+    }
+    .portfolio-slide-tab-list .tab {
+        height: 20px;
+        border-radius: 15px;
+    }
+    /* 作品集 end */
+
+
+    /* 頁尾 start */
+    .footer {
+        height: 60vh;
+    }
+    .footer .item-list {
+        flex-direction: column;
+    }
+    /* 頁尾 end */
+}
+
+
 
 

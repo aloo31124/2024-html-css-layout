@@ -16,6 +16,7 @@ box.forEach((el) => {
 });
 /* 滑鼠滾動 on scroll 動畫效果 end */
 
+
 /* 動畫標頭 下方雙箭頭 => 上下移動 與 被點選 start */
 const iconDoubleDownArr = document.querySelector(".icon-double-down-arr"); // Select the icon
 let isDown = false;
@@ -227,7 +228,6 @@ let isDragging = false;
 let startX, startY;
 
 slide1.addEventListener("mousedown", (event) => {
-    console.log("mousedown!");
     isDragging = true;
     startX = event.clientX;
     //startY = event.clientY;
@@ -235,8 +235,6 @@ slide1.addEventListener("mousedown", (event) => {
 
 document.addEventListener("mousemove", (event) => {
   if (isDragging) {
-
-    console.log("mousedown! and mousemove !! ");
     const offsetX = event.clientX - startX;
     //slide1.style.left = `${offsetX}px`;
     slide1.style.transform = "translateX(-100%)"
@@ -247,7 +245,6 @@ document.addEventListener("mousemove", (event) => {
 });
 
 document.addEventListener("mouseup", () => {
-    console.log("mouseup!~~ stop!");
     isDragging = false;
 });
 /* 報價流程 拖曳 end */
