@@ -16,6 +16,25 @@ box.forEach((el) => {
 });
 /* 滑鼠滾動 on scroll 動畫效果 end */
 
+/* 動畫標頭 下方雙箭頭 => 上下移動 與 被點選 start */
+const iconDoubleDownArr = document.querySelector(".icon-double-down-arr"); // Select the icon
+let isDown = false;
+setInterval(moveIcon, 2000);
+function moveIcon() {
+    if(isDown) {
+        iconDoubleDownArr.style.bottom = "10%"
+    } else  {
+        iconDoubleDownArr.style.bottom = "4%"
+    }
+    isDown = !isDown;
+}
+
+iconDoubleDownArr.addEventListener("click", () => {
+    const targetSection = document.getElementById("price-work-flow");
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+});
+/* 動畫標頭 下方雙箭頭 end */
+
 
 /* scroll h2 區塊標題 底層變色 start */
 gsap.registerPlugin(ScrollTrigger)
@@ -82,7 +101,7 @@ function scrollProgressBar() {
 */
 let logo = document.querySelector("#logo");
 logo.addEventListener("click", () => {
-    showNavItemAnimate(3);
+    showNavItemAnimate(4);
 });
 let navItem1 = document.querySelector("#nav-item1");
 navItem1.addEventListener("click", () => {
