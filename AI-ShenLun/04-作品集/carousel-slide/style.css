@@ -65,12 +65,12 @@ section {
     position: relative;
 }
 
-.slide-list {
+.portfolio-slide-list {
     position: relative;
     top: 50px;
-    left: 118px;
+    left: 116px;
 
-    width: 445px;    
+    width: 446px;    
     height: 290px;     
     background-color: var(--primary-white);
 
@@ -110,6 +110,21 @@ section {
     /* 圖片輪播移動效果 */
     transition: .5s transform ease-in-out;
 }
+
+.slide img {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.slide a {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+}
+
 
 .slide:nth-of-type(1) {
     left: 0;
