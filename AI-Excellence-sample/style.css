@@ -814,6 +814,32 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
 /* 通用 RWD */
+@media (max-width: 1500px) {
+    /* 作品集 電腦輪播圖 */
+    .portfolio-block {
+        height: 105vh;
+    }
+    .computer-background-img {
+        width: 400px;    
+        height: 300px;       
+        background-image:
+            url("./images/portfolio-slide/bg-computer-little.png");
+    }
+    .portfolio-slide-list {
+        position: relative;
+        top: 20px;
+        left: 34px;
+    
+        width: 325px;     
+        height: 200px;
+    }
+    .portfolio-slide-tab-list .tab {
+        height: 20px;
+        border-radius: 15px;
+    }
+    /* 作品集 end */
+    
+}
 @media (max-width: 800px) {
     * {
         text-align: center;
