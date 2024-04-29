@@ -565,70 +565,187 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 }
 /* 服務項目列表 end */
 
-
 /* 作品集 start */
 .portfolio-block {
     background: var(--primary-orange);
-    color: white;
+    color: var(--primary-white);
     border-radius: 100px 100px 0 0;
 }
 
-.portfolio-block .text-color-transition {
-    margin-top: 20%;
-
-    font-size: 64px;
-    font-family: "DFPZongYiW9-B5";
-    font-weight: 400;
-    -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
-    color: var(--primary-white);
-    opacity: 1;
-    z-index: 1;
+.computer-background-img {
+    width: 690px;    
+    height: 450px;       
+    background-image:
+        url("./images/portfolio-slide/bg-computer.png");
+    background-position: center; /* ?? 中央底圖 */
+    background-size: cover;     /* ?? 中央底圖 */
+    position: relative;
 }
 
-.portfolio-block p {
-    margin-top: 5%;
-    margin-bottom: 2%;
+.portfolio-slide-list {
+    position: relative;
+    top: 50px;
+    left: 116px;
+
+    width: 446px;    
+    height: 290px;     
+    background-color: var(--primary-white);
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
 }
 
-.slide-container {
-    width: 100%;
+.portfolio-slide {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+
+    
+    background-color: lightblue;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+
+    /* flex如下三個常見效果，置中: */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5%;
+
+
+    /* 字體調整 */
+    font-family: Helvetica;
+    font-size: 120px;
+    color: #fff;
+
+
+    /* 圖片輪播移動效果 */
+    transition: .5s transform ease-in-out;
 }
 
-.slide-container .slide-protfolio-list {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.portfolio-slide img {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
 }
 
-.slide-container .slide-protfolio-list img {
+.portfolio-slide a {
+    margin: 0;
+    padding: 0;
+    width: inherit;
+    height: inherit;
+}
+
+
+.portfolio-slide:nth-of-type(1) {
+    left: 0;
+}
+.portfolio-slide:nth-of-type(2) {
+    left: 100%;
+}
+.portfolio-slide:nth-of-type(3) {
+    left: 200%;
+}
+.portfolio-slide:nth-of-type(4) {
+    left: 300%;
+}
+.portfolio-slide:nth-of-type(5) {
+    left: 400%;
+}
+.portfolio-slide:nth-of-type(6) {
+    left: 500%;
+}
+.portfolio-slide:nth-of-type(7) {
+    left: 600%;
+}
+.portfolio-slide:nth-of-type(8) {
+    left: 700%;
+}
+.portfolio-slide:nth-of-type(9) {
+    left: 800%;
+}
+.portfolio-slide:nth-of-type(10) {
+    left: 900%;
+}
+.portfolio-slide:nth-of-type(11) {
+    left: 1000%;
+}
+.portfolio-slide:nth-of-type(12) {
+    left: 1100%;
+}
+
+
+input[type="radio"] {
+    position: relative;
+    z-index: 100;
+
+    display: none;
+}
+
+.portfolio-slide-tab-list {
     width: 80%;
-}
-
-.slide-tab-list {
-    max-width: 40%;
-    flex-wrap: wrap;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10%;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
-.slide-tab-list .tab {
-    border: var(--primary-white) solid 1px;
+
+.portfolio-slide-tab-list .tab {
+    border: white solid 1px;
     padding: 5px 20px;
     height: 20px;
     border-radius: 15px;
 }
-.slide-tab-list .tab:hover {
+.portfolio-slide-tab-list .tab:hover {
     background: var(--primary-white);
     color: var(--primary-orange);
+}
+
+/*         
+    使用 CSS Selector 選擇器 讓 三張卡片左右位移
+*/
+input[type="radio"]:nth-of-type(1):checked ~.portfolio-slide{
+    transform: translateX(0%);            
+}
+input[type="radio"]:nth-of-type(2):checked ~.portfolio-slide{
+    transform: translateX(-100%);            
+}
+input[type="radio"]:nth-of-type(3):checked ~.portfolio-slide{
+    transform: translateX(-200%);            
+}
+input[type="radio"]:nth-of-type(4):checked ~.portfolio-slide{
+    transform: translateX(-300%);            
+}
+input[type="radio"]:nth-of-type(5):checked ~.portfolio-slide{
+    transform: translateX(-400%);            
+}
+input[type="radio"]:nth-of-type(6):checked ~.portfolio-slide{
+    transform: translateX(-500%);            
+}
+input[type="radio"]:nth-of-type(7):checked ~.portfolio-slide{
+    transform: translateX(-600%);            
+}
+input[type="radio"]:nth-of-type(8):checked ~.portfolio-slide{
+    transform: translateX(-700%);            
+}
+input[type="radio"]:nth-of-type(9):checked ~.portfolio-slide{
+    transform: translateX(-800%);            
+}
+input[type="radio"]:nth-of-type(10):checked ~.portfolio-slide{
+    transform: translateX(-900%);            
+}
+input[type="radio"]:nth-of-type(11):checked ~.portfolio-slide{
+    transform: translateX(-1000%);            
+}
+input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
+    transform: translateX(-1100%);            
 }
 /* 作品集 end */
 
