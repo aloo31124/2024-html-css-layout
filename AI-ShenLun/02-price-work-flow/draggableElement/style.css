@@ -1,0 +1,13 @@
+.draggable {
+    position: absolute; /* Allow for absolute positioning */
+    top: 0;
+    left: 0;
+    cursor: pointer; /* Change cursor to a pointer on hover */
+  }
+  
+  .draggable.dragging {
+    cursor: default; /* Change cursor back to default while dragging */
+  }
+
+
+  

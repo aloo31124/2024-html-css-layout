@@ -43,9 +43,13 @@ section {
     opacity: 0;
     transition: 1s;
 }
-:where(.up, .left, .right).animate.this > * {
+:where(.up, .right).animate.this > * {
     opacity: 1;
     transform: translateY(0) translateX(0);
+}
+:where(.left).animate.this > * {
+    opacity: 1;
+    transform: translateX(100px);
 }
 
 /* 滑鼠滾動 on scroll 動畫效果 end */
