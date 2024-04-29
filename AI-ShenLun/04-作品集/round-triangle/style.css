@@ -1,0 +1,29 @@
+
+.round-triangle {
+	position: relative;
+	background-color: #00407E;
+	text-align: left;
+}
+.round-triangle:before,
+.round-triangle:after {
+	content: '';
+	position: absolute;
+	background-color: inherit;
+}
+.round-triangle,
+.round-triangle:before,
+.round-triangle:after {
+	width:  10em;
+	height: 10em;
+	border-top-right-radius: 30%;
+}
+
+.round-triangle {
+	transform: rotate(-60deg) skewX(-30deg) scale(1,.866);
+}
+.round-triangle:before {
+	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+}
+.round-triangle:after {
+	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+}

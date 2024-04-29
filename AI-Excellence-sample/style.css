@@ -570,10 +570,18 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     background: var(--primary-orange);
     color: var(--primary-white);
     border-radius: 100px 100px 0 0;
+    position: relative;
+}
+
+.background-round-traingle {
+    position: absolute;
+    top: -10%;
+    left: 12%;
+    width: 10%;
 }
 
 .portfolio-block .text-color-transition {
-    margin-top: 8%;
+    margin-top: 6%;
 
     font-size: 64px;
     font-family: "DFPZongYiW9-B5";
