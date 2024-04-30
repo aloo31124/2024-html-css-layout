@@ -100,10 +100,6 @@ function scrollProgressBar() {
 /* 導覽列 
     https://stackoverflow.com/questions/59573722/how-can-i-set-a-css-keyframes-in-javascript
 */
-let logo = document.querySelector("#logo");
-logo.addEventListener("click", () => {
-    showNavItemAnimate(4);
-});
 let navItem1 = document.querySelector("#nav-item1");
 navItem1.addEventListener("click", () => {
     showNavItemAnimate(22);
@@ -137,8 +133,8 @@ function showNavItemAnimate(leftSize) {
         { width: '40px', transform: 'translateX(0px)'  },
         { width: '50px', transform: 'translateX(-20px)' },
          */
-        { transform: 'translateX(90px)' },
-        { transform: 'translateX(-90px)' },
+        // { transform: 'translateX(90px)' },
+        // { transform: 'translateX(-90px)' },
         { transform: 'translateX(60px)' },
         { transform: 'translateX(-60px)' },
         { transform: 'translateX(30px)' },
@@ -151,7 +147,7 @@ function showNavItemAnimate(leftSize) {
         { transform: 'translateX(-1px)' },
       ], {
         // sync options
-        duration: 3000,
+        duration: 2000,
         iterations: 1,
       });
 }
@@ -325,7 +321,6 @@ function dragIndex(currentX) {
                 else if (_dragIndex == 4) {
                 }
             }
-            console.log(moveIndex)
             defaultStyle();
             setStyle();
             slideMove();

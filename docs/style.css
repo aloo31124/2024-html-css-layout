@@ -54,11 +54,12 @@ section {
 }
 h1 {
     font-size: 128px;
-    color: var(--primary-black);
+    /* color: var(--primary-black); */
+    color: var(--primary-blue);
     text-align: center;
 
     /* Doppio One */
-    font-family: "Doppio One", sans-serif;
+    font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     font-style: normal;
 }
@@ -157,7 +158,7 @@ nav .text-bounce-bottom-box {
     width: 7%;
     position: relative;
     top: -15%;
-    left: 4%;
+    left: 22%;
 
     display: flex;
     flex-direction: column;
