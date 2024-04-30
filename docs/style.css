@@ -12,17 +12,6 @@
     src: url("./fonts/jf-openhuninn-2.0.ttf") format("truetype");
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    /* font-family: 'Nunito', sans-serif; => 移除初始文字 */
-    text-decoration: none;
-    text-transform: capitalize;
-    outline: none; 
-    border:none;
-    
-}
-
 :root {
     --primary-orange: #F1B41B;
     --primary-orange-shadow: #d6a21d;
@@ -31,9 +20,28 @@
     --primary-black: #000000;
     --gray: #231F20;
     --light-gray: #C3C3C3;
-    --light-orange: #FFFDFA
+    --light-orange: #FFFDFA;
+
+    /* 優先等級: 最高, 如: 上方導覽列 */
+    --z-index-top1-nav: 999;
+    /* 優先等級: 次高, 如: 輪播點選bar, 畫面內點選按鈕 */
+    --z-index-top2-click: 900;
+    /* 優先等級: 中等, 初始 */
+    --z-index-top3-defalut: 500;
+    /* 優先等級: 底層, 如: 底圖 */
+    --z-index-top4-background: 1;
 }
 
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nunito', sans-serif; => 移除初始文字 */
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none; 
+    border:none;
+}
 section {
     width: 100%;
     height: 100vh;
@@ -62,7 +70,6 @@ h2 {
     -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
     color: var(--primary-white);
     opacity: 0.5;
-    z-index: 1;
 }
 p {
     /* jf-openhuninn-2.0 */
@@ -135,7 +142,7 @@ nav {
     justify-content: center;
     margin: 2% auto;
     position: fixed;
-    z-index: 999;
+    z-index: var(--z-index-top1-nav);
 }
 
 nav .text-bounce-bottom-container {
@@ -265,7 +272,6 @@ nav .nav-centent .item-list .item img {
 /* 網頁標頭 移動標頭 效果 */
 .slogan-big-move {
     display: flex;
-
     font-size: 125px;
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
@@ -303,6 +309,7 @@ nav .nav-centent .item-list .item img {
     bottom: 10%;
     transition: 2s;
     cursor: pointer; /* 滑鼠游標 */
+    z-index: var(--z-index-top2-click);
 }
 /* 網頁標頭 過場動畫 end */
 
@@ -324,7 +331,6 @@ nav .nav-centent .item-list .item img {
     -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
     color: var(--primary-white);
     opacity: 1;
-    z-index: 1;
 }
 
 .price-work-flow .left-little-img {
@@ -332,6 +338,7 @@ nav .nav-centent .item-list .item img {
     top: 135vh;
     left: 10vw;
     width: 100px;
+    z-index: var(--z-index-top4-background);
 }
 
 .price-work-flow .right-img {
@@ -339,6 +346,7 @@ nav .nav-centent .item-list .item img {
     top: 110vh;
     right: 5vw;
     width: 500px;
+    z-index: var(--z-index-top4-background);
 }
 
 .price-work-flow p {
@@ -346,7 +354,6 @@ nav .nav-centent .item-list .item img {
     line-height: 25px;
     font-size: 20px;    
     padding: 2px 0;
-
     margin-top: 2%; /* 上方距離 */
 }
 
@@ -371,7 +378,7 @@ nav .nav-centent .item-list .item img {
     align-items: center;
     min-width: 350px;
     padding: 5px 0;
-    z-index: 999;
+    z-index: var(--z-index-top2-click);
 }
 
 .slide-price-work-flow .tab-list label {
@@ -399,7 +406,6 @@ nav .nav-centent .item-list .item img {
     -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
     color: var(--primary-white);
     opacity: 0.5;
-    z-index: 1;
 
     margin-top: 0;
 }
@@ -447,8 +453,6 @@ nav .nav-centent .item-list .item img {
 
 input[type="radio"] {
     position: relative;
-    z-index: 100;
-
     display: none;
 }
 
@@ -457,7 +461,7 @@ input[type="radio"] {
     width: 100%;
     bottom: 12px;
     text-align: center;
-    z-index: 999;
+    z-index: var(--z-index-top2-click);
 }
 
 .controls-visible label {
@@ -471,11 +475,7 @@ input[type="radio"] {
 }
 
 /*         
-
 使用 css Selector 選擇器 讓 下方選單radio 做樣式改變
-    1. input[..= radio ] :nth-of-type(1):checked 判斷第幾個 radio 被選擇 
-    2. 使用 ~ 符號對應同層的 label
-
 */
 input[type="radio"]:nth-of-type(1):checked~.controls-visible label:nth-of-type(1) {
     background-color: var(--primary-orange-shadow);
@@ -518,14 +518,12 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 
 .service-list .text-color-transition {
     margin-top: 5%;
-
     font-size: 64px;
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
     color: var(--primary-white);
     opacity: 1;
-    z-index: 1;
 }
 
 .service-list .left-block {
@@ -534,16 +532,13 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     justify-content: flex-end;
     align-items: flex-start;
     text-align: left;
+    z-index: var(--z-index-top3-defalut); /* 避免被下方三角形遮到 */
 }
 
 .service-list .left-block .left-img {
     position: absolute;
     top: 210vh;
     left: 15vw;
-}
-
-.service-list .left-block .item {
-    z-index: 50;
 }
 
 .service-list .left-block .item h3 {
@@ -562,13 +557,6 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     padding: 20px 0;
 }
 
-.right-logo {
-    position: absolute;
-    top: 240vh;
-    right: 5vw;
-    width: 400px;
-}
-
 .service-list .right-block {
     display: flex;
     flex-direction: column;
@@ -579,13 +567,16 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     height: 50%;
 }
 
-
 .service-list .right-block h2 {
     margin-bottom: 40%;
 }
 
-.service-list .right-block img {
+.service-list .right-block .right-logo {
+    position: absolute;
+    top: 240vh;
+    right: 20vw;
     width: 200px;
+    z-index: var(--z-index-top4-background);
 }
 /* 服務項目列表 end */
 
@@ -602,7 +593,7 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     top: -10%;
     left: 12%;
     width: 10%;
-    z-index: 20;
+    z-index: var(--z-index-top4-background);
 }
 
 .portfolio-block .text-color-transition {
@@ -614,7 +605,6 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
     color: var(--primary-white);
     opacity: 1;
-    z-index: 1;
 }
 
 .portfolio-block p {
@@ -636,16 +626,14 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
     position: relative;
     top: 45px;
     left: 95px;
-
     width: 400px;    
     height: 260px;     
     background-color: var(--primary-white);
-
     list-style: none;
     margin: 0;
     padding: 0;
-
     overflow: hidden;
+    z-index: var(--z-index-top2-click);
 }
 
 .portfolio-slide {
@@ -733,8 +721,6 @@ input[type="radio"]:nth-of-type(4):checked ~.slide{
 
 input[type="radio"] {
     position: relative;
-    z-index: 100;
-
     display: none;
 }
 
@@ -745,6 +731,7 @@ input[type="radio"] {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
+    z-index: var(--z-index-top2-click);
 }
 
 .portfolio-slide-tab-list .tab {
@@ -857,6 +844,11 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     /* 服務項目列表 start */
     .service-list .left-block {
         padding: 0 20px;
+    }    
+    .service-list .right-block .right-logo {
+     /*    right: 5vw; */
+     /* 需要使用 js 判斷 rwd */
+     opacity: 0.5;
     }
     /* 服務項目列表 end */
     
