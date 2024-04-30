@@ -356,22 +356,19 @@ nav .nav-centent .item-list .item img {
     padding: 2px 0;
     margin-top: 2%; /* 上方距離 */
 }
-
-.price-work-flow .slide-container {
-    margin-top: 2%;
-}
 /* 報價流程 end */
 
 
 /* 報價流程-輪播圖 start */
-.slide-price-work-flow {
+.price-work-flow-slide {
+    margin-top: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.slide-price-work-flow .tab-list {
+.price-work-flow-slide .flow-tab-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -381,12 +378,12 @@ nav .nav-centent .item-list .item img {
     z-index: var(--z-index-top2-click);
 }
 
-.slide-price-work-flow .tab-list label {
+.price-work-flow-slide .flow-tab-list label {
     font-size: 45px;
     color: var(--gray);
 }
 
-.slides {
+.flow-slide-list {
     position: relative;
     width: 800px;
     height: 300px;
@@ -395,7 +392,6 @@ nav .nav-centent .item-list .item img {
     margin: 0;
     padding: 0;
 
-    overflow: hidden;
 }
 
 .slide h3 {
@@ -411,6 +407,9 @@ nav .nav-centent .item-list .item img {
 }
 
 .slide {
+
+    background: lightblue;
+
     margin: 0;
     padding: 0;
     width: inherit;
@@ -894,11 +893,11 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .price-work-flow p {
         font-size: 15px;
     }
-    .price-work-flow .slide-price-work-flow .tab-list label {
+    .price-work-flow .price-work-flow-slide .flow-tab-list label {
         font-size: 25px;
     }
 
-    .price-work-flow .slide-price-work-flow .slides {
+    .price-work-flow .price-work-flow-slide .flow-slide-list {
         width: 380px;
         height: 300px;
     }
