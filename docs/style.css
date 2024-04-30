@@ -356,22 +356,19 @@ nav .nav-centent .item-list .item img {
     padding: 2px 0;
     margin-top: 2%; /* 上方距離 */
 }
-
-.price-work-flow .slide-container {
-    margin-top: 2%;
-}
 /* 報價流程 end */
 
 
 /* 報價流程-輪播圖 start */
-.slide-price-work-flow {
+.price-work-flow-slide {
+    margin-top: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.slide-price-work-flow .tab-list {
+.price-work-flow-slide .flow-tab-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -381,12 +378,12 @@ nav .nav-centent .item-list .item img {
     z-index: var(--z-index-top2-click);
 }
 
-.slide-price-work-flow .tab-list label {
+.price-work-flow-slide .flow-tab-list label {
     font-size: 45px;
     color: var(--gray);
 }
 
-.slides {
+.flow-slide-list {
     position: relative;
     width: 800px;
     height: 300px;
@@ -396,6 +393,7 @@ nav .nav-centent .item-list .item img {
     padding: 0;
 
     overflow: hidden;
+
 }
 
 .slide h3 {
@@ -429,7 +427,7 @@ nav .nav-centent .item-list .item img {
     font-family: Helvetica;
     font-size: 120px;
     color: var(--primary-white);
-
+    z-index: var(--z-index-top2-click);
 
     /* 圖片輪播移動效果 */
     transition: .5s transform ease-in-out;
@@ -456,7 +454,7 @@ input[type="radio"] {
     display: none;
 }
 
-.controls-visible {
+.flow-button-icon-list {
     position: absolute;
     width: 100%;
     bottom: 12px;
@@ -464,7 +462,7 @@ input[type="radio"] {
     z-index: var(--z-index-top2-click);
 }
 
-.controls-visible label {
+.flow-button-icon-list label {
     display: inline-block;
     width: 10px;
     height: 10px;
@@ -473,40 +471,6 @@ input[type="radio"] {
 
     transition: 0.25s;
 }
-
-/*         
-使用 css Selector 選擇器 讓 下方選單radio 做樣式改變
-*/
-input[type="radio"]:nth-of-type(1):checked~.controls-visible label:nth-of-type(1) {
-    background-color: var(--primary-orange-shadow);
-    width: 20px;
-}
-input[type="radio"]:nth-of-type(2):checked~.controls-visible label:nth-of-type(2) {
-    background-color: var(--primary-orange-shadow);
-    width: 20px;
-}
-input[type="radio"]:nth-of-type(3):checked~.controls-visible label:nth-of-type(3) {
-    background-color: var(--primary-orange-shadow);
-    width: 20px;
-}
-input[type="radio"]:nth-of-type(4):checked~.controls-visible label:nth-of-type(4) {
-    background-color: var(--primary-orange-shadow);
-    width: 20px;
-}
-/*  使用 CSS Selector 選擇器 讓 三張卡片左右位移*/
-input[type="radio"]:nth-of-type(1):checked ~.slide{
-    transform: translateX(0%);            
-}
-input[type="radio"]:nth-of-type(2):checked ~.slide{
-    transform: translateX(-100%);            
-}
-input[type="radio"]:nth-of-type(3):checked ~.slide{
-    transform: translateX(-200%);            
-}
-input[type="radio"]:nth-of-type(4):checked ~.slide{
-    transform: translateX(-300%);            
-}
-/* 報價流程-輪播圖 end */
 
 
 /* 服務項目列表 start */
@@ -894,11 +858,11 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .price-work-flow p {
         font-size: 15px;
     }
-    .price-work-flow .slide-price-work-flow .tab-list label {
+    .price-work-flow .price-work-flow-slide .flow-tab-list label {
         font-size: 25px;
     }
 
-    .price-work-flow .slide-price-work-flow .slides {
+    .price-work-flow .price-work-flow-slide .flow-slide-list {
         width: 380px;
         height: 300px;
     }

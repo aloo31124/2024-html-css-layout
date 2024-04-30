@@ -130,16 +130,29 @@ function showNavItemAnimate(leftSize) {
     let textBounceBottom = document.querySelector(".text-bounce-bottom");
     textBounceBottom.animate([
         // key frames
-        { width: '25px', transform: 'translateX(0px)' },
-        { width: '50px', transform: 'translateX(20px)' },
-        { width: '35px', transform: 'translateX(0px)'  },
-        { width: '50px', transform: 'translateX(-20px)'  },
-        { width: '50px', transform: 'translateX(0px)' },
-        /* { width: '50px' },         { width: '45px' },        { width: '50px' }, */
+        /* 
+        { width: '50px', transform: 'translateX(-30px)' },
+        { width: '30px', transform: 'translateX(0px)' },
+        { width: '50px', transform: 'translateX(30px)'  },
+        { width: '40px', transform: 'translateX(0px)'  },
+        { width: '50px', transform: 'translateX(-20px)' },
+         */
+        { transform: 'translateX(90px)' },
+        { transform: 'translateX(-90px)' },
+        { transform: 'translateX(60px)' },
+        { transform: 'translateX(-60px)' },
+        { transform: 'translateX(30px)' },
+        { transform: 'translateX(-30px)' },
+        { transform: 'translateX(10px)' },
+        { transform: 'translateX(-10px)' },
+        { transform: 'translateX(5px)' },
+        { transform: 'translateX(-5px)' },
+        { transform: 'translateX(1px)' },
+        { transform: 'translateX(-1px)' },
       ], {
         // sync options
-        duration: 1000,
-        iterations: 2,
+        duration: 3000,
+        iterations: 1,
       });
 }
 
@@ -186,65 +199,186 @@ document.addEventListener("mousemove", (e) => {
 
 
 /* 報價流程 輪播圖 start */
-let control1 = document.querySelector("#control1");
-let control2 = document.querySelector("#control2");
-let control3 = document.querySelector("#control3");
-let control4 = document.querySelector("#control4");
 
-control1.addEventListener("click", () => {
-    defaultControl();
-    control1.style.color = "#F1B41B";
+let moveIndex = 1; /* 需要移動至哪個 輪播圖塊 */
+
+/* 上方bar被點選 */
+let flowTab1 = document.querySelector("#flowTab1");
+let flowTab2 = document.querySelector("#flowTab2");
+let flowTab3 = document.querySelector("#flowTab3");
+let flowTab4 = document.querySelector("#flowTab4");
+flowTab1.addEventListener("click", () => {
+    moveIndex = 1;
+    defaultStyle();
+    setStyle();
+    slideMove();
 });
-control2.addEventListener("click", () => {
-    defaultControl();
-    control2.style.color = "#F1B41B";
+flowTab2.addEventListener("click", () => {
+    moveIndex = 2;
+    defaultStyle();
+    setStyle();
+    slideMove();
 });
-control3.addEventListener("click", () => {
-    defaultControl();
-    control3.style.color = "#F1B41B";
+flowTab3.addEventListener("click", () => {
+    moveIndex = 3;
+    defaultStyle();
+    setStyle();
+    slideMove();
 });
-control4.addEventListener("click", () => {
-    defaultControl();
-    control4.style.color = "#F1B41B";
+flowTab4.addEventListener("click", () => {
+    moveIndex = 4;
+    defaultStyle();
+    setStyle();
+    slideMove();
 });
 
-function defaultControl(){
-    control1.style.color = "#231F20";
-    control2.style.color = "#231F20";
-    control3.style.color = "#231F20";
-    control4.style.color = "#231F20";
-}
-/* 報價流程 輪播圖 end */
+/* 下方 icon 列 被點選 */
+let flowIcon1 = document.querySelector("#flowIcon1");
+let flowIcon2 = document.querySelector("#flowIcon2");
+let flowIcon3 = document.querySelector("#flowIcon3");
+let flowIcon4 = document.querySelector("#flowIcon4");
+flowIcon1.addEventListener("click", () => {
+    moveIndex = 1;
+    defaultStyle();
+    setStyle();
+    slideMove();
+});
+flowIcon2.addEventListener("click", () => {
+    moveIndex = 2;
+    defaultStyle();
+    setStyle();
+    slideMove();
+});
+flowIcon3.addEventListener("click", () => {
+    moveIndex = 3;
+    defaultStyle();
+    setStyle();
+    slideMove();
+});
+flowIcon4.addEventListener("click", () => {
+    moveIndex = 4;
+    defaultStyle();
+    setStyle();
+    slideMove();
+});
 
 
-/* 報價流程 拖曳 start */
+/* 報價流程 輪播圖 拖曳  */
 const slide1 = document.querySelector("#slide1");
 const slide2 = document.querySelector("#slide2");
 const slide3 = document.querySelector("#slide3");
 const slide4 = document.querySelector("#slide4");
-let isDragging = false;
-let startX, startY;
-
+let isDrag = false;
+let _dragIndex = 1;
 slide1.addEventListener("mousedown", (event) => {
-    isDragging = true;
-    startX = event.clientX;
-    //startY = event.clientY;
+    isDrag = true;
+    const currentX = event.clientX;
+    _dragIndex = 1;
+    dragIndex(currentX);
+});
+slide2.addEventListener("mousedown", (event) => {
+    isDrag = true;
+    const currentX = event.clientX;
+    _dragIndex = 2;
+    dragIndex(currentX);
+});
+slide3.addEventListener("mousedown", (event) => {
+    isDrag = true;
+    const currentX = event.clientX;
+    _dragIndex = 3;
+    dragIndex(currentX);
+});
+slide4.addEventListener("mousedown", (event) => {
+    isDrag = true;
+    const currentX = event.clientX;
+    _dragIndex = 4;
+    dragIndex(currentX);
+});
+function dragIndex(currentX) {
+    let previousX = currentX;
+
+    window.addEventListener('mousemove', function(event) {
+        const newX = event.clientX;
+        if(isDrag) {    
+            if (newX > previousX) { /* 向右邊滑動 */
+                if(_dragIndex == 1) {
+                } 
+                else if (_dragIndex == 2) {
+                    moveIndex = 1;
+                }
+                else if (_dragIndex == 3) {
+                    moveIndex = 2;
+                }
+                else if (_dragIndex == 4) {
+                    moveIndex = 3;
+                }
+            } else if (newX < previousX) {  /* 向左邊滑動 */
+                if(_dragIndex == 1) {
+                    moveIndex = 2;
+                }
+                else if (_dragIndex == 2) {
+                    moveIndex = 3;
+                }
+                else if (_dragIndex == 3) {
+                    moveIndex = 4;
+                }
+                else if (_dragIndex == 4) {
+                }
+            }
+            console.log(moveIndex)
+            defaultStyle();
+            setStyle();
+            slideMove();
+        }
+    });
+}
+slide1.addEventListener("mouseup", (event) => {
+    console.log("mouseup")
+    isDrag = false;
 });
 
-document.addEventListener("mousemove", (event) => {
-  if (isDragging) {
-    const offsetX = event.clientX - startX;
-    //slide1.style.left = `${offsetX}px`;
-    slide1.style.transform = "translateX(-100%)"
-    slide2.style.transform = "translateX(-100%)"
-    slide3.style.transform = "translateX(-100%)"
-    slide4.style.transform = "translateX(-100%)"
-  }
-});
 
-document.addEventListener("mouseup", () => {
-    isDragging = false;
-});
-/* 報價流程 拖曳 end */
 
+/* 初始樣式 */
+function defaultStyle() {
+    flowTab1.style.color = "#231F20";
+    flowTab2.style.color = "#231F20";
+    flowTab3.style.color = "#231F20";
+    flowTab4.style.color = "#231F20";
+    
+    flowIcon1.style.width = "10px";
+    flowIcon2.style.width = "10px";
+    flowIcon3.style.width = "10px";
+    flowIcon4.style.width = "10px";
+}
+
+/* 位移前 相關 tab, icon 變色,樣式改變 */
+function setStyle(){
+    if(moveIndex == 1) {
+        flowTab1.style.color = "#F1B41B";
+        flowIcon1.style.width = "20px";
+    }
+    else if(moveIndex == 2) {
+        flowTab2.style.color = "#F1B41B";
+        flowIcon2.style.width = "20px";
+    }
+    else if(moveIndex == 3) {
+        flowTab3.style.color = "#F1B41B";
+        flowIcon3.style.width = "20px";
+    }
+    else if(moveIndex == 4) {
+        flowTab4.style.color = "#F1B41B";
+        flowIcon4.style.width = "20px";
+    }
+}
+
+/* 位移 輪播圖 */
+function slideMove() {
+    let move = (moveIndex -1).toString();
+    slide1.style.transform = "translateX(-"+ move +"00%)";
+    slide2.style.transform = "translateX(-"+ move +"00%)";
+    slide3.style.transform = "translateX(-"+ move +"00%)";
+    slide4.style.transform = "translateX(-"+ move +"00%)";    
+    isDrag = false;
+}
 
