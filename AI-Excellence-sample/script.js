@@ -130,14 +130,12 @@ function showNavItemAnimate(leftSize) {
     let textBounceBottom = document.querySelector(".text-bounce-bottom");
     textBounceBottom.animate([
         // key frames
-        { width: '10px' },
-        { width: '50px' },
-        { width: '20px' },
-        { width: '50px' },
-        { width: '35px' },
-        { width: '50px' },
-        { width: '45px' },
-        { width: '50px' },
+        { width: '25px', transform: 'translateX(0px)' },
+        { width: '50px', transform: 'translateX(20px)' },
+        { width: '35px', transform: 'translateX(0px)'  },
+        { width: '50px', transform: 'translateX(-20px)'  },
+        { width: '50px', transform: 'translateX(0px)' },
+        /* { width: '50px' },         { width: '45px' },        { width: '50px' }, */
       ], {
         // sync options
         duration: 1000,
