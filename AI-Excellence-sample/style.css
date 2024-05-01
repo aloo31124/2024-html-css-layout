@@ -42,6 +42,13 @@
     outline: none; 
     border:none;
 }
+html {
+    scroll-behavior: smooth; /* 上方導覽列 點選切換 使用滑動 */
+}
+
+::-webkit-scrollbar-track{
+    background-color: none;
+}
 section {
     width: 100vw;
     height: 100vh;
