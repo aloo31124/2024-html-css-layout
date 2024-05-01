@@ -43,7 +43,7 @@
     border:none;
 }
 section {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
 
     display: flex;
@@ -137,7 +137,7 @@ a {
 
 /* 上方導覽列 start */
 nav {
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -823,7 +823,7 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
         text-align: center;
     }
     h1 {
-        font-size: 80px;
+        font-size: 65px;
     }
     img {
         max-width: 500px;
@@ -849,9 +849,6 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     /* 報價流程 start */
     .price-work-flow .text-color-transition { /* h2 */
         font-size: 50px;
-    }
-    .price-work-flow {
-        padding: 0 10px;
     }
     .price-work-flow img {
         display: none;
@@ -904,8 +901,8 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
         height: 110vh;
     }
     .computer-background-img {
-        width: 400px;    
-        height: 300px;       
+        width: 90vw;    
+        height: 35vh;       
         background-image:
             url("./images/portfolio-slide/bg-computer-little.png");
     }
@@ -914,8 +911,8 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
         top: 20px;
         left: 34px;
     
-        width: 325px;     
-        height: 200px;
+        width: 71vw;     
+        height: 23vh;
     }
     .portfolio-slide-tab-list .tab {
         height: 20px;
