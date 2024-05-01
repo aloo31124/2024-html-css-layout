@@ -120,7 +120,6 @@ function scrollAndCheckNav(SectionTop) {
     else {
         nav.style.opacity = 0.8;
     }
-
 }
 
 nav.addEventListener('mouseenter', function() {
@@ -136,55 +135,67 @@ nav.addEventListener('mouseenter', function() {
     https://stackoverflow.com/questions/59573722/how-can-i-set-a-css-keyframes-in-javascript
 */
 let navItem1 = document.querySelector("#nav-item1");
+let previousNavIndex = 1;
+let currentNavIndex = 1;
 navItem1.addEventListener("click", () => {
     showNavItemAnimate(22);
+    currentNavIndex = 1;
 });
 let navItem2 = document.querySelector("#nav-item2");
 navItem2.addEventListener("click", () => {
     showNavItemAnimate(45);
-
+    currentNavIndex = 2;
 });
 let navItem3 = document.querySelector("#nav-item3");
 navItem3.addEventListener("click", () => {
     showNavItemAnimate(65);
+    currentNavIndex = 3;
 });
 let navItem4 = document.querySelector("#nav-item4");
 navItem4.addEventListener("click", () => {
     showNavItemAnimate(85);
+    currentNavIndex = 4;
 });
 
 function showNavItemAnimate(leftSize) {
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
+    let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 nav導覽列 位移方向為 左或右 */
+    let moveDefault = isRight ? -150 : 150;
     textBounceBottomBox.style.left = leftSize + "%";
-    textBounceBottomBox.style.transition  = "0.5s";
+    //textBounceBottomBox.style.transition  = "0.5s";
+
 
     let textBounceBottom = document.querySelector(".text-bounce-bottom");
     textBounceBottom.animate([
         // key frames
-        /* 
-        { width: '50px', transform: 'translateX(-30px)' },
-        { width: '30px', transform: 'translateX(0px)' },
-        { width: '50px', transform: 'translateX(30px)'  },
-        { width: '40px', transform: 'translateX(0px)'  },
-        { width: '50px', transform: 'translateX(-20px)' },
-         */
-        // { transform: 'translateX(90px)' },
-        // { transform: 'translateX(-90px)' },
-        { transform: 'translateX(60px)' },
-        { transform: 'translateX(-60px)' },
-        { transform: 'translateX(30px)' },
-        { transform: 'translateX(-30px)' },
+        { transform: 'translateX(' + (moveDefault) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/2) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/2) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/10) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/10) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/40) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/40) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/60) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/60) + 'px)' },
+
+        /*
+        { transform: 'translateX(40px)' },
+        { transform: 'translateX(-40px)' },
         { transform: 'translateX(10px)' },
         { transform: 'translateX(-10px)' },
         { transform: 'translateX(5px)' },
         { transform: 'translateX(-5px)' },
         { transform: 'translateX(1px)' },
         { transform: 'translateX(-1px)' },
+*/
       ], {
         // sync options
-        duration: 2000,
+        duration: 800,
         iterations: 1,
       });
+
+      previousNavIndex = currentNavIndex;
 }
 
 
