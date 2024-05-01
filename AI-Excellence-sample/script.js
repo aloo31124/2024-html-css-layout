@@ -37,7 +37,9 @@ iconDoubleDownArr.addEventListener("click", () => {
 /* 動畫標頭 下方雙箭頭 end */
 
 
-/* scroll h2 區塊標題 底層變色 start */
+/* scroll h2 區塊標題 底層變色 start 
+    => 使用 gsap 第三方
+*/
 gsap.registerPlugin(ScrollTrigger)
 const splitTypes = document.querySelectorAll('.text-color-transition')
 splitTypes.forEach((char,i) => {
@@ -73,11 +75,25 @@ requestAnimationFrame(raf);// 回滾動 scroll
 
 
 /* scroll 移動 標頭 start */
+
+const nav = document.querySelector('.nav-centent');
+const headerAnimationTop = document.querySelector('.header-animation').offsetTop;
+const priceWorkFlowTop = document.querySelector('.price-work-flow').offsetTop;
+const serviceListTop = document.querySelector('.service-list').offsetTop;
+const portfolioBlockTop = document.querySelector('.portfolio-block').offsetTop;
+const viewportHeight = window.innerHeight; // 取得當前設備 100vh 之 px
+
 window.onscroll = () => {
     // 滑鼠滾動時, 觸發
-    scrollProgressBar();
+    scrollAndMoveTitle();
+    
+    // 滑鼠滾動, 導覽列 半透明
+    scrollAndCheckNav(headerAnimationTop);
+    scrollAndCheckNav(priceWorkFlowTop);
+    scrollAndCheckNav(serviceListTop);
+    scrollAndCheckNav(portfolioBlockTop);
 }
-function scrollProgressBar() {
+function scrollAndMoveTitle() {
     
     let moveFromRight = document.querySelector(".move-from-right-padding");
     let moveFromLeft = document.querySelector(".move-from-left-padding");
@@ -92,6 +108,25 @@ function scrollProgressBar() {
         moveFromLeft.style.width = percentage + "%";
     }
 }
+
+function scrollAndCheckNav(SectionTop) {
+    const scrollTop = window.scrollY;
+    if(
+        SectionTop + (viewportHeight * 0.1) < scrollTop &&
+        scrollTop < SectionTop + (viewportHeight * 0.8)
+    ) {
+        nav.style.opacity = 0.3;
+    } 
+    else {
+        nav.style.opacity = 0.8;
+    }
+
+}
+
+nav.addEventListener('mouseenter', function() {
+    nav.style.opacity = 1;
+});
+
 /* scroll 移動標頭 end */
 
 

@@ -1,0 +1,43 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Nunito', sans-serif; => 移除初始文字 */
+    text-decoration: none;
+    text-transform: capitalize;
+    outline: none; 
+    border:none;
+}
+section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    /* text-align: center; */
+}
+
+nav {
+    position: fixed;
+    top: 5%;
+    width: 80vw;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.s1 {
+    background: lightblue;
+}
+.s2 {
+    background: lightcoral;
+}
+.s3 {
+    background: lightgreen;
+}
+
+
+
+
