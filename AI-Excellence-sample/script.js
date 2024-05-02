@@ -164,7 +164,7 @@ function showNavItemAnimate() {
     let deviceWidth = window.innerWidth;
 
     let styleLeft = 5;
-    let styleLeftSpace = 20;
+    let styleLeftSpace = 20.25;
     if(deviceWidth < 800) {
         styleLeft = 20;
         styleLeftSpace = 16.5;
