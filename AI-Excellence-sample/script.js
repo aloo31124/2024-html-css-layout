@@ -171,7 +171,7 @@ function showNavItemAnimate() {
     } 
 
     textBounceBottomBox.style.left = (styleLeft + currentNavIndex * styleLeftSpace) + "%";
-    //textBounceBottomBox.style.transition  = "0.5s";
+    //textBounceBottomBox.style.transition  = "0.5s"; // 會造成水平位移 彈跳效果
 
     let textBounceBottom = document.querySelector(".text-bounce-bottom");
     textBounceBottom.animate([

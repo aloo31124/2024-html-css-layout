@@ -43,10 +43,9 @@
     border:none;
 }
 /* 上方導覽列 點選切換 使用滑動 =>  gsap 會與 scroll-behavior 發生衝突, 造成 scroll 卡頓 */
-/*
 html {
-    scroll-behavior: smooth; 
-}*/
+    /* scroll-behavior: smooth;  */
+}
 
 section {
     width: 100vw;
@@ -585,8 +584,8 @@ input[type="radio"] {
 
 .computer-background-img {
     position: relative;
-    width: 600px;    
-    height: 400px;       
+    width: 800px;    
+    height: 500px;           
     background-image:
         url("./images/portfolio-slide/bg-computer.png");
     background-position: center; /* ?? 中央底圖 */
@@ -595,10 +594,11 @@ input[type="radio"] {
 
 .portfolio-slide-list {
     position: relative;
-    top: 45px;
-    left: 95px;
-    width: 400px;    
-    height: 260px;     
+    top: 23px;
+    left: 134px;
+    width: 526px;     
+    height: 353px;
+
     background-color: var(--primary-white);
     list-style: none;
     margin: 0;

@@ -37,7 +37,9 @@ iconDoubleDownArr.addEventListener("click", () => {
 /* 動畫標頭 下方雙箭頭 end */
 
 
-/* scroll h2 區塊標題 底層變色 start */
+/* scroll h2 區塊標題 底層變色 start 
+    => 使用 gsap 第三方
+*/
 gsap.registerPlugin(ScrollTrigger)
 const splitTypes = document.querySelectorAll('.text-color-transition')
 splitTypes.forEach((char,i) => {
@@ -73,11 +75,25 @@ requestAnimationFrame(raf);// 回滾動 scroll
 
 
 /* scroll 移動 標頭 start */
+
+const nav = document.querySelector('.nav-centent');
+const headerAnimationTop = document.querySelector('.header-animation').offsetTop;
+const priceWorkFlowTop = document.querySelector('.price-work-flow').offsetTop;
+const serviceListTop = document.querySelector('.service-list').offsetTop;
+const portfolioBlockTop = document.querySelector('.portfolio-block').offsetTop;
+const viewportHeight = window.innerHeight; // 取得當前設備 100vh 之 px
+
 window.onscroll = () => {
     // 滑鼠滾動時, 觸發
-    scrollProgressBar();
+    scrollAndMoveTitle();
+    
+    // 滑鼠滾動, 導覽列 半透明
+    scrollAndCheckNav(headerAnimationTop);
+    scrollAndCheckNav(priceWorkFlowTop);
+    scrollAndCheckNav(serviceListTop);
+    scrollAndCheckNav(portfolioBlockTop);
 }
-function scrollProgressBar() {
+function scrollAndMoveTitle() {
     
     let moveFromRight = document.querySelector(".move-from-right-padding");
     let moveFromLeft = document.querySelector(".move-from-left-padding");
@@ -92,6 +108,24 @@ function scrollProgressBar() {
         moveFromLeft.style.width = percentage + "%";
     }
 }
+
+function scrollAndCheckNav(SectionTop) {
+    const scrollTop = window.scrollY;
+    if(
+        SectionTop + (viewportHeight * 0.1) < scrollTop &&
+        scrollTop < SectionTop + (viewportHeight * 0.8)
+    ) {
+        nav.style.opacity = 0.3;
+    } 
+    else {
+        nav.style.opacity = 0.8;
+    }
+}
+
+nav.addEventListener('mouseenter', function() {
+    nav.style.opacity = 1;
+});
+
 /* scroll 移動標頭 end */
 
 
@@ -101,55 +135,64 @@ function scrollProgressBar() {
     https://stackoverflow.com/questions/59573722/how-can-i-set-a-css-keyframes-in-javascript
 */
 let navItem1 = document.querySelector("#nav-item1");
+let previousNavIndex = 1;
+let currentNavIndex = 1;
 navItem1.addEventListener("click", () => {
-    showNavItemAnimate(22);
+    currentNavIndex = 1;
+    showNavItemAnimate();
 });
 let navItem2 = document.querySelector("#nav-item2");
 navItem2.addEventListener("click", () => {
-    showNavItemAnimate(45);
-
+    currentNavIndex = 2;
+    showNavItemAnimate();
 });
 let navItem3 = document.querySelector("#nav-item3");
 navItem3.addEventListener("click", () => {
-    showNavItemAnimate(65);
+    currentNavIndex = 3;
+    showNavItemAnimate();
 });
 let navItem4 = document.querySelector("#nav-item4");
 navItem4.addEventListener("click", () => {
-    showNavItemAnimate(85);
+    currentNavIndex = 4;
+    showNavItemAnimate();
 });
 
-function showNavItemAnimate(leftSize) {
+function showNavItemAnimate() {
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
-    textBounceBottomBox.style.left = leftSize + "%";
-    textBounceBottomBox.style.transition  = "0.5s";
+    let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 nav導覽列 位移方向為 左或右 */
+    let moveDefault = isRight ? -150 : 150;
+    let deviceWidth = window.innerWidth;
+
+    let styleLeft = 5;
+    let styleLeftSpace = 20;
+    if(deviceWidth < 800) {
+        styleLeft = 20;
+        styleLeftSpace = 16.5;
+    } 
+
+    textBounceBottomBox.style.left = (styleLeft + currentNavIndex * styleLeftSpace) + "%";
+    //textBounceBottomBox.style.transition  = "0.5s"; // 會造成水平位移 彈跳效果
 
     let textBounceBottom = document.querySelector(".text-bounce-bottom");
     textBounceBottom.animate([
         // key frames
-        /* 
-        { width: '50px', transform: 'translateX(-30px)' },
-        { width: '30px', transform: 'translateX(0px)' },
-        { width: '50px', transform: 'translateX(30px)'  },
-        { width: '40px', transform: 'translateX(0px)'  },
-        { width: '50px', transform: 'translateX(-20px)' },
-         */
-        // { transform: 'translateX(90px)' },
-        // { transform: 'translateX(-90px)' },
-        { transform: 'translateX(60px)' },
-        { transform: 'translateX(-60px)' },
-        { transform: 'translateX(30px)' },
-        { transform: 'translateX(-30px)' },
-        { transform: 'translateX(10px)' },
-        { transform: 'translateX(-10px)' },
-        { transform: 'translateX(5px)' },
-        { transform: 'translateX(-5px)' },
-        { transform: 'translateX(1px)' },
-        { transform: 'translateX(-1px)' },
+        { transform: 'translateX(' + (moveDefault) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/2) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/2) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/10) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/10) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/40) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/40) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/60) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/60) + 'px)' },
       ], {
         // sync options
-        duration: 2000,
+        duration: 800,
         iterations: 1,
       });
+
+      previousNavIndex = currentNavIndex;
 }
 
 
