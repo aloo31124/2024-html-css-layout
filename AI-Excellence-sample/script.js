@@ -138,32 +138,40 @@ let navItem1 = document.querySelector("#nav-item1");
 let previousNavIndex = 1;
 let currentNavIndex = 1;
 navItem1.addEventListener("click", () => {
-    showNavItemAnimate(22);
     currentNavIndex = 1;
+    showNavItemAnimate();
 });
 let navItem2 = document.querySelector("#nav-item2");
 navItem2.addEventListener("click", () => {
-    showNavItemAnimate(45);
     currentNavIndex = 2;
+    showNavItemAnimate();
 });
 let navItem3 = document.querySelector("#nav-item3");
 navItem3.addEventListener("click", () => {
-    showNavItemAnimate(65);
     currentNavIndex = 3;
+    showNavItemAnimate();
 });
 let navItem4 = document.querySelector("#nav-item4");
 navItem4.addEventListener("click", () => {
-    showNavItemAnimate(85);
     currentNavIndex = 4;
+    showNavItemAnimate();
 });
 
-function showNavItemAnimate(leftSize) {
+function showNavItemAnimate() {
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
     let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 nav導覽列 位移方向為 左或右 */
     let moveDefault = isRight ? -150 : 150;
-    textBounceBottomBox.style.left = leftSize + "%";
-    //textBounceBottomBox.style.transition  = "0.5s";
+    let deviceWidth = window.innerWidth;
 
+    let styleLeft = 5;
+    let styleLeftSpace = 20;
+    if(deviceWidth < 800) {
+        styleLeft = 20;
+        styleLeftSpace = 16.5;
+    } 
+
+    textBounceBottomBox.style.left = (styleLeft + currentNavIndex * styleLeftSpace) + "%";
+    //textBounceBottomBox.style.transition  = "0.5s";
 
     let textBounceBottom = document.querySelector(".text-bounce-bottom");
     textBounceBottom.animate([
@@ -178,17 +186,6 @@ function showNavItemAnimate(leftSize) {
         { transform: 'translateX(' + (-1 * moveDefault/40) + 'px)' },
         { transform: 'translateX(' + (moveDefault/60) + 'px)' },
         { transform: 'translateX(' + (-1 * moveDefault/60) + 'px)' },
-
-        /*
-        { transform: 'translateX(40px)' },
-        { transform: 'translateX(-40px)' },
-        { transform: 'translateX(10px)' },
-        { transform: 'translateX(-10px)' },
-        { transform: 'translateX(5px)' },
-        { transform: 'translateX(-5px)' },
-        { transform: 'translateX(1px)' },
-        { transform: 'translateX(-1px)' },
-*/
       ], {
         // sync options
         duration: 800,

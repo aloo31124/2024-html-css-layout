@@ -42,13 +42,12 @@
     outline: none; 
     border:none;
 }
+/* 上方導覽列 點選切換 使用滑動 =>  gsap 會與 scroll-behavior 發生衝突, 造成 scroll 卡頓 */
+/*
 html {
-    scroll-behavior: smooth; /* 上方導覽列 點選切換 使用滑動 */
-}
+    scroll-behavior: smooth; 
+}*/
 
-::-webkit-scrollbar-track{
-    background-color: none;
-}
 section {
     width: 100vw;
     height: 100vh;
@@ -95,6 +94,8 @@ a {
     font-family: "jf-openhuninn-2.0", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 20px;
+    color: var(--primary-black);
 }
 
 /* 滑鼠滾動 on scroll 動畫效果 start */
@@ -165,7 +166,7 @@ nav .text-bounce-bottom-box {
     width: 7%;
     position: relative;
     top: -15%;
-    left: 22%;
+    left: 25%;
 
     display: flex;
     flex-direction: column;
@@ -248,8 +249,6 @@ nav .nav-centent .item-list .item {
 
 nav .nav-centent .item-list .item a{
     padding: 0 5px;
-    font-size: 20px;
-    color: var(--primary-black);
 }
 
 nav .nav-centent .item-list .item img {
@@ -836,10 +835,11 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     }
 
     /* 上方導覽列 start */
-    .text-bounce-bottom-container .text-bounce-bottom-box .text-bounce-bottom {
-        display: none;
+    .text-bounce-bottom-container .text-bounce-bottom-box {
+        left: 37%;
+        width: 7px;
     }
-    .text-bounce-bottom-container .nav-centent .item-list .item a {
+    .text-bounce-bottom-container .nav-centent .item-list label {
         display: none;
     }
     /* 上方導覽列 end */
