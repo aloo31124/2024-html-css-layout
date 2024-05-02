@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: black;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    /* text-align: center; */
+}
+
+
+
+h1 {
+    color: white;
+    font-size: 4rem;
+    font-family: sans-serif;
+    text-align: center;
+    line-height: 100vh;
+}
+
+/* 
+span {
+    opacity: 0;
+    transition: all 0.4s ease;
+    transform: translateY(50px);
+    display: inline-block;
+}
+
+span.fade {
+    opacity: 1;
+    transform: translateY(0px);
+}
+ */
+
+span {
+    transition: all 0.5s ease;
+}
+
+span.fade { 
+    color: aqua;
+}

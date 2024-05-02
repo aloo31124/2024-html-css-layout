@@ -19,7 +19,7 @@
     --primary-white: #FFFFFF;
     --primary-black: #000000;
     --gray: #231F20;
-    --light-gray: #C3C3C3;
+    --light-gray: #BFBEBB;
     --light-orange: #FFFDFA;
 
     /* 優先等級: 最高, 如: 上方導覽列 */
@@ -44,7 +44,7 @@
 }
 /* 上方導覽列 點選切換 使用滑動 =>  gsap 會與 scroll-behavior 發生衝突, 造成 scroll 卡頓 */
 html {
-    /* scroll-behavior: smooth;  */
+    scroll-behavior: smooth; 
 }
 
 
@@ -74,9 +74,8 @@ h2 {
 
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
-    -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
+    /* -webkit-text-stroke: 1px var(--primary-black); */ /* 邊框 */
     color: var(--primary-white);
-    opacity: 0.5;
 }
 p {
     /* jf-openhuninn-2.0 */
@@ -140,6 +139,19 @@ a {
     transform: translateX(100px);
 }
 /* 滑鼠滾動 on scroll 動畫效果 end */
+
+/* scroll section h2標題 底色變色 start */
+
+
+span {
+    transition: all 0.5s ease;
+}
+span.fade { 
+    color: var(--primary-blue);
+}
+/* scroll section h2標題 底色變色 end */
+
+
 /* =========================== 共用設定 end =========================== */
 
 
@@ -329,7 +341,7 @@ nav .nav-centent .item-list .item img {
     background: var(--light-orange);
 }
 
-.price-work-flow .text-color-transition {
+.price-work-flow .price-work-flow-title {
     margin-top: 1%;
 
     font-size: 64px;
@@ -487,7 +499,7 @@ input[type="radio"] {
     align-items: center;
 }
 
-.service-list .text-color-transition {
+.service-list .service-list-title {
     margin-top: 5%;
     font-size: 64px;
     font-family: "DFPZongYiW9-B5";
@@ -567,7 +579,7 @@ input[type="radio"] {
     z-index: var(--z-index-top4-background);
 }
 
-.portfolio-block .text-color-transition {
+.portfolio-block .portfolio-block-title {
     margin-top: 1%;
 
     font-size: 64px;
@@ -854,7 +866,7 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
     /* 報價流程 start */
-    .price-work-flow .text-color-transition { /* h2 */
+    .price-work-flow .price-work-flow-title { /* h2 */
         font-size: 50px;
     }
     .price-work-flow img {
@@ -875,7 +887,7 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
     /* 服務項目列表 start */
-    .service-list .text-color-transition { /* h2 */
+    .service-list .service-list-title { /* h2 */
         font-size: 50px;
     }
     .service-list img {
@@ -896,7 +908,7 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
     /* 作品集 start */
-    .portfolio-block .text-color-transition { /* h2 */
+    .portfolio-block .portfolio-block-title { /* h2 */
         font-size: 50px;
     }
     .portfolio-block p { 

@@ -37,62 +37,59 @@ iconDoubleDownArr.addEventListener("click", () => {
 /* 動畫標頭 下方雙箭頭 end */
 
 
-/* scroll h2 區塊標題 底層變色 start 
-    => 使用 gsap 第三方
-*/
-gsap.registerPlugin(ScrollTrigger)
-const splitTypes = document.querySelectorAll('.text-color-transition')
-splitTypes.forEach((char,i) => {
-    const bg = char.dataset.bgColor
-    const fg = char.dataset.fgColor
-    const text = new SplitType(char, { types: 'chars'})
-
-    gsap.fromTo(text.chars, 
-        {
-            color: bg,
-        },
-        {
-            color: fg,
-            duration: 0.8,
-            stagger: 0.08,
-            scrollTrigger: {
-                trigger: char,
-                start: 'top 80%',
-                end: 'top 20%',
-                scrub: true,
-                markers: false,
-                toggleActions: 'play play reverse reverse'
-            }
-    })
-})
-const lenis = new Lenis();
-function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);// 回滾動 scroll
-/* scroll h2 區塊標題 底層變色 end */
-
-
-/* scroll 移動 標頭 start */
+/* ======================== scroll start ======================== */
 
 const nav = document.querySelector('.nav-centent');
+nav.addEventListener('mouseenter', function() {
+    nav.style.opacity = 1;
+});
+
 const headerAnimationTop = document.querySelector('.header-animation').offsetTop;
 const priceWorkFlowTop = document.querySelector('.price-work-flow').offsetTop;
 const serviceListTop = document.querySelector('.service-list').offsetTop;
 const portfolioBlockTop = document.querySelector('.portfolio-block').offsetTop;
 const viewportHeight = window.innerHeight; // 取得當前設備 100vh 之 px
+let scrollTop = 0;
+let isTitleChangePriceWorkFlow = true;
+let isTitleChangeServiceList = true;
+let isTitleChangePortfolio = true;
+
 
 window.onscroll = () => {
-    // 滑鼠滾動時, 觸發
+    // 滑鼠滾動時, 網頁標頭 水平移動動畫
     scrollAndMoveTitle();
-    
+
+    // 滑鼠滾動, 判斷每個 section h2標題變色
     // 滑鼠滾動, 導覽列 半透明
-    scrollAndCheckNav(headerAnimationTop);
-    scrollAndCheckNav(priceWorkFlowTop);
-    scrollAndCheckNav(serviceListTop);
-    scrollAndCheckNav(portfolioBlockTop);
+    scrollTop = window.scrollY;
+    if(headerAnimationTop <= scrollTop && scrollTop <= priceWorkFlowTop) {
+        scrollAndCheckNav(headerAnimationTop);
+    }
+    else if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop) {
+        scrollAndCheckNav(priceWorkFlowTop);
+        if(isTitleChangePriceWorkFlow) {
+            animationText(document.querySelector(".price-work-flow-title"));
+            isTitleChangePriceWorkFlow = false;
+        }
+    }
+    else if(serviceListTop <= scrollTop && scrollTop <= portfolioBlockTop) {
+        scrollAndCheckNav(serviceListTop);
+        if(isTitleChangeServiceList) {
+            animationText(document.querySelector(".service-list-title"))
+            isTitleChangeServiceList = false;
+        }        
+    }
+    else if(portfolioBlockTop <= scrollTop && scrollTop <= (portfolioBlockTop + 1000)) {
+        scrollAndCheckNav(portfolioBlockTop);        
+        if(isTitleChangePortfolio) {
+            animationText(document.querySelector(".portfolio-block-title"));
+            isTitleChangePortfolio = false;
+        }  
+    }
+    
 }
+
+/* 滑鼠滾動時, 網頁標頭 水平移動動畫 */
 function scrollAndMoveTitle() {
     
     let moveFromRight = document.querySelector(".move-from-right-padding");
@@ -109,8 +106,8 @@ function scrollAndMoveTitle() {
     }
 }
 
+/* 滑鼠滾動, 導覽列 半透明 */
 function scrollAndCheckNav(SectionTop) {
-    const scrollTop = window.scrollY;
     if(
         SectionTop + (viewportHeight * 0.1) < scrollTop &&
         scrollTop < SectionTop + (viewportHeight * 0.8)
@@ -122,11 +119,35 @@ function scrollAndCheckNav(SectionTop) {
     }
 }
 
-nav.addEventListener('mouseenter', function() {
-    nav.style.opacity = 1;
-});
 
-/* scroll 移動標頭 end */
+
+
+/* h2 標題 底色變色 start */
+/* text-color-transition */
+
+function animationText(text) {
+    const strText = text.textContent;
+    const splitText = strText.split("");
+    text.textContent = "";
+
+    for(let i=0; i<splitText.length; i++ ) {
+        text.innerHTML += "<span>" + splitText[i] + "</span>";
+    }
+
+    for(let i = 0; i < text.querySelectorAll("span").length; i++) {
+        /* 閉包 */
+        (function(i){
+          window.setTimeout(function() {
+            const span = text.querySelectorAll("span")[i];
+            span.classList.add("fade");
+          }, 50 * i);
+        })(i);
+    }
+}
+
+/* h2 標題 底色變色 end */
+
+/* ======================== scroll end ======================== */
 
 
 
