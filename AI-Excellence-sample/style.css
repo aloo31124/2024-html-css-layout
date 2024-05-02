@@ -369,6 +369,8 @@ nav .nav-centent .item-list .item img {
 }
 
 .price-work-flow p {
+    max-width: 80vw;
+
     color: var(--gray);
     line-height: 25px;
     font-size: 20px;    
@@ -380,6 +382,7 @@ nav .nav-centent .item-list .item img {
 
 /* 報價流程-輪播圖 start */
 .price-work-flow-slide {
+    max-width: 80vw;
     margin-top: 2%;
     display: flex;
     flex-direction: column;
@@ -413,6 +416,25 @@ nav .nav-centent .item-list .item img {
 
     overflow: hidden;
 
+}
+
+.price-work-flow-bounce-bottom-box {
+    height: 5px;
+    width: 7%;
+    position: relative;
+    bottom: -1%;
+    left: 4%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price-work-flow-bounce-bottom {
+    height: 5px;
+    width: 100%;
+    border-radius: 2.5px;
+    background: var(--primary-blue);
 }
 
 .slide h3 {
@@ -489,6 +511,10 @@ input[type="radio"] {
     border-radius: 5px;
 
     transition: 0.25s;
+}
+
+.flow-button-icon-list label:nth-of-type(1) {
+    width: 20px;
 }
 
 
@@ -848,11 +874,11 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     }
 
     /* 上方導覽列 start */
-    .text-bounce-bottom-container .text-bounce-bottom-box {
+    nav .text-bounce-bottom-container .text-bounce-bottom-box {
         left: 37%;
         width: 7px;
     }
-    .text-bounce-bottom-container .nav-centent .item-list label {
+    nav .text-bounce-bottom-container .nav-centent .item-list label {
         display: none;
     }
     /* 上方導覽列 end */
@@ -877,6 +903,11 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     }
     .price-work-flow .price-work-flow-slide .flow-tab-list label {
         font-size: 25px;
+    }
+
+    .price-work-flow-bounce-bottom-box {
+        width: 4%;
+        left: 1%;
     }
 
     .price-work-flow .price-work-flow-slide .flow-slide-list {

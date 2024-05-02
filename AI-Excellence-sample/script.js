@@ -272,24 +272,28 @@ flowTab1.addEventListener("click", () => {
     defaultStyle();
     setStyle();
     slideMove();
+    showSlideList()
 });
 flowTab2.addEventListener("click", () => {
     moveIndex = 2;
     defaultStyle();
     setStyle();
     slideMove();
+    showSlideList()
 });
 flowTab3.addEventListener("click", () => {
     moveIndex = 3;
     defaultStyle();
     setStyle();
     slideMove();
+    showSlideList()
 });
 flowTab4.addEventListener("click", () => {
     moveIndex = 4;
     defaultStyle();
     setStyle();
     slideMove();
+    showSlideList()
 });
 
 /* 下方 icon 列 被點選 */
@@ -302,25 +306,30 @@ flowIcon1.addEventListener("click", () => {
     defaultStyle();
     setStyle();
     slideMove();
+    showSlideList()
 });
 flowIcon2.addEventListener("click", () => {
     moveIndex = 2;
     defaultStyle();
     setStyle();
     slideMove();
+    showSlideList()
 });
 flowIcon3.addEventListener("click", () => {
     moveIndex = 3;
     defaultStyle();
     setStyle();
     slideMove();
+    showSlideList()
 });
 flowIcon4.addEventListener("click", () => {
     moveIndex = 4;
     defaultStyle();
     setStyle();
     slideMove();
+    showSlideList()
 });
+
 
 
 /* 報價流程 輪播圖 拖曳  */
@@ -392,12 +401,8 @@ function dragIndex(currentX) {
     });
 }
 slide1.addEventListener("mouseup", (event) => {
-    console.log("mouseup")
     isDrag = false;
 });
-
-
-
 /* 初始樣式 */
 function defaultStyle() {
     flowTab1.style.color = "#231F20";
@@ -441,3 +446,43 @@ function slideMove() {
     isDrag = false;
 }
 
+
+
+/* 報價輪播圖 藍色底線位移 */
+function showSlideList() {
+    let textBounceBottomBox = document.querySelector(".price-work-flow-bounce-bottom-box");
+    //let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 nav導覽列 位移方向為 左或右 */
+    //let moveDefault = isRight ? -150 : 150;
+    let moveDefault = 150;
+    let deviceWidth = window.innerWidth;
+
+    let styleLeft = 4;
+    let styleLeftSpace = 28.25;
+    if(deviceWidth < 800) {
+        styleLeft = 1;
+        styleLeftSpace = 31.25;
+    } 
+
+    textBounceBottomBox.style.left = (styleLeft + (moveIndex - 1) * styleLeftSpace) + "%";
+    //textBounceBottomBox.style.transition  = "0.5s"; // 會造成水平位移 彈跳效果
+
+    let textBounceBottom = document.querySelector(".price-work-flow-bounce-bottom");
+    textBounceBottom.animate([
+        // key frames
+        { transform: 'translateX(' + (moveDefault) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/2) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/2) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/10) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/10) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/40) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/40) + 'px)' },
+        { transform: 'translateX(' + (moveDefault/60) + 'px)' },
+        { transform: 'translateX(' + (-1 * moveDefault/60) + 'px)' },
+      ], {
+        // sync options
+        duration: 800,
+        iterations: 1,
+      });
+      previousNavIndex = currentNavIndex;
+}
