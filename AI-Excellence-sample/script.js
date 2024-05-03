@@ -39,11 +39,6 @@ iconDoubleDownArr.addEventListener("click", () => {
 
 /* ======================== scroll start ======================== */
 
-const nav = document.querySelector('.nav-centent');
-nav.addEventListener('mouseenter', function() {
-    nav.style.opacity = 1;
-});
-
 const headerAnimationTop = document.querySelector('.header-animation').offsetTop;
 const priceWorkFlowTop = document.querySelector('.price-work-flow').offsetTop;
 const serviceListTop = document.querySelector('.service-list').offsetTop;
@@ -54,7 +49,26 @@ let isTitleChangePriceWorkFlow = true;
 let isTitleChangeServiceList = true;
 let isTitleChangePortfolio = true;
 
+/* 偵測螢幕寬度 */
+window.addEventListener('resize', () => {
+    const screenWidth = window.innerWidth;
+    console.log(`Screen width changed to: ${screenWidth}px`);
 
+    
+    let navCentent = document.querySelector(".nav-centent");
+    if(screenWidth > 800 && !isNavClose) {
+        navCentent.style.width = "660px";
+    } else if(!isNavClose){
+        navCentent.style.width = "350px";        
+    }
+    
+    currentNavIndex = 1;
+    showNavItemAnimate();
+
+});
+
+
+/* 偵測螢幕滾動 */
 window.onscroll = () => {
 
     /* 滑鼠滾動, 判斷:
@@ -70,12 +84,12 @@ window.onscroll = () => {
         fixedMoveTitle()
     }
     /* 於 合作流程 滾動scroll */
-    else if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop) {
-        absoluteMoveTitle()
+    else if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop) {  
+        absoluteMoveTitle();
         scrollAndCheckNav(priceWorkFlowTop);
         if(isTitleChangePriceWorkFlow) {            
             animationText(document.querySelector(".price-work-flow-title"));
-            isTitleChangePriceWorkFlow = false;
+            isTitleChangePriceWorkFlow = false; 
         }
     }
     /* 於 服務項目 滾動scroll */
@@ -147,6 +161,11 @@ function scrollAndCheckNav(SectionTop) {
     }
 }
 
+const nav = document.querySelector('.nav-centent');
+nav.addEventListener('mouseenter', function() {
+    nav.style.opacity = 1;
+});
+
 
 
 
@@ -180,12 +199,10 @@ function animationText(text) {
 
 
 
-/* 導覽列 
-    https://stackoverflow.com/questions/59573722/how-can-i-set-a-css-keyframes-in-javascript
-*/
-let navItem1 = document.querySelector("#nav-item1");
+/* ======================== 導覽列 start ======================== */
 let previousNavIndex = 1;
 let currentNavIndex = 1;
+let navItem1 = document.querySelector("#nav-item1");
 navItem1.addEventListener("click", () => {
     currentNavIndex = 1;
     showNavItemAnimate();
@@ -208,18 +225,18 @@ navItem4.addEventListener("click", () => {
 
 function showNavItemAnimate() {
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
-    let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 nav導覽列 位移方向為 左或右 */
+    let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 藍色底線 位移方向為 左或右 */
     let moveDefault = isRight ? -150 : 150;
     let deviceWidth = window.innerWidth;
 
-    let styleLeft = 5;
-    let styleLeftSpace = 20.25;
+    let styleLeft = 0;
+    let styleLeftSpace = 20;
     if(deviceWidth < 800) {
-        styleLeft = 20;
-        styleLeftSpace = 16.5;
+        styleLeft = 14;
+        styleLeftSpace = 15;
+        moveDefault = isRight ? -80 : 80;
     } 
 
-    //
     textBounceBottomBox.style.left = (styleLeft + currentNavIndex * styleLeftSpace) + "%";
     //textBounceBottomBox.style.transition  = "0.5s"; // 會造成水平位移 彈跳效果 卡頓
 
@@ -236,15 +253,133 @@ function showNavItemAnimate() {
         { transform: 'translateX(' + (-1 * moveDefault/40) + 'px)' },
         { transform: 'translateX(' + (moveDefault/60) + 'px)' },
         { transform: 'translateX(' + (-1 * moveDefault/60) + 'px)' },
-      ], {
+    ], {
         // sync options
         duration: 800,
         iterations: 1,
-      });
+    });
 
-      previousNavIndex = currentNavIndex;
+    previousNavIndex = currentNavIndex;
 }
 
+/* 導覽列縮放 */
+let navCloseIcon = document.querySelector("#nav-close");
+let navShowIcon = document.querySelector("#nav-show");
+
+navCloseIcon.addEventListener("click", navClose);
+
+/* 導覽列 縮小成 漢堡按鈕 */
+function navClose() {
+    let navCentent = document.querySelector(".nav-centent");
+    let defaultWidth = 600;
+    let moveVw = 8;
+    navCentent.style.width = defaultWidth + "px";
+    navCentent.style.minWidth = "0px";
+
+
+    let logo = document.querySelector(".logo");
+    logo.style.display = "none";
+    let itemList = document.querySelector(".item-list");
+    itemList.style.display = "none";
+    let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
+    textBounceBottomBox.style.display = "none";
+
+    navCentent.animate([
+        // key frames
+        { 
+            width: (defaultWidth/2) + 'px',
+            transform: 'translateX('+ moveVw +'vw)',
+        },
+        { 
+            width: (defaultWidth/5) + 'px', 
+            transform: 'translateX('+ moveVw * 2 +'vw)',
+        },
+        { 
+            width: (defaultWidth/6) + 'px',
+            transform: 'translateX('+ moveVw * 3 +'vw)',
+
+        },
+        { 
+            width: (defaultWidth/7) + 'px',
+            transform: 'translateX('+ moveVw * 4 +'vw)',
+        },
+        { 
+            width: (defaultWidth/8) + 'px',
+            transform: 'translateX('+ moveVw * 5 +'vw)',
+        },
+    ], {
+        // sync options
+        duration: 500,
+        iterations: 1,
+    });
+
+    navCentent.style.width = (defaultWidth/10) + 'px';
+    navCentent.style.height = (defaultWidth/10) + 'px';
+    navCentent.style.transform = 'translateX('+ moveVw * 5 +'vw)';  
+    
+    navShowIcon.style.display = "block";
+    isNavClose = true;
+}
+
+navShowIcon.addEventListener("click", () => {   
+    navShowIcon.style.display = "none";
+    let navCentent = document.querySelector(".nav-centent");
+    let defaultWidth = 60;
+    let moveVw = 8;
+    navCentent.style.width = defaultWidth + "px";
+
+    
+    navCentent.animate([
+        // key frames
+        { 
+            width: (defaultWidth*2) + 'px',
+            transform: 'translateX('+ moveVw * 5 +'vw)',
+        },
+        { 
+            width: (defaultWidth*5) + 'px', 
+            transform: 'translateX('+ moveVw * 4 +'vw)',
+        },
+        { 
+            width: (defaultWidth*6) + 'px',
+            transform: 'translateX('+ moveVw * 3 +'vw)',
+
+        },
+        { 
+            width: (defaultWidth*7) + 'px',
+            transform: 'translateX('+ moveVw * 2 +'vw)',
+        },
+        { 
+            width: (defaultWidth*8) + 'px',
+            transform: 'translateX('+ moveVw * 1 +'vw)',
+        },
+    ], {
+        // sync options
+        duration: 200,
+        iterations: 1,
+    });
+
+    
+    let deviceWidth = window.innerWidth;
+    if(deviceWidth < 800) {
+        navCentent.style.width = '350px';
+    } else {
+        navCentent.style.width = '660px';
+    }
+    navCentent.style.transform = 'translateX(0)';   
+
+    let logo = document.querySelector(".logo");
+    logo.style.display = "flex";
+    let itemList = document.querySelector(".item-list");
+    itemList.style.display = "flex";
+
+    
+    let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
+    textBounceBottomBox.style.display = "flex";
+    currentNavIndex = 1;
+    showNavItemAnimate();
+    isNavClose = false
+});
+/* ======================== 導覽列 end ======================== */
 
 
 /* 背景圖 位移 start */
