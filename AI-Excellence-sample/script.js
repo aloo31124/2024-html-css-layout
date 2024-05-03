@@ -48,23 +48,19 @@ let scrollTop = 0;
 let isTitleChangePriceWorkFlow = true;
 let isTitleChangeServiceList = true;
 let isTitleChangePortfolio = true;
+let isNavClose = false;
 
 /* 偵測螢幕寬度 */
 window.addEventListener('resize', () => {
-    const screenWidth = window.innerWidth;
-    console.log(`Screen width changed to: ${screenWidth}px`);
-
-    
+    const screenWidth = window.innerWidth;    
     let navCentent = document.querySelector(".nav-centent");
     if(screenWidth > 800 && !isNavClose) {
         navCentent.style.width = "660px";
     } else if(!isNavClose){
         navCentent.style.width = "350px";        
-    }
-    
+    }    
     currentNavIndex = 1;
     showNavItemAnimate();
-
 });
 
 
@@ -119,10 +115,10 @@ function scrollAndMoveSlogan() {
     let maxHeight = document.documentElement.scrollHeight * 0.7 ;
     // 2. 計算百分比
     let percentage = ((window.scrollY) / maxHeight) * 250;
-    // 3. 依照百分比調整
-    if(percentage < 100) {
-        moveSlognRight.style.right = percentage + "vh";
-        moveSlognLeft.style.left = percentage + "vh";
+    // 3. 依照百分比調整 
+    if(percentage < 42) { /* 40~100 */
+        moveSlognRight.style.right = percentage + "vw";
+        moveSlognLeft.style.left = percentage + "vw";
     }
 
     
