@@ -104,7 +104,11 @@ window.onscroll = () => {
             isTitleChangePortfolio = false;
         }  
     }
-    
+
+    /* scroll 到 合作流程 後, 導覽列 自動縮小 */
+    if(scrollTop >= priceWorkFlowTop && !isNavClose) {
+        navClose();
+    }
 }
 
 /* 滑鼠滾動時, 網頁標頭 水平移動動畫 */
