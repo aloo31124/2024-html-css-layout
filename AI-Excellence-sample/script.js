@@ -313,8 +313,8 @@ function navClose() {
         iterations: 1,
     });
 
-    navCentent.style.width = (defaultWidth/10) + 'px';
-    navCentent.style.height = (defaultWidth/10) + 'px';
+    navCentent.style.width = '55px';
+    navCentent.style.height = '60px';
     navCentent.style.transform = 'translateX('+ moveVw * 5 +'vw)';  
     
     navShowIcon.style.display = "block";
