@@ -397,7 +397,9 @@ nav .nav-centent .item-list .item img {
     align-items: center;
     min-width: 350px;
     padding: 5px 0;
+
     z-index: var(--z-index-top2-click);
+    position: relative;
 }
 
 .price-work-flow-slide .flow-tab-list label {
