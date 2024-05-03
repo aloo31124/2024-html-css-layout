@@ -1,13 +1,22 @@
 
 
 const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'vertical',
-    loop: true,
   
-    // If we need pagination
+    /* 輪流 */
+    loop: true,
+
+    /* 自動輪播 */
+    autoplay: {
+      delay: 2000,
+    },
+    
+    /* 方向: 水平:horizontal, 垂直:vertical  */
+    direction: 'horizontal',
+  
+    /* 下方按鈕 可能自動點選 */
     pagination: {
       el: '.swiper-pagination',
+      clickable: true,
     },
   
     // Navigation arrows
