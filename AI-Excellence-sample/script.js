@@ -56,22 +56,29 @@ let isTitleChangePortfolio = true;
 
 
 window.onscroll = () => {
-    // 滑鼠滾動時, 網頁標頭 水平移動動畫
-    scrollAndMoveTitle();
 
-    // 滑鼠滾動, 判斷每個 section h2標題變色
-    // 滑鼠滾動, 導覽列 半透明
+    /* 滑鼠滾動, 判斷:
+        => 1. nav 導覽列 是否透明
+        => 2. 網頁標頭 移動判斷
+        => 3. 每個 section h2標題變色 
+    */
     scrollTop = window.scrollY;
+    /* 於 標頭動畫 滾動scroll */
     if(headerAnimationTop <= scrollTop && scrollTop <= priceWorkFlowTop) {
-        scrollAndCheckNav(headerAnimationTop);
+        //scrollAndCheckNav(headerAnimationTop);
+        scrollAndMoveSlogan();
+        fixedMoveTitle()
     }
+    /* 於 合作流程 滾動scroll */
     else if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop) {
+        absoluteMoveTitle()
         scrollAndCheckNav(priceWorkFlowTop);
-        if(isTitleChangePriceWorkFlow) {
+        if(isTitleChangePriceWorkFlow) {            
             animationText(document.querySelector(".price-work-flow-title"));
             isTitleChangePriceWorkFlow = false;
         }
     }
+    /* 於 服務項目 滾動scroll */
     else if(serviceListTop <= scrollTop && scrollTop <= portfolioBlockTop) {
         scrollAndCheckNav(serviceListTop);
         if(isTitleChangeServiceList) {
@@ -79,6 +86,7 @@ window.onscroll = () => {
             isTitleChangeServiceList = false;
         }        
     }
+    /* 於 作品集 滾動scroll */
     else if(portfolioBlockTop <= scrollTop && scrollTop <= (portfolioBlockTop + 1000)) {
         scrollAndCheckNav(portfolioBlockTop);        
         if(isTitleChangePortfolio) {
@@ -90,20 +98,40 @@ window.onscroll = () => {
 }
 
 /* 滑鼠滾動時, 網頁標頭 水平移動動畫 */
-function scrollAndMoveTitle() {
-    
-    let moveFromRight = document.querySelector(".move-from-right-padding");
-    let moveFromLeft = document.querySelector(".move-from-left-padding");
+function scrollAndMoveSlogan() {
+    /* 水平位移 */
+    let moveSlognRight = document.querySelector(".move-slogn-right");
+    let moveSlognLeft = document.querySelector(".move-slogn-left");
     let maxHeight = document.documentElement.scrollHeight * 0.7 ;
-
     // 2. 計算百分比
-    let percentage = ((window.scrollY) / maxHeight) * 200;
-
+    let percentage = ((window.scrollY) / maxHeight) * 250;
     // 3. 依照百分比調整
-    if(percentage < 30) {
-        moveFromRight.style.width = percentage + "%";
-        moveFromLeft.style.width = percentage + "%";
+    if(percentage < 100) {
+        moveSlognRight.style.right = percentage + "vh";
+        moveSlognLeft.style.left = percentage + "vh";
     }
+
+    
+}
+
+/* 滑鼠滾動時, 回到 標頭區塊section  網頁標頭 動畫標題 fiexed 鎖住 螢幕上 */
+function fixedMoveTitle() {
+    let headerAnimationTextContent = document.querySelector(".header-animation-text-content");
+    headerAnimationTextContent.style.position = "fixed";
+    headerAnimationTextContent.style.bottom = "25vh";
+    let iconDoubleDownArr = document.querySelector(".icon-double-down-arr");
+    iconDoubleDownArr.style.position = "fixed";
+    iconDoubleDownArr.style.bottom = "10%";
+}
+
+/* 滑鼠滾動時, 到下一個 區塊section  網頁標頭 動畫標題 absolute 鎖住 上一層 */
+function absoluteMoveTitle() {
+    let headerAnimationTextContent = document.querySelector(".header-animation-text-content");
+    headerAnimationTextContent.style.position = "absolute";
+    headerAnimationTextContent.style.bottom = "25vh";
+    let iconDoubleDownArr = document.querySelector(".icon-double-down-arr");
+    iconDoubleDownArr.style.position = "absolute";
+    iconDoubleDownArr.style.bottom = "10%";
 }
 
 /* 滑鼠滾動, 導覽列 半透明 */
@@ -191,8 +219,9 @@ function showNavItemAnimate() {
         styleLeftSpace = 16.5;
     } 
 
+    //
     textBounceBottomBox.style.left = (styleLeft + currentNavIndex * styleLeftSpace) + "%";
-    //textBounceBottomBox.style.transition  = "0.5s"; // 會造成水平位移 彈跳效果
+    //textBounceBottomBox.style.transition  = "0.5s"; // 會造成水平位移 彈跳效果 卡頓
 
     let textBounceBottom = document.querySelector(".text-bounce-bottom");
     textBounceBottom.animate([
@@ -225,14 +254,14 @@ document.addEventListener("mousemove", (e) => {
 
     //報價流程-左側小星星: 垂直同向, 水平同向移動
     let leftLittleImage = document.querySelector(".left-little-img");
-    let leftLittleImageTop = 135 + y * 0.005 ;
+    let leftLittleImageTop = 35 + y * 0.005 ;
     let leftLittleImageLeft = 10 + x * 0.005;
     leftLittleImage.style.top = leftLittleImageTop + "vh";
     leftLittleImage.style.left = leftLittleImageLeft + "vw";
     
     //報價流程-右側背景圖: 垂直同向, 水平反向移動
     let rightImage = document.querySelector(".right-img");
-    let rightImageTop = 110 + y * 0.005;
+    let rightImageTop = 10 + y * 0.005;
     let rightImageRight = 5 + x * 0.005;
     rightImage.style.top = rightImageTop + "vh";
     rightImage.style.right = rightImageRight + "vw";
@@ -240,14 +269,14 @@ document.addEventListener("mousemove", (e) => {
     
     //服務項目-右側背景圖: 垂直同向, 水平同向移動
     let LeftImage = document.querySelector(".left-img");
-    let LeftImageTop = 210 + y * 0.005 ;
+    let LeftImageTop = 10 + y * 0.005 ;
     let LeftImageLeft = 15 + x * 0.005;
     LeftImage.style.top = LeftImageTop + "vh";
     LeftImage.style.left = LeftImageLeft + "vw";
 
     //服務項目-logo背景圖: 垂直同向, 水平反向移動
     let rightLogo = document.querySelector(".right-logo");
-    let rightLogoTop = 240 + y * 0.002;
+    let rightLogoTop = 40 + y * 0.002;
     let rightLogoRight = 5 + x * 0.002;
     rightLogo.style.top = rightLogoTop + "vh";
     rightLogo.style.right = rightLogoRight + "vw";

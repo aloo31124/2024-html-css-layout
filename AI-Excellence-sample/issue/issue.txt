@@ -1,8 +1,44 @@
 
 
+
+
 ========================================================================
 05/03
-nav 導覽列 , 按鈕btn, 背景圖 覆蓋問題:
+scroll + fixed 固定
+
+
+1. js 取得 
+=> 瀏覽器高度
+=> 該 文件docment 總 高度height
+=> 當前顯示位於 文件docment
+
+2. js 需改變 position : 
+=> scroll 一定高度, fixed 改為 absolute 定位:
+
+    element.style.position = 'absolute';  
+    element.style.position = 'fixed';
+  
+
+2. 背景圖片
+=> 使用 外層 relative, 內層 absolute 定位
+
+
+
+
+========================================================================
+05/03
+position : relative , absolute , static
+
+1. 外層 relative, 內層 absolute 
+=> 內層 absolute 會向外找到 外層 relative 定位
+=> 使用 top, left, right, button 定位
+
+2. 背景圖片可使用此方法定位
+
+
+========================================================================
+05/03
+nav 導覽列, 按鈕btn, 背景圖 覆蓋問題:
 => z-index 與 position 議題
 
 
