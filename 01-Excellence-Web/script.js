@@ -446,9 +446,9 @@ document.addEventListener("mousemove", (e) => {
     //服務項目-logo背景圖: 垂直同向, 水平反向移動
     let rightLogo = document.querySelector(".right-logo");
     let rightLogoTop = 40 + y * 0.002;
-    let rightLogoRight = 5 + x * 0.002;
-    rightLogo.style.top = rightLogoTop + "vh";
-    rightLogo.style.right = rightLogoRight + "vw";
+    let rightLogoRight = 14 + x * 0.002;
+    rightLogo.style.top = rightLogoTop + "%";
+    rightLogo.style.right = rightLogoRight + "%";
 
 });
 /* 背景圖 位移 end */

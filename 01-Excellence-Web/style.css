@@ -534,7 +534,7 @@ input[type="radio"] {
 /* 服務項目列表 start */
 .service-list {
     position: relative; /* 讓背景圖 定位 */
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
 }
@@ -586,8 +586,8 @@ input[type="radio"] {
     justify-content: flex-start;
     align-items: flex-end;
     text-align: left;
-    width: 20%;
-    height: 50%;
+    width: 30%;
+    height: 60%;
 }
 
 .service-list .right-block h2 {
@@ -596,8 +596,8 @@ input[type="radio"] {
 
 .service-list .right-block .right-logo {
     position: absolute;
-    top: 40vh;
-    right: 20vw;
+    top: 40%;
+    right: 14%;
     width: 200px;
     z-index: var(--z-index-top4-background);
 }
@@ -947,6 +947,24 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
     /* 服務項目列表 start */
+    .service-list {
+        flex-direction: column;
+    }
+    .service-list .right-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        height: 15%;
+    }    
+    .service-list .right-block h2 {
+        margin-bottom: 10%;
+    }
+    .service-list .left-block { 
+        margin: 0 50px;
+    }
     .service-list .service-list-title { /* h2 */
         font-size: 50px;
     }
