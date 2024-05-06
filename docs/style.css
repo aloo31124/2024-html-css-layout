@@ -30,6 +30,38 @@
     --z-index-top3-defalut: 500;
     /* 優先等級: 底層, 如: 底圖 */
     --z-index-top4-background: 1;
+
+    /* 網頁標頭 大標題, 移動標題 */
+    --h1-desktop-and-large: 7rem;
+    --h1-laptop-and-pad: 6rem;
+    --h1-mobile: 4rem;
+    /* 每個 區塊section 次標題h2: 報價流程, 服務項目, 作品集 */
+    --h2-desktop-and-large: 5rem;
+    --h2-laptop-and-pad: 4rem;
+    --h2-mobile: 3rem;
+    /* 每個 區塊section 第三標題 h3 */
+    --h3-desktop-and-large: 1.75rem;
+    --h3-laptop-and-pad: 1.5rem;
+    --h3-mobile: 1.25rem;
+    /* 報價流程 h3 客製設定 => h2 0.8倍縮小 */
+    --h3-flow-slide-desktop-and-large: calc(var(--h2-desktop-and-large)*0.8);
+    --h3-flow-slide-laptop-and-pad: calc(var(--h2-laptop-and-pad)*0.8);
+    --h3-flow-slide-mobile: calc(var(--h2-mobile)*0.8);
+    /* 內文 */
+    --p-desktop-and-large: 1.25rem;
+    --p-laptop-and-pad: 1.25rem;
+    --p-mobile: 1rem;
+    /* 網頁標頭 slogan */
+    --p-slogan-desktop-and-large: calc(var(--p-desktop-and-large)*1.2);
+    --p-slogan-laptop-and-pad: calc(var(--p-laptop-and-pad)*1.2);
+    --p-slogan-mobile: calc(var(--p-mobile)*1.2);
+    /* 作品集 輪播圖 tab p內文 客製設定,圓角比例 => 比一般p 縮小 0.8 */
+    --p-portfolio-tab-size-desktop-and-large: calc(var(--p-desktop-and-large)*0.8);
+    --p-portfolio-tab-height-desktop-and-large: calc(var(--p-desktop-and-large)*1.2); /* radius比例 */
+    --p-portfolio-tab-size-laptop-and-pad: calc(var(--p-laptop-and-pad)*0.8);
+    --p-portfolio-tab-height-laptop-and-pad: calc(var(--p-laptop-and-pad)*1.2); /* radius比例 */
+    --p-portfolio-tab-size-mobile: calc(var(--p-mobile)*0.8);
+    --p-portfolio-tab-height-mobile: calc(var(--p-mobile)*1.2); /* radius比例 */
 }
 
 
@@ -51,7 +83,8 @@ html {
 section {
     width: 100vw;
     height: 100vh;
-    min-height: 400px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
+    min-width: 320px;
+    min-height: 500px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
 
     display: flex;
     flex-direction: column;
@@ -60,8 +93,7 @@ section {
     /* text-align: center; */
 }
 h1 {
-    font-size: 128px;
-    /* color: var(--primary-black); */
+    font-size: var(--h1-desktop-and-large);
     color: var(--primary-blue);
     text-align: center;
 
@@ -75,30 +107,34 @@ span.fadeanimate {
     transition: 0.5s;
 }
 h2 {
-    font-size: 64px;
-
+    font-size: var(--h2-desktop-and-large);
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     /* -webkit-text-stroke: 1px var(--primary-black); */ /* 邊框 */
     color: var(--primary-white);
+}
+h3 {
+    font-size: var(--h3-desktop-and-large);
 }
 p {
     /* jf-openhuninn-2.0 */
     font-family: "jf-openhuninn-2.0", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: var(--p-desktop-and-large);
 }
 label {
     /* jf-openhuninn-2.0 */
     font-family: "jf-openhuninn-2.0", sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: var(--p-desktop-and-large);
 }
 a {
     font-family: "jf-openhuninn-2.0", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 20px;
+    font-size: var(--p-desktop-and-large);
     color: var(--primary-black);
 }
 
@@ -250,12 +286,13 @@ nav .nav-centent .item-list .item img {
 /* 網頁標頭 過場動畫 start */
 .header-animation {
     height: 200vh;
+    position: relative;
 }
 
 .header-animation .head-right-little-img {
     position: absolute;
-    top: 8vh;
-    right: 15vw;
+    top: 8%;
+    right: 15%;
 }
 
 .header-animation .head-left-img {
@@ -294,16 +331,16 @@ nav .nav-centent .item-list .item img {
 }
 
 .header-animation .center-title .slogan-little {
-    font-size: 24px;
     text-align: center;
+    font-size: var(--p-slogan-desktop-and-large);
 }
 
 /* 網頁標頭 移動標頭 效果 */
 .move-slogn-container {
     width: 100vw;
-    height: 15vh;
+    height: var(--h1-desktop-and-large);
+    font-size: var(--h1-desktop-and-large);
     position: relative;
-    font-size: 125px;
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
@@ -315,18 +352,18 @@ nav .nav-centent .item-list .item img {
     position: absolute;
     white-space:nowrap;
     right: 0;
-    animation: move-slogn-right 2s linear;
+    animation: move-slogn-right 1.5s linear;
 }
 .move-slogn-container .move-slogn-left {
     position: absolute;
     white-space:nowrap;
     left: 0;
-    animation: move-slogn-left 2s linear;
+    animation: move-slogn-left 1.5s linear;
 }
 
 @keyframes move-slogn-right {
     50% {
-        right: 30px;
+        right: 40px;
     }
     100% {
         right: 0px;
@@ -334,7 +371,7 @@ nav .nav-centent .item-list .item img {
 }
 @keyframes move-slogn-left {
     50% {
-        left: 30px;
+        left: 40px;
     }
     100% {
         left: 0px;
@@ -354,8 +391,6 @@ nav .nav-centent .item-list .item img {
 
 .price-work-flow .price-work-flow-title {
     margin-top: 1%;
-
-    font-size: 64px;
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
@@ -365,26 +400,24 @@ nav .nav-centent .item-list .item img {
 
 .price-work-flow .left-little-img {
     position: absolute;
-    top: 35vh;
-    left: 10vw;
+    top: 35%;
+    left: 10%;
     width: 100px;
     z-index: var(--z-index-top4-background);
 }
 
 .price-work-flow .right-img {
     position: absolute;
-    top: 10vh;
-    right: 5vw;
+    top: 10%;
+    right: 5%;
     width: 500px;
     z-index: var(--z-index-top4-background);
 }
 
 .price-work-flow p {
-    max-width: 80vw;
-
+    max-width: 80%;
     color: var(--gray);
     line-height: 25px;
-    font-size: 20px;    
     padding: 2px 0;
     margin-top: 2%; /* 上方距離 */
 }
@@ -393,7 +426,7 @@ nav .nav-centent .item-list .item img {
 
 /* 報價流程-輪播圖 start */
 .price-work-flow-slide {
-    max-width: 80vw;
+    max-width: 80%;
     margin-top: 2%;
     display: flex;
     flex-direction: column;
@@ -451,14 +484,12 @@ nav .nav-centent .item-list .item img {
 }
 
 .slide h3 {
-    font-size: 64px;
-
+    font-size: var(--h3-flow-slide-desktop-and-large);
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     -webkit-text-stroke: 1px var(--primary-black); /* 邊框 */
     color: var(--primary-white);
     opacity: 0.5;
-
     margin-top: 0;
 }
 
@@ -479,7 +510,6 @@ nav .nav-centent .item-list .item img {
 
     /* 字體調整 */
     font-family: Helvetica;
-    font-size: 120px;
     color: var(--primary-white);
     z-index: var(--z-index-top2-click);
 
@@ -534,14 +564,13 @@ input[type="radio"] {
 /* 服務項目列表 start */
 .service-list {
     position: relative; /* 讓背景圖 定位 */
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: center;
     align-items: center;
 }
 
 .service-list .service-list-title {
     margin-top: 5%;
-    font-size: 64px;
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
@@ -560,21 +589,19 @@ input[type="radio"] {
 
 .service-list .left-block .left-img {
     position: absolute;
-    top: 10vh;
-    left: 15vw;
+    top: 10%;
+    left: 15%;
 }
 
 .service-list .left-block .item h3 {
     color: var(--primary-black);
     opacity: 0.6;
-    font-size: 40px;
     font-weight: 400;
 }
 
 .service-list .left-block .item p {
     color: var(--primary-black);
     opacity: 0.2;
-    font-size: 20px;
     font-weight: 100;
     line-height: 30px;
     padding: 20px 0;
@@ -586,8 +613,8 @@ input[type="radio"] {
     justify-content: flex-start;
     align-items: flex-end;
     text-align: left;
-    width: 20%;
-    height: 50%;
+    width: 30%;
+    height: 60%;
 }
 
 .service-list .right-block h2 {
@@ -596,8 +623,8 @@ input[type="radio"] {
 
 .service-list .right-block .right-logo {
     position: absolute;
-    top: 40vh;
-    right: 20vw;
+    top: 40%;
+    right: 14%;
     width: 200px;
     z-index: var(--z-index-top4-background);
 }
@@ -621,8 +648,6 @@ input[type="radio"] {
 
 .portfolio-block .portfolio-block-title {
     margin-top: 1%;
-
-    font-size: 64px;
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     -webkit-text-stroke: 1px var(--light-gray); /* 邊框 */
@@ -682,7 +707,6 @@ input[type="radio"] {
 
     /* 字體調整 */
     font-family: Helvetica;
-    font-size: 120px;
     color: #fff;
 
 
@@ -759,10 +783,15 @@ input[type="radio"] {
 }
 
 .portfolio-slide-tab-list .tab {
+    font-size: var(--p-portfolio-tab-size-desktop-and-large);
+    height: var(--p-portfolio-tab-height-desktop-and-large);
+    border-radius: var(--p-portfolio-tab-height-desktop-and-large);
+
     border: white solid 1px;
     padding: 5px 20px;
-    height: 20px;
-    border-radius: 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
 }
 .portfolio-slide-tab-list .tab:hover {
     background: var(--primary-white);
@@ -842,16 +871,42 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 /* 通用 RWD */
 @media (max-width: 1500px) {
+
+    h1 {
+        font-size: var(--h1-laptop-and-pad);
+    }
+    h2 {
+        font-size: var(--h2-laptop-and-pad);
+    }
+    h3 {
+        font-size: var(--h3-laptop-and-pad);
+    }
+    p {
+        font-size: var(--p-laptop-and-pad);
+    }
+    label {
+        font-size: var(--p-laptop-and-pad);
+    }
+    a {
+        font-size: var(--p-laptop-and-pad);
+    }
     
 
     /* 網頁標頭 過場動畫 start */
     .header-animation .move-slogn-container {
-        font-size: 90px;        
-    }
-    .header-animation h1 {
-        font-size: 95px;       
+        height: var(--h1-laptop-and-pad);
+        font-size: var(--h1-laptop-and-pad);        
+    }    
+    .header-animation .center-title .slogan-little {
+        font-size: var(--p-slogan-laptop-and-pad);
     }
     /* 網頁標頭 過場動畫 end */
+
+    /* 合作流程 start */
+    .slide h3 {
+        font-size: var(--h3-flow-slide-laptop-and-pad);
+    }
+    /* 合作流程 end */
 
     /* 作品集 電腦輪播圖 */
     .portfolio-block {
@@ -871,8 +926,9 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
         height: 275px;
     }
     .portfolio-slide-tab-list .tab {
-        height: 20px;
-        border-radius: 15px;
+        font-size: var(--p-portfolio-tab-size-laptop-and-pad);
+        height: var(--p-portfolio-tab-height-laptop-and-pad);
+        border-radius: var(--p-portfolio-tab-height-laptop-and-pad);
     }
     /* 作品集 end */
 
@@ -894,7 +950,26 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     }
     img {
         max-width: 300px;
+    }    
+    h1 {
+        font-size: var(--h1-mobile);
     }
+    h2 {
+        font-size: var(--h2-mobile);
+    }
+    h3 {
+        font-size: var(--h3-mobile);
+    }
+    p {
+        font-size: var(--p-mobile);
+    }
+    label {
+        font-size: var(--p-mobile);
+    }
+    a {
+        font-size: var(--p-mobile);
+    }
+    
 
     /* 上方導覽列 start */
     nav .text-bounce-bottom-container .text-bounce-bottom-box {
@@ -912,10 +987,11 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
     /* 網頁標頭 過場動畫 start */
     .header-animation .move-slogn-container {
-        font-size: 75px;        
-    }
-    .header-animation h1 {
-        font-size: 60px;       
+        height: var(--h1-mobile);
+        font-size: var(--h1-mobile);        
+    }    
+    .header-animation .center-title .slogan-little {
+        font-size: var(--p-slogan-mobile);
     }
     /* 網頁標頭 過場動畫 end */
 
@@ -927,18 +1003,19 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .price-work-flow img {
         display: none;
     }
+    .price-work-flow h3 {
+        font-size: var(--h3-flow-slide-mobile);
+    }
     .price-work-flow p {
-        font-size: 15px;
+        font-size: var(--p-mobile);
     }
     .price-work-flow .price-work-flow-slide .flow-tab-list label {
         font-size: 25px;
     }
-
     .price-work-flow-bounce-bottom-box {
         width: 4%;
         left: 1%;
     }
-
     .price-work-flow .price-work-flow-slide .flow-slide-list {
         width: 380px;
         height: 300px;
@@ -947,8 +1024,23 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
     /* 服務項目列表 start */
-    .service-list .service-list-title { /* h2 */
-        font-size: 50px;
+    .service-list {
+        flex-direction: column;
+    }
+    .service-list .right-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 80%;
+        height: 15%;
+    }    
+    .service-list .right-block h2 {
+        margin-bottom: 10%;
+    }
+    .service-list .left-block { 
+        margin: 0 50px;
     }
     .service-list img {
         display: none;
@@ -956,11 +1048,7 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .service-list .left-block {
         padding: 0 10px;
     }
-    .service-list .left-block .item h3 {
-        font-size: 25px;
-    }
     .service-list .left-block .item p {
-        font-size: 15px;
         line-height: 20px;
         padding: 10px 0;
     }
@@ -994,9 +1082,10 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
         width: 275px;     
         height: 165px;
     }
-    .portfolio-slide-tab-list .tab {
-        height: 20px;
-        border-radius: 15px;
+    .portfolio-slide-tab-list .tab {        
+        font-size: var(--p-portfolio-tab-size-mobile);
+        height: var(--p-portfolio-tab-height-mobile);
+        border-radius: var(--p-portfolio-tab-height-mobile);
     }
     /* 作品集 end */
 
