@@ -51,7 +51,8 @@ html {
 section {
     width: 100vw;
     height: 100vh;
-    min-height: 400px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
+    min-width: 320px;
+    min-height: 500px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
 
     display: flex;
     flex-direction: column;
@@ -250,12 +251,13 @@ nav .nav-centent .item-list .item img {
 /* 網頁標頭 過場動畫 start */
 .header-animation {
     height: 200vh;
+    position: relative;
 }
 
 .header-animation .head-right-little-img {
     position: absolute;
-    top: 8vh;
-    right: 15vw;
+    top: 8%;
+    right: 15%;
 }
 
 .header-animation .head-left-img {
@@ -365,22 +367,22 @@ nav .nav-centent .item-list .item img {
 
 .price-work-flow .left-little-img {
     position: absolute;
-    top: 35vh;
-    left: 10vw;
+    top: 35%;
+    left: 10%;
     width: 100px;
     z-index: var(--z-index-top4-background);
 }
 
 .price-work-flow .right-img {
     position: absolute;
-    top: 10vh;
-    right: 5vw;
+    top: 10%;
+    right: 5%;
     width: 500px;
     z-index: var(--z-index-top4-background);
 }
 
 .price-work-flow p {
-    max-width: 80vw;
+    max-width: 80%;
 
     color: var(--gray);
     line-height: 25px;
@@ -393,7 +395,7 @@ nav .nav-centent .item-list .item img {
 
 /* 報價流程-輪播圖 start */
 .price-work-flow-slide {
-    max-width: 80vw;
+    max-width: 80%;
     margin-top: 2%;
     display: flex;
     flex-direction: column;
@@ -560,8 +562,8 @@ input[type="radio"] {
 
 .service-list .left-block .left-img {
     position: absolute;
-    top: 10vh;
-    left: 15vw;
+    top: 10%;
+    left: 15%;
 }
 
 .service-list .left-block .item h3 {
