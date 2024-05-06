@@ -199,7 +199,7 @@ function animationH1Title(text) {
                 spanNext.classList.remove("fadeanimate");
             }
             console.log(i);
-        }, 40 * i);
+        }, 50 * i);
     }
 }
 /* h1標題 快速變色 end */
