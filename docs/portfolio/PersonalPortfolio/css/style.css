@@ -112,7 +112,7 @@ section {
   left: 0;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
   background: crimson;   
-  height: .8rem; 
+  height: 1.5rem; 
   width: 0;
   z-index: 100;
 }
@@ -144,7 +144,7 @@ section {
 
 .home .image img {
   /* img 圖形設寬不設高 */
-  width: 30rem;
+  width: 25rem;
   /* img 不規則圖形繪製 */
   border-radius: 30% 70% 70% 30%/30% 30% 70% 70%;
 }
@@ -152,8 +152,8 @@ section {
 .home .content {
   /* 教學 flex 三個值 flex-grow 、 flex-shrink 、 flex-basis */
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 42rem;
-          flex: 1 1 42rem;
+      -ms-flex: 1 1 35rem;
+          flex: 1 1 35rem;
 }
 
 .home .content h3 {
@@ -276,14 +276,14 @@ section {
 .portfolio .box-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(31rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+  -ms-grid-columns: (minmax(20rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
 
 .portfolio .box-container .box {
-  height: 30rem;
+  height: 25rem;
   overflow: hidden;
   position: relative;
 }
@@ -353,8 +353,8 @@ section {
 .blogs .box-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(31rem, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(31rem, 1fr));
+  -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   gap: 1.5rem;
 }
 

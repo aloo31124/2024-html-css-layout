@@ -8,7 +8,7 @@
     src: url("./fonts/DFPZongYiW9-B5.TTF") format("truetype");
 }
 @font-face {
-    font-family: "jf-openhuninn-2.0"; /* 自訂義 */
+    font-family: "jf-openhuninn-2.0"; /* 自訂義 粉圓字體 */
     src: url("./fonts/jf-openhuninn-2.0.ttf") format("truetype");
 }
 
@@ -69,6 +69,10 @@ h1 {
     font-family: "DFPZongYiW9-B5";
     font-weight: 400;
     font-style: normal;
+}
+span.fadeanimate {
+    color: var(--primary-orange);
+    transition: 0.5s;
 }
 h2 {
     font-size: 64px;

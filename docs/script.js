@@ -65,6 +65,10 @@ window.addEventListener('resize', () => {
 
 
 /* 偵測螢幕滾動 */
+
+
+animationH1Title(document.querySelector("h1"));
+
 window.onscroll = () => {
 
     /* 滑鼠滾動, 判斷:
@@ -77,7 +81,7 @@ window.onscroll = () => {
     if(headerAnimationTop <= scrollTop && scrollTop <= priceWorkFlowTop) {
         //scrollAndCheckNav(headerAnimationTop);
         scrollAndMoveSlogan();
-        fixedMoveTitle()
+        fixedMoveTitle();
     }
     /* 於 合作流程 滾動scroll */
     else if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop) {  
@@ -167,6 +171,38 @@ nav.addEventListener('mouseenter', function() {
 });
 
 
+/* h1標題 快速變色 start */
+function animationH1Title(text) {
+    const strText = text.textContent;
+    const splitText = strText.split("");
+    text.textContent = "";
+
+    for(let i=0; i<splitText.length; i++ ) {
+        text.innerHTML += "<span>" + splitText[i] + "</span>";
+    }
+
+    let spanListLength = text.querySelectorAll("span").length;
+    for(let i = 1; i < spanListLength + 3; i++) {
+        /* 閉包 */
+        window.setTimeout(function() {
+            if(i < text.querySelectorAll("span").length + 1) {
+                const span = text.querySelectorAll("span")[spanListLength - i];
+                span.classList.add("fadeanimate");
+            }
+
+            if(i >= 4) {
+                const spanNext = text.querySelectorAll("span")[spanListLength - i + 4];
+                spanNext.classList.remove("fadeanimate");
+            }
+            if(i == spanListLength + 2) {
+                const spanNext = text.querySelectorAll("span")[1];
+                spanNext.classList.remove("fadeanimate");
+            }
+            console.log(i);
+        }, 50 * i);
+    }
+}
+/* h1標題 快速變色 end */
 
 
 /* h2 標題 底色變色 start */
@@ -183,12 +219,10 @@ function animationText(text) {
 
     for(let i = 0; i < text.querySelectorAll("span").length; i++) {
         /* 閉包 */
-        (function(i){
-          window.setTimeout(function() {
+        window.setTimeout(function() {
             const span = text.querySelectorAll("span")[i];
             span.classList.add("fade");
-          }, 50 * i);
-        })(i);
+        }, 50 * i);
     }
 }
 
