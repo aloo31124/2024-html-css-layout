@@ -4,15 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>swiper-api</title>
-
-    <link
+<!-- 
+    <link 
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+ -->
+
+    <link rel="stylesheet" href="./swiper/swiper-bundle.css">
 
     <link rel="stylesheet" href="./style.css">
     <!-- 
         輪播圖 第三方套件
             => https://swiperjs.com/swiper-api
+
+            => 文章 https://ithelp.ithome.com.tw/articles/10321773
+            
      -->
 </head>
 <body>
@@ -32,17 +38,23 @@
         <!-- 下方分頁 按鈕 bar -->
         <div class="swiper-pagination"></div>
     
-        <!-- If we need navigation buttons -->
+        <!-- 左右按鈕 (上/下一頁) -->
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     
-        <!-- If we need scrollbar -->
+        <!-- 下方進度 bar -->
         <div class="swiper-scrollbar"></div>
     </div>
 
+    <div class="slide-tab-list">
+        <button onclick="slideTab(0)">Slide 1</button>
+        <button onclick="slideTab(1)">Slide 2</button>
+        <button onclick="slideTab(2)">Slide 3</button>
+        <button onclick="slideTab(3)">Slide 4</button>
+    </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
+    <script src="./swiper/swiper-bundle.js"></script>
     <script src="./script.js"></script>
 
 </body>
