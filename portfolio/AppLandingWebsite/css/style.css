@@ -99,6 +99,10 @@ section{
   font-size: 2.5rem;
 }
 
+.header .flex .logo span {
+  color:var(--red);
+}
+
 .header .flex .navbar a{
   font-size: 2rem;
   margin-left: 2.5rem;
@@ -131,6 +135,10 @@ section{
 .home .content h3{
   font-size: 6.5rem;
   color:var(--white);
+}
+
+.home .content h3 span {
+  color:var(--red);
 }
 
 .home .content p{
