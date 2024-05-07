@@ -147,10 +147,8 @@ function scrollAndMoveSlogan() {
 function fixedMoveTitle() {
     let headerAnimationTextContent = document.querySelector(".header-animation-text-content");
     headerAnimationTextContent.style.position = "fixed";
-    headerAnimationTextContent.style.bottom = "35vh";
     let iconDoubleDownArr = document.querySelector(".icon-double-down-arr");
     iconDoubleDownArr.style.position = "fixed";
-    iconDoubleDownArr.style.bottom = "10%";
 }
 
 /* 滑鼠滾動時, 到下一個 區塊section  網頁標頭 動畫標題 absolute 鎖住 上一層 */
