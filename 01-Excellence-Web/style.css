@@ -34,7 +34,7 @@
     /* 網頁標頭 大標題, 移動標題 */
     --h1-desktop-and-large: 7rem;
     --h1-laptop-and-pad: 6rem;
-    --h1-mobile: 3rem;
+    --h1-mobile: 2.5rem;
     /* 每個 區塊section 次標題h2: 報價流程, 服務項目, 作品集 */
     --h2-desktop-and-large: 5rem;
     --h2-laptop-and-pad: 4rem;
@@ -84,7 +84,7 @@ section {
     width: 100vw;
     height: 100vh;
     min-width: 320px;
-    min-height: 500px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
+    min-height: 700px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
 
     display: flex;
     flex-direction: column;
@@ -993,6 +993,9 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .header-animation .center-title .slogan-little {
         font-size: var(--p-slogan-mobile);
     }
+    .move-slogn-container {
+        opacity: 0.05;
+    }
     /* 網頁標頭 過場動畫 end */
 
 
@@ -1052,7 +1055,10 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     /* 服務項目列表 end */
 
 
-    /* 作品集 start */
+    /* 作品集 start */    
+    .portfolio-block {
+        border-radius: 50px 50px 0 0;
+    }
     .portfolio-block .portfolio-block-title { /* h2 */
         font-size: 50px;
     }

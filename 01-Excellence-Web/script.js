@@ -95,9 +95,12 @@ window.onscroll = () => {
         absoluteMoveTitle();
     }
 
+    if((priceWorkFlowTop * 0.75) <= scrollTop &&  scrollTop <=  priceWorkFlowTop && !isNavClose) {
+        navClose();
+    }
+
     /* 於 合作流程 滾動scroll */
-    if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop) {          
-        scrollAndCheckNav(priceWorkFlowTop);
+    if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop) { 
         if(isTitleChangePriceWorkFlow) {            
             animationText(document.querySelector(".price-work-flow-title"));
             isTitleChangePriceWorkFlow = false; 
@@ -105,15 +108,13 @@ window.onscroll = () => {
     }
     /* 於 服務項目 滾動scroll */
     else if(serviceListTop <= scrollTop && scrollTop <= portfolioBlockTop) {
-        scrollAndCheckNav(serviceListTop);
         if(isTitleChangeServiceList) {
             animationText(document.querySelector(".service-list-title"))
             isTitleChangeServiceList = false;
         }        
     }
     /* 於 作品集 滾動scroll */
-    else if(portfolioBlockTop <= scrollTop && scrollTop <= (portfolioBlockTop + 1000)) {
-        scrollAndCheckNav(portfolioBlockTop);        
+    else if(portfolioBlockTop <= scrollTop && scrollTop <= (portfolioBlockTop + 1000)) { 
         if(isTitleChangePortfolio) {
             animationText(document.querySelector(".portfolio-block-title"));
             isTitleChangePortfolio = false;
@@ -159,18 +160,7 @@ function absoluteMoveTitle() {
     iconDoubleDownArr.style.position = "absolute";
 }
 
-/* 滑鼠滾動, 導覽列 半透明 */
-function scrollAndCheckNav(SectionTop) {
-    if(
-        SectionTop + (viewportHeight * 0.1) < scrollTop &&
-        scrollTop < SectionTop + (viewportHeight * 0.8)
-    ) {
-        nav.style.opacity = 0.3;
-    } 
-    else {
-        nav.style.opacity = 0.8;
-    }
-}
+
 
 const nav = document.querySelector('.nav-centent');
 nav.addEventListener('mouseenter', function() {
@@ -335,7 +325,8 @@ function navClose() {
 
     navCentent.style.width = '55px';
     navCentent.style.height = '60px';
-    navCentent.style.transform = 'translateX('+ moveVw * 5 +'vw)';  
+    // 關閉 icon , 上下 間距一樣
+    navCentent.style.transform = 'translateX('+ moveVw * 5.5 +'vw)';  
     
     navShowIcon.style.display = "block";
     isNavClose = true;
