@@ -34,11 +34,11 @@
     /* 網頁標頭 大標題, 移動標題 */
     --h1-desktop-and-large: 7rem;
     --h1-laptop-and-pad: 6rem;
-    --h1-mobile: 4rem;
+    --h1-mobile: 3rem;
     /* 每個 區塊section 次標題h2: 報價流程, 服務項目, 作品集 */
     --h2-desktop-and-large: 5rem;
     --h2-laptop-and-pad: 4rem;
-    --h2-mobile: 3rem;
+    --h2-mobile: 2.5rem;
     /* 每個 區塊section 第三標題 h3 */
     --h3-desktop-and-large: 1.75rem;
     --h3-laptop-and-pad: 1.5rem;
@@ -50,7 +50,7 @@
     /* 內文 */
     --p-desktop-and-large: 1.25rem;
     --p-laptop-and-pad: 1.25rem;
-    --p-mobile: 1rem;
+    --p-mobile: 0.8rem;
     /* 網頁標頭 slogan */
     --p-slogan-desktop-and-large: calc(var(--p-desktop-and-large)*1.2);
     --p-slogan-laptop-and-pad: calc(var(--p-laptop-and-pad)*1.2);
@@ -1061,8 +1061,8 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     }
 
     /* 作品集 電腦輪播圖 */
-    .portfolio-block {
-        height: 110vh;
+    .portfolio-block p {
+        padding: 1rem 1rem;
     }
     .computer-background-img {
         width: 350px;    
@@ -1075,9 +1075,11 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
         position: relative;
         top: 20px;
         left: 34px;
-    
         width: 275px;     
         height: 165px;
+    }
+    .portfolio-slide-tab-list {
+        padding: 1rem 1rem;
     }
     .portfolio-slide-tab-list .tab {        
         font-size: var(--p-portfolio-tab-size-mobile);
