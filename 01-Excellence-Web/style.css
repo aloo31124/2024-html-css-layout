@@ -43,7 +43,7 @@
     --h3-desktop-and-large: 1.75rem;
     --h3-laptop-and-pad: 1.5rem;
     --h3-mobile: 1.25rem;
-    /* 報價流程 h3 客製設定 => h2 0.8倍縮小 */
+    /* 合作流程 h3 客製設定 => h2 0.8倍縮小 */
     --h3-flow-slide-desktop-and-large: calc(var(--h2-desktop-and-large)*0.8);
     --h3-flow-slide-laptop-and-pad: calc(var(--h2-laptop-and-pad)*0.8);
     --h3-flow-slide-mobile: calc(var(--h2-mobile)*0.8);
@@ -997,9 +997,6 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
     /* 報價流程 start */
-    .price-work-flow .price-work-flow-title { /* h2 */
-        font-size: 50px;
-    }
     .price-work-flow img {
         display: none;
     }

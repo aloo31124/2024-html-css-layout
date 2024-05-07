@@ -60,8 +60,7 @@ window.addEventListener('resize', () => {
         navCentent.style.width = "660px";
     } else if(!isNavClose){
         navCentent.style.width = "350px";        
-    }    
-    currentNavIndex = 1;
+    }
     showNavItemAnimate();
 });
 
@@ -123,7 +122,7 @@ window.onscroll = () => {
 
     /* scroll 到 合作流程 後, 導覽列 自動縮小 */
     if(scrollTop >= priceWorkFlowTop && !isNavClose) {
-        navClose();
+        //navClose();
     }
 }
 
@@ -244,30 +243,9 @@ function animationText(text) {
 
 
 /* ======================== 導覽列 start ======================== */
-let previousNavIndex = 1;
-let currentNavIndex = 1;
-let navItem1 = document.querySelector("#nav-item1");
-navItem1.addEventListener("click", () => {
-    currentNavIndex = 1;
-    showNavItemAnimate();
-});
-let navItem2 = document.querySelector("#nav-item2");
-navItem2.addEventListener("click", () => {
-    currentNavIndex = 2;
-    showNavItemAnimate();
-});
-let navItem3 = document.querySelector("#nav-item3");
-navItem3.addEventListener("click", () => {
-    currentNavIndex = 3;
-    showNavItemAnimate();
-});
-let navItem4 = document.querySelector("#nav-item4");
-navItem4.addEventListener("click", () => {
-    currentNavIndex = 4;
-    showNavItemAnimate();
-});
-
-function showNavItemAnimate() {
+let previousNavIndex = 1; /* 上一個 nav index */
+function showNavItemAnimate(index) {
+    let currentNavIndex = index;
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
     let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 藍色底線 位移方向為 左或右 */
     let moveDefault = isRight ? -150 : 150;
@@ -419,7 +397,6 @@ navShowIcon.addEventListener("click", () => {
     
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
     textBounceBottomBox.style.display = "flex";
-    currentNavIndex = 1;
     showNavItemAnimate();
     isNavClose = false
 });
@@ -659,8 +636,6 @@ function slideMove() {
 /* 報價輪播圖 藍色底線位移 */
 function showSlideList() {
     let textBounceBottomBox = document.querySelector(".price-work-flow-bounce-bottom-box");
-    //let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 nav導覽列 位移方向為 左或右 */
-    //let moveDefault = isRight ? -150 : 150;
     let moveDefault = 150;
     let deviceWidth = window.innerWidth;
 
@@ -692,5 +667,4 @@ function showSlideList() {
         duration: 800,
         iterations: 1,
       });
-      previousNavIndex = currentNavIndex;
 }
