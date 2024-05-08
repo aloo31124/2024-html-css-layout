@@ -65,6 +65,11 @@ window.addEventListener('resize', () => {
     /* 導覽列nav 所在高度top, 與其 底線動畫判斷 */
     checkNavTop();
 
+    /* 合作流程 輪播圖 流程 */
+    if(screenWidth < 900) {
+        clickFlowSlide(1);
+    }
+
 });
 
 
@@ -498,87 +503,22 @@ document.addEventListener("mousemove", (e) => {
 
 /* 報價流程 輪播圖 start */
 let moveIndex = 1; /* 需要移動至哪個 輪播圖塊 */
-function moveFlowSlide(index) {
+function clickFlowSlide(index) {
+    let deviceWidth = window.innerWidth;
+    if(deviceWidth <= 800) {
+        /* 小設備無 click事件 */
+        return;
+    }
+
     moveIndex = index;
+    moveFlowSlide();
+}
+function moveFlowSlide() {
     defaultStyle();
     setStyle();
     slideMove();
     showSlideList();
 }
-
-
-
-/* 報價流程 輪播圖 拖曳  */
-const slide1 = document.querySelector("#slide1");
-const slide2 = document.querySelector("#slide2");
-const slide3 = document.querySelector("#slide3");
-const slide4 = document.querySelector("#slide4");
-let isDrag = false;
-let _dragIndex = 1;
-slide1.addEventListener("mousedown", (event) => {
-    isDrag = true;
-    const currentX = event.clientX;
-    _dragIndex = 1;
-    dragIndex(currentX);
-});
-slide2.addEventListener("mousedown", (event) => {
-    isDrag = true;
-    const currentX = event.clientX;
-    _dragIndex = 2;
-    dragIndex(currentX);
-});
-slide3.addEventListener("mousedown", (event) => {
-    isDrag = true;
-    const currentX = event.clientX;
-    _dragIndex = 3;
-    dragIndex(currentX);
-});
-slide4.addEventListener("mousedown", (event) => {
-    isDrag = true;
-    const currentX = event.clientX;
-    _dragIndex = 4;
-    dragIndex(currentX);
-});
-function dragIndex(currentX) {
-    let previousX = currentX;
-
-    window.addEventListener('mousemove', function(event) {
-        const newX = event.clientX;
-        if(isDrag) {    
-            if (newX > previousX) { /* 向右邊滑動 */
-                if(_dragIndex == 1) {
-                } 
-                else if (_dragIndex == 2) {
-                    moveIndex = 1;
-                }
-                else if (_dragIndex == 3) {
-                    moveIndex = 2;
-                }
-                else if (_dragIndex == 4) {
-                    moveIndex = 3;
-                }
-            } else if (newX < previousX) {  /* 向左邊滑動 */
-                if(_dragIndex == 1) {
-                    moveIndex = 2;
-                }
-                else if (_dragIndex == 2) {
-                    moveIndex = 3;
-                }
-                else if (_dragIndex == 3) {
-                    moveIndex = 4;
-                }
-                else if (_dragIndex == 4) {
-                }
-            }
-            defaultStyle();
-            setStyle();
-            slideMove();
-        }
-    });
-}
-slide1.addEventListener("mouseup", (event) => {
-    isDrag = false;
-});
 /* 初始樣式 */
 function defaultStyle() {
     const svgImg1 = document.querySelector("#svgImg1");
@@ -589,6 +529,10 @@ function defaultStyle() {
     const svgImg3click = document.querySelector("#svgImg3click");
     const svgImg4 = document.querySelector("#svgImg4");
     const svgImg4click = document.querySelector("#svgImg4click");
+    const flowIcon1 = document.querySelector("#flowIcon1");
+    const flowIcon2 = document.querySelector("#flowIcon2");
+    const flowIcon3 = document.querySelector("#flowIcon3");
+    const flowIcon4 = document.querySelector("#flowIcon4");
 
     svgImg1.style.display = "flex";
     svgImg2.style.display = "flex";
@@ -599,6 +543,11 @@ function defaultStyle() {
     svgImg2click.style.display = "none";
     svgImg3click.style.display = "none";
     svgImg4click.style.display = "none";
+
+    flowIcon1.style.width = "10px";
+    flowIcon2.style.width = "10px";
+    flowIcon3.style.width = "10px";
+    flowIcon4.style.width = "10px";
 }
 defaultStyle();
 setStyle();
@@ -613,22 +562,30 @@ function setStyle(){
     const svgImg3click = document.querySelector("#svgImg3click");
     const svgImg4 = document.querySelector("#svgImg4");
     const svgImg4click = document.querySelector("#svgImg4click");
+    const flowIcon1 = document.querySelector("#flowIcon1");
+    const flowIcon2 = document.querySelector("#flowIcon2");
+    const flowIcon3 = document.querySelector("#flowIcon3");
+    const flowIcon4 = document.querySelector("#flowIcon4");
 
     if(moveIndex == 1) {
         svgImg1click.style.display = "flex";
         svgImg1.style.display = "none";
+        flowIcon1.style.width = "20px";
     }
     else if(moveIndex == 2) {
         svgImg2click.style.display = "flex";
         svgImg2.style.display = "none";
+        flowIcon2.style.width = "20px";
     }
     else if(moveIndex == 3) {
         svgImg3click.style.display = "flex";
         svgImg3.style.display = "none";
+        flowIcon3.style.width = "20px";
     }
     else if(moveIndex == 4) {
         svgImg4click.style.display = "flex";
         svgImg4.style.display = "none";
+        flowIcon4.style.width = "20px";
     }
 }
 
@@ -674,3 +631,79 @@ function showSlideList() {
         iterations: 1,
       });
 }
+
+
+
+/* 報價流程 輪播圖 拖曳  
+const slide1 = document.querySelector("#slide1");
+const slide2 = document.querySelector("#slide2");
+const slide3 = document.querySelector("#slide3");
+const slide4 = document.querySelector("#slide4");
+let isDrag = false;
+let _dragIndex = 1;
+slide1.addEventListener("mousedown", (event) => {
+    isDrag = true;
+    const currentX = event.clientX;
+    _dragIndex = 1;
+    dragIndex(currentX);
+});
+slide2.addEventListener("mousedown", (event) => {
+    isDrag = true;
+    const currentX = event.clientX;
+    _dragIndex = 2;
+    dragIndex(currentX);
+});
+slide3.addEventListener("mousedown", (event) => {
+    isDrag = true;
+    const currentX = event.clientX;
+    _dragIndex = 3;
+    dragIndex(currentX);
+});
+slide4.addEventListener("mousedown", (event) => {
+    isDrag = true;
+    const currentX = event.clientX;
+    _dragIndex = 4;
+    dragIndex(currentX);
+});
+function dragIndex(currentX) {
+    let previousX = currentX;
+
+    window.addEventListener('mousemove', function(event) {
+        const newX = event.clientX;
+        if(isDrag) {    
+            if (newX > previousX) {
+                if(_dragIndex == 1) {
+                } 
+                else if (_dragIndex == 2) {
+                    moveIndex = 1;
+                }
+                else if (_dragIndex == 3) {
+                    moveIndex = 2;
+                }
+                else if (_dragIndex == 4) {
+                    moveIndex = 3;
+                }
+            } else if (newX < previousX) {  
+                if(_dragIndex == 1) {
+                    moveIndex = 2;
+                }
+                else if (_dragIndex == 2) {
+                    moveIndex = 3;
+                }
+                else if (_dragIndex == 3) {
+                    moveIndex = 4;
+                }
+                else if (_dragIndex == 4) {
+                }
+            }
+            defaultStyle();
+            setStyle();
+            slideMove();
+        }
+    });
+}
+slide1.addEventListener("mouseup", (event) => {
+    isDrag = false;
+});
+*/
+

@@ -463,6 +463,9 @@ nav .nav-centent .item-list .item img {
 .price-work-flow-slide .flow-tab-list .fa-arrow-right {
     font-size: var(--p-desktop-and-large);
 }
+.price-work-flow-slide .flow-tab-list .fa-arrow-down {
+    display: none;
+}
 
 .flow-slide-list {
     position: relative;
@@ -1029,6 +1032,10 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
 
     /* 報價流程 start */
+    .price-work-flow {
+        justify-content: flex-start;
+        height: 900px;
+    }
     .price-work-flow img {
         display: none;
     }
@@ -1038,16 +1045,54 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .price-work-flow p {
         font-size: var(--p-mobile);
     }
-    .price-work-flow .price-work-flow-slide .flow-tab-list label {
-        font-size: 25px;
+
+    .price-work-flow .price-work-flow-slide {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .price-work-flow .price-work-flow-slide .flow-tab-list {
+        /* 流程 icon tab list 改垂直 */
+        flex-direction: column;
+        justify-content: space-around;
+        height: 640px;
+    }
+    .price-work-flow .price-work-flow-slide .flow-tab-list .flow-tab {
+        width: var(--h3-flow-slide-mobile);
     }
     .price-work-flow-bounce-bottom-box {
-        width: 4%;
-        left: 1%;
+        display: none;
+    }
+    .fa-arrow-right {
+        display: none;
+    }
+    .price-work-flow-slide .flow-tab-list  .fa-arrow-down {
+        display: block;
     }
     .price-work-flow .price-work-flow-slide .flow-slide-list {
-        width: 380px;
-        height: 300px;
+        /* 垂直流程內容 */
+        width: 280px;
+        height: 180px;
+        flex-direction: column;
+        overflow:initial;
+    }
+    .flow-slide-list .slide:nth-of-type(1) {
+        left: 0;
+        top: 0;
+    }
+    .flow-slide-list .slide:nth-of-type(2) {
+        left: 0;
+        top: 100%;
+    }
+    .flow-slide-list .slide:nth-of-type(3) {
+        left: 0;
+        top: 200%;
+    }
+    .flow-slide-list .slide:nth-of-type(4) {
+        left: 0;
+        top: 300%;
+    }
+    .flow-button-icon-list {
+        display: none;
     }
     /* 報價流程 end */
 
