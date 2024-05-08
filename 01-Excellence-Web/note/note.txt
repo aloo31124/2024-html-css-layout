@@ -1,0 +1,17 @@
+
+
+
+================================================================================================
+05/08
+svg 應用 => 如何崁入 並 js 取得 ? 如何 js 改變顏色
+=> object
+
+    <object id="svgImg1" data="./images/flow-slide/flowIcon1.svg" type="image/svg+xml"></object>
+
+    const svg1 = document.querySelector("#svgImg1");
+    svg1.style.display = "none";
+
+
+================================================================================================
+
+

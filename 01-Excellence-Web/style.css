@@ -449,16 +449,19 @@ nav .nav-centent .item-list .item img {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-width: 350px;
     padding: 5px 0;
 
     z-index: var(--z-index-top2-click);
     position: relative;
 }
 
-.price-work-flow-slide .flow-tab-list label {
-    font-size: 45px;
-    color: var(--gray);
+.price-work-flow-slide .flow-tab-list .flow-tab {
+    width: var(--h2-desktop-and-large);
+    z-index: var(--z-index-top2-click);
+}
+
+.price-work-flow-slide .flow-tab-list .fa-arrow-right {
+    font-size: var(--p-desktop-and-large);
 }
 
 .flow-slide-list {
@@ -478,8 +481,8 @@ nav .nav-centent .item-list .item img {
     height: 5px;
     width: 7%;
     position: relative;
-    bottom: -1%;
-    left: 4%;
+    bottom: -2px;
+    left: 25px;
 
     display: flex;
     flex-direction: column;

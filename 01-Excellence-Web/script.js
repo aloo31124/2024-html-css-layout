@@ -177,7 +177,6 @@ function animationH1Title(text) {
                 const spanNext = text.querySelectorAll("span")[1];
                 spanNext.classList.remove("fadeanimate");
             }
-            console.log(i);
         }, 50 * i);
     }
 }
@@ -271,7 +270,7 @@ function moveBlueBottom() {
 function checkNavTop() {
     if((priceWorkFlowTop * 0.65)<=scrollTop && scrollTop<=(priceWorkFlowTop * 0.8) && !isNavClose) {
         /* scroll 到 合作流程 前, 導覽列 自動縮小 */
-        //navClose();
+        navClose();
     }
 
     if(!isCheckNavTop) {
@@ -582,34 +581,54 @@ slide1.addEventListener("mouseup", (event) => {
 });
 /* 初始樣式 */
 function defaultStyle() {
-    flowTab1.style.color = "#231F20";
-    flowTab2.style.color = "#231F20";
-    flowTab3.style.color = "#231F20";
-    flowTab4.style.color = "#231F20";
-    
-    flowIcon1.style.width = "10px";
-    flowIcon2.style.width = "10px";
-    flowIcon3.style.width = "10px";
-    flowIcon4.style.width = "10px";
+    const svgImg1 = document.querySelector("#svgImg1");
+    const svgImg1click = document.querySelector("#svgImg1click");
+    const svgImg2 = document.querySelector("#svgImg2");
+    const svgImg2click = document.querySelector("#svgImg2click");
+    const svgImg3 = document.querySelector("#svgImg3");
+    const svgImg3click = document.querySelector("#svgImg3click");
+    const svgImg4 = document.querySelector("#svgImg4");
+    const svgImg4click = document.querySelector("#svgImg4click");
+
+    svgImg1.style.display = "flex";
+    svgImg2.style.display = "flex";
+    svgImg3.style.display = "flex";
+    svgImg4.style.display = "flex";
+
+    svgImg1click.style.display = "none";
+    svgImg2click.style.display = "none";
+    svgImg3click.style.display = "none";
+    svgImg4click.style.display = "none";
 }
+defaultStyle();
+setStyle();
 
 /* 位移前 相關 tab, icon 變色,樣式改變 */
 function setStyle(){
+    const svgImg1 = document.querySelector("#svgImg1");
+    const svgImg1click = document.querySelector("#svgImg1click");
+    const svgImg2 = document.querySelector("#svgImg2");
+    const svgImg2click = document.querySelector("#svgImg2click");
+    const svgImg3 = document.querySelector("#svgImg3");
+    const svgImg3click = document.querySelector("#svgImg3click");
+    const svgImg4 = document.querySelector("#svgImg4");
+    const svgImg4click = document.querySelector("#svgImg4click");
+
     if(moveIndex == 1) {
-        flowTab1.style.color = "#F1B41B";
-        flowIcon1.style.width = "20px";
+        svgImg1click.style.display = "flex";
+        svgImg1.style.display = "none";
     }
     else if(moveIndex == 2) {
-        flowTab2.style.color = "#F1B41B";
-        flowIcon2.style.width = "20px";
+        svgImg2click.style.display = "flex";
+        svgImg2.style.display = "none";
     }
     else if(moveIndex == 3) {
-        flowTab3.style.color = "#F1B41B";
-        flowIcon3.style.width = "20px";
+        svgImg3click.style.display = "flex";
+        svgImg3.style.display = "none";
     }
     else if(moveIndex == 4) {
-        flowTab4.style.color = "#F1B41B";
-        flowIcon4.style.width = "20px";
+        svgImg4click.style.display = "flex";
+        svgImg4.style.display = "none";
     }
 }
 
@@ -629,16 +648,11 @@ function slideMove() {
 function showSlideList() {
     let textBounceBottomBox = document.querySelector(".price-work-flow-bounce-bottom-box");
     let moveDefault = 150;
-    let deviceWidth = window.innerWidth;
 
-    let styleLeft = 4;
-    let styleLeftSpace = 28.25;
-    if(deviceWidth < 800) {
-        styleLeft = 1;
-        styleLeftSpace = 31.25;
-    } 
+    let styleLeft = 25;
+    let styleLeftSpace = 98;
 
-    textBounceBottomBox.style.left = (styleLeft + (moveIndex - 1) * styleLeftSpace) + "%";
+    textBounceBottomBox.style.left = (styleLeft + (moveIndex - 1) * styleLeftSpace) + "px";
     //textBounceBottomBox.style.transition  = "0.5s"; // 會造成水平位移 彈跳效果
 
     let textBounceBottom = document.querySelector(".price-work-flow-bounce-bottom");
