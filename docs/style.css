@@ -34,7 +34,7 @@
     /* 網頁標頭 大標題, 移動標題 */
     --h1-desktop-and-large: 7rem;
     --h1-laptop-and-pad: 6rem;
-    --h1-mobile: 3rem;
+    --h1-mobile: 2.5rem;
     /* 每個 區塊section 次標題h2: 報價流程, 服務項目, 作品集 */
     --h2-desktop-and-large: 5rem;
     --h2-laptop-and-pad: 4rem;
@@ -84,7 +84,7 @@ section {
     width: 100vw;
     height: 100vh;
     min-width: 320px;
-    min-height: 500px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
+    min-height: 700px; /* 避免 瀏覽器 高度過矮 被擠壓破版 */
 
     display: flex;
     flex-direction: column;
@@ -200,6 +200,7 @@ nav {
     justify-content: center;
     margin: 0.5% auto;
     position: fixed;
+    top: 3.5px;
     z-index: var(--z-index-top1-nav);
 }
 
@@ -214,15 +215,16 @@ nav .text-bounce-bottom-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
     /* align-items: center;  */ /* 造成 藍色底線無法位移*/
 }
 
 nav .text-bounce-bottom-box {
     height: 5px;
     width: 7%;
-    position: relative;
-    top: -15%;
-    left: 20%;
+    position: absolute;
+    bottom: -4px;
+    left: 55px;
 
     display: flex;
     flex-direction: column;
@@ -245,15 +247,20 @@ nav .nav-centent {
 
     background: var(--primary-white);
 
-    padding: 0 5px;
     height: 60px;
     border-radius: 30px;
     box-shadow: 1px 5px 10px var(--light-gray);
 }
 
-nav .nav-centent .logo img {
+nav .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+}
+
+nav .logo img {
     width: 40px;
-    padding: 0 0 0 20px;
 }
 
 nav .nav-centent .item-list {
@@ -261,11 +268,11 @@ nav .nav-centent .item-list {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
 }
 
 
 nav .nav-centent .item-list .item {
+    width: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,6 +280,9 @@ nav .nav-centent .item-list .item {
     cursor: pointer;
     white-space:nowrap;
     transition: 1s;
+}
+nav .fa-close {
+    padding: 1rem;
 }
 
 
@@ -439,16 +449,22 @@ nav .nav-centent .item-list .item img {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    min-width: 350px;
     padding: 5px 0;
 
     z-index: var(--z-index-top2-click);
     position: relative;
 }
 
-.price-work-flow-slide .flow-tab-list label {
-    font-size: 45px;
-    color: var(--gray);
+.price-work-flow-slide .flow-tab-list .flow-tab {
+    width: var(--h2-desktop-and-large);
+    z-index: var(--z-index-top2-click);
+}
+
+.price-work-flow-slide .flow-tab-list .fa-arrow-right {
+    font-size: var(--p-desktop-and-large);
+}
+.price-work-flow-slide .flow-tab-list .fa-arrow-down {
+    display: none;
 }
 
 .flow-slide-list {
@@ -468,8 +484,8 @@ nav .nav-centent .item-list .item img {
     height: 5px;
     width: 7%;
     position: relative;
-    bottom: -1%;
-    left: 4%;
+    bottom: -2px;
+    left: 25px;
 
     display: flex;
     flex-direction: column;
@@ -973,14 +989,30 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
     /* 上方導覽列 start */
     nav .text-bounce-bottom-container .text-bounce-bottom-box {
-        left: 29%;
         width: 7px;
+        left: 28.5px;
     }
-    nav .text-bounce-bottom-container .nav-centent {
-        width: 350px;
+    nav .logo {
+        margin-left: 25px;
     }
-    nav .text-bounce-bottom-container .nav-centent .item-list label {
+    nav .logo img {
+        width: 35px;
+    }
+    nav .nav-centent {
+        width: 430px;
+    }
+    nav .text-bounce-bottom-container {
+        width: 260px;
+    }
+    nav .item-list {
+        width: 260px;
+    }
+    nav .item-list label {
         display: none;
+    }
+    nav .item-list .item {
+        width: 10px;
+        padding: 0;
     }
     /* 上方導覽列 end */
     
@@ -993,10 +1025,17 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .header-animation .center-title .slogan-little {
         font-size: var(--p-slogan-mobile);
     }
+    .move-slogn-container {
+        opacity: 0.05;
+    }
     /* 網頁標頭 過場動畫 end */
 
 
     /* 報價流程 start */
+    .price-work-flow {
+        justify-content: flex-start;
+        height: 900px;
+    }
     .price-work-flow img {
         display: none;
     }
@@ -1006,16 +1045,54 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     .price-work-flow p {
         font-size: var(--p-mobile);
     }
-    .price-work-flow .price-work-flow-slide .flow-tab-list label {
-        font-size: 25px;
+
+    .price-work-flow .price-work-flow-slide {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .price-work-flow .price-work-flow-slide .flow-tab-list {
+        /* 流程 icon tab list 改垂直 */
+        flex-direction: column;
+        justify-content: space-around;
+        height: 640px;
+    }
+    .price-work-flow .price-work-flow-slide .flow-tab-list .flow-tab {
+        width: var(--h3-flow-slide-mobile);
     }
     .price-work-flow-bounce-bottom-box {
-        width: 4%;
-        left: 1%;
+        display: none;
+    }
+    .fa-arrow-right {
+        display: none;
+    }
+    .price-work-flow-slide .flow-tab-list  .fa-arrow-down {
+        display: block;
     }
     .price-work-flow .price-work-flow-slide .flow-slide-list {
-        width: 380px;
-        height: 300px;
+        /* 垂直流程內容 */
+        width: 280px;
+        height: 180px;
+        flex-direction: column;
+        overflow:initial;
+    }
+    .flow-slide-list .slide:nth-of-type(1) {
+        left: 0;
+        top: 0;
+    }
+    .flow-slide-list .slide:nth-of-type(2) {
+        left: 0;
+        top: 100%;
+    }
+    .flow-slide-list .slide:nth-of-type(3) {
+        left: 0;
+        top: 200%;
+    }
+    .flow-slide-list .slide:nth-of-type(4) {
+        left: 0;
+        top: 300%;
+    }
+    .flow-button-icon-list {
+        display: none;
     }
     /* 報價流程 end */
 
@@ -1052,7 +1129,10 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
     /* 服務項目列表 end */
 
 
-    /* 作品集 start */
+    /* 作品集 start */    
+    .portfolio-block {
+        border-radius: 50px 50px 0 0;
+    }
     .portfolio-block .portfolio-block-title { /* h2 */
         font-size: 50px;
     }

@@ -17,39 +17,39 @@
 
     <!-- 上方導覽列 start -->
     <nav>
-        <div class="text-bounce-bottom-container">
             <div class="nav-centent">
-                <a href="#" onclick="showNavItemAnimate(1)" class="logo">
+                <a href="#" onclick="clickNavItem(1)" class="logo">
                     <img src="images/logo/logo-shadow.png">
                 </a>
-                <div class="item-list">
-                    <a class="item" onclick="showNavItemAnimate(1)" href="#price-work-flow">
-                        <img src="./images/icon/icon_handshake.svg">
-                        <label>合作流程</label>
-                    </a>
-                    <a class="item" onclick="showNavItemAnimate(2)" href="#service-list">
-                        <img src="./images/icon/icon_menu.svg">
-                        <label>服務項目</label>
-                    </a>
-                    <a class="item" onclick="showNavItemAnimate(3)" href="#portfolio-block">
-                        &nbsp;
-                        <img src="./images/icon/icon_2_img.svg">
-                        <label>作品集</label>
-                        &nbsp;
-                    </a>
-                    <a class="item" onclick="showNavItemAnimate(4)" href="#footer">
-                        <img src="./images/icon/icon_phone.svg">
-                        <label>聯絡我們</label>
-                    </a>
-                    <i class="item fa fa-close" id="nav-close" style="margin-left: 10px;"></i>
+                <div class="text-bounce-bottom-container">
+                    <div class="item-list">
+                        <a class="item" onclick="clickNavItem(1)" href="#price-work-flow">
+                            <img src="./images/icon/icon_handshake.svg">
+                            <label>合作流程</label>
+                        </a>
+                        <a class="item" onclick="clickNavItem(2)" href="#service-list">
+                            <img src="./images/icon/icon_menu.svg">
+                            <label>服務項目</label>
+                        </a>
+                        <a class="item" onclick="clickNavItem(3)" href="#portfolio-block">
+                            &nbsp;
+                            <img src="./images/icon/icon_2_img.svg">
+                            <label>作品集</label>
+                            &nbsp;
+                        </a>
+                        <a class="item" onclick="clickNavItem(4)" href="#footer">
+                            <img src="./images/icon/icon_phone.svg">
+                            <label>聯絡我們</label>
+                        </a>
+                    </div>
+                    <!-- 藍色彈性底線 -->
+                    <div class="text-bounce-bottom-box">
+                        <div class="text-bounce-bottom"></div>
+                    </div>
                 </div>
+                <i class="fa fa-close" id="nav-close" style="margin-right: 10px;"></i>
                 <i class="fa fa-bars" id="nav-show"></i>
             </div>
-            <!-- 藍色彈性底線 -->
-            <div class="text-bounce-bottom-box">
-                <div class="text-bounce-bottom"></div>
-            </div>
-        </div>
     </nav>
     <!-- 上方導覽列 end -->
 
@@ -91,13 +91,28 @@
         <div class="price-work-flow-slide">
             <div class="flow-tab-list-container">
                 <div class="flow-tab-list">
-                    <label id="flowTab1" class="fas fa-search" style="color:#F1B41B"></label>
+                    <div class="flow-tab" onclick="clickFlowSlide(1)">
+                        <img id="svgImg1" src="./images/flow-slide/flowIcon1.svg"></img>
+                        <img id="svgImg1click" src="./images/flow-slide/flowIcon1click.svg"></img>                        
+                    </div>
                     <div class="fa fa-arrow-right" aria-hidden="true"></div>
-                    <label id="flowTab2" class="fas fa-file-code"></label>
+                    <div class="fa fa-arrow-down" aria-hidden="true"></div>
+                    <div class="flow-tab" onclick="clickFlowSlide(2)">
+                        <img id="svgImg2" src="./images/flow-slide/flowIcon2.svg"></img>
+                        <img id="svgImg2click" src="./images/flow-slide/flowIcon2click.svg"></img>   
+                    </div>
                     <div class="fa fa-arrow-right" aria-hidden="true"></div>
-                    <label id="flowTab3" class="fas fa-check-square"></label>
+                    <div class="fa fa-arrow-down" aria-hidden="true"></div>
+                    <div class="flow-tab" onclick="clickFlowSlide(3)">
+                        <img id="svgImg3" src="./images/flow-slide/flowIcon3.svg"></img>
+                        <img id="svgImg3click" src="./images/flow-slide/flowIcon3click.svg"></img>   
+                    </div>
                     <div class="fa fa-arrow-right" aria-hidden="true"></div>
-                    <label id="flowTab4" class="fas fa-upload"></label>
+                    <div class="fa fa-arrow-down" aria-hidden="true"></div>
+                    <div class="flow-tab" onclick="clickFlowSlide(4)">
+                        <img id="svgImg4" src="./images/flow-slide/flowIcon4.svg"></img>
+                        <img id="svgImg4click" src="./images/flow-slide/flowIcon4click.svg"></img>   
+                    </div>
                 </div>
                 <!-- 藍色彈性底線 -->
                 <div class="price-work-flow-bounce-bottom-box">
@@ -131,7 +146,7 @@
                         </p>
                     </li>
                     <li class="slide" id="slide4">
-                        <h3>04 維護持續優化</h3>
+                        <h3>04. 持續優化</h3>
                         <p>
                             1. 上架後若有任何疑問, 都能協助您維護與強化。
                             <br>
@@ -140,10 +155,10 @@
                     </li>
 
                     <div class="flow-button-icon-list">
-                        <label id="flowIcon1"></label>
-                        <label id="flowIcon2"></label>
-                        <label id="flowIcon3"></label>
-                        <label id="flowIcon4"></label>
+                        <label id="flowIcon1" onclick="clickFlowSlide(1)"></label>
+                        <label id="flowIcon2" onclick="clickFlowSlide(2)"></label>
+                        <label id="flowIcon3" onclick="clickFlowSlide(3)"></label>
+                        <label id="flowIcon4" onclick="clickFlowSlide(4)"></label>
                     </div>
             </ul>
         </div>
