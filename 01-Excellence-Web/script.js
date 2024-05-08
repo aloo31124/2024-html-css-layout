@@ -66,8 +66,9 @@ window.addEventListener('resize', () => {
     checkNavTop();
 
     /* 合作流程 輪播圖 流程 */
-    if(screenWidth < 900) {
-        clickFlowSlide(1);
+    if(screenWidth < 800) {
+        moveIndex = 1;
+        moveFlowSlide();
     }
 
 });
