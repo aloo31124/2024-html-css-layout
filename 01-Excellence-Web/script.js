@@ -45,12 +45,12 @@ const headerAnimationTop = document.querySelector('.header-animation').offsetTop
 const priceWorkFlowTop = document.querySelector('.price-work-flow').offsetTop;
 const serviceListTop = document.querySelector('.service-list').offsetTop;
 const portfolioBlockTop = document.querySelector('.portfolio-block').offsetTop;
+const closedfooter = portfolioBlockTop * 1.05;
 const viewportHeight = window.innerHeight; // 取得當前設備 100vh 之 px
 let scrollTop = 0;
 let isTitleChangePriceWorkFlow = true;
 let isTitleChangeServiceList = true;
 let isTitleChangePortfolio = true;
-let isNavClose = false;
 
 /* 偵測 瀏覽器 改變寬度 */
 window.addEventListener('resize', () => {
@@ -61,25 +61,27 @@ window.addEventListener('resize', () => {
     } else if(!isNavClose){
         navCentent.style.width = "350px";        
     }
-    showNavItemAnimate();
+
+    /* 導覽列nav 所在高度top, 與其 底線動畫判斷 */
+    checkNavTop();
 });
-
-
 
 
 /* 重整瀏覽器時 標頭動畫 定位方式 */
 window.addEventListener('DOMContentLoaded', () => {
     scrollTop = window.scrollY;
-    
     if(headerAnimationTop <= scrollTop && scrollTop <= (priceWorkFlowTop * 0.5)) {
         scrollAndMoveSlogan();
-        fixedMoveTitle();
+        fixedHeader();
     } else {
-        absoluteMoveTitle();
+        absoluteHeader();
     }
-  });
 
-/* 偵測螢幕滾動 */
+    /* 導覽列nav 所在高度top, 與其 底線動畫判斷 */
+    checkNavTop();
+});
+
+/* -------- 偵測螢幕滾動 start -------- */
 window.onscroll = () => {
     /* 滑鼠滾動, 判斷:
         => 1. nav 導覽列 是否透明
@@ -87,46 +89,38 @@ window.onscroll = () => {
         => 3. 每個 section h2標題變色 
     */
     scrollTop = window.scrollY;
+
+
     /* 於 標頭動畫 滾動scroll */
     if(headerAnimationTop <= scrollTop && scrollTop <= (priceWorkFlowTop * 0.5)) {
         scrollAndMoveSlogan();
-        fixedMoveTitle();
+        fixedHeader();
     } else {
-        absoluteMoveTitle();
+        absoluteHeader();
     }
 
-    if((priceWorkFlowTop * 0.75) <= scrollTop &&  scrollTop <=  priceWorkFlowTop && !isNavClose) {
-        navClose();
-    }
+    /* 導覽列nav 所在高度top, 與其 底線動畫判斷 */
+    checkNavTop();
 
-    /* 於 合作流程 滾動scroll */
-    if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop) { 
-        if(isTitleChangePriceWorkFlow) {            
-            animationText(document.querySelector(".price-work-flow-title"));
-            isTitleChangePriceWorkFlow = false; 
-        }
+    /* 判斷 section h2 標題 */
+    if(priceWorkFlowTop <= scrollTop && scrollTop <= serviceListTop && isTitleChangePriceWorkFlow) { 
+        animationText(document.querySelector(".price-work-flow-title"));
+        isTitleChangePriceWorkFlow = false; 
     }
-    /* 於 服務項目 滾動scroll */
-    else if(serviceListTop <= scrollTop && scrollTop <= portfolioBlockTop) {
-        if(isTitleChangeServiceList) {
-            animationText(document.querySelector(".service-list-title"))
-            isTitleChangeServiceList = false;
-        }        
+    else if(serviceListTop <= scrollTop && scrollTop <= portfolioBlockTop && isTitleChangeServiceList) {
+        animationText(document.querySelector(".service-list-title"))
+        isTitleChangeServiceList = false;     
     }
-    /* 於 作品集 滾動scroll */
-    else if(portfolioBlockTop <= scrollTop && scrollTop <= (portfolioBlockTop + 1000)) { 
-        if(isTitleChangePortfolio) {
-            animationText(document.querySelector(".portfolio-block-title"));
-            isTitleChangePortfolio = false;
-        }  
-    }
-
-    /* scroll 到 合作流程 後, 導覽列 自動縮小 */
-    if(scrollTop >= priceWorkFlowTop && !isNavClose) {
-        //navClose();
+    else if(portfolioBlockTop <= scrollTop && scrollTop <= (portfolioBlockTop + 1000) && isTitleChangePortfolio) { 
+        animationText(document.querySelector(".portfolio-block-title"));
+        isTitleChangePortfolio = false;
     }
 }
+/* -------- 偵測螢幕滾動 end -------- */
+/* ======================== scroll end ======================== */
 
+
+/* ======================== 網頁標頭 與 section 動畫效果 start ======================== */
 /* 滑鼠滾動時, 網頁標頭 水平移動動畫 */
 function scrollAndMoveSlogan() {
     /* 水平位移 */
@@ -139,35 +133,22 @@ function scrollAndMoveSlogan() {
     if(percentage < 100) { /* 40~100 */
         moveSlognRight.style.right = percentage + "vw";
         moveSlognLeft.style.left = percentage + "vw";
-    }
-
-    
+    }    
 }
-
 /* 滑鼠滾動時, 回到 標頭區塊section  網頁標頭 動畫標題 fiexed 鎖住 螢幕上 */
-function fixedMoveTitle() {
+function fixedHeader() {
     let headerAnimationTextContent = document.querySelector(".header-animation-text-content");
     headerAnimationTextContent.style.position = "fixed";
     let iconDoubleDownArr = document.querySelector(".icon-double-down-arr");
     iconDoubleDownArr.style.position = "fixed";
 }
-
 /* 滑鼠滾動時, 到下一個 區塊section  網頁標頭 動畫標題 absolute 鎖住 上一層 */
-function absoluteMoveTitle() {
+function absoluteHeader() {
     let headerAnimationTextContent = document.querySelector(".header-animation-text-content");
     headerAnimationTextContent.style.position = "absolute";
     let iconDoubleDownArr = document.querySelector(".icon-double-down-arr");
     iconDoubleDownArr.style.position = "absolute";
 }
-
-
-
-const nav = document.querySelector('.nav-centent');
-nav.addEventListener('mouseenter', function() {
-    nav.style.opacity = 1;
-});
-
-
 /* h1標題 快速變色 start */
 function animationH1Title(text) {
     const strText = text.textContent;
@@ -199,12 +180,7 @@ function animationH1Title(text) {
         }, 50 * i);
     }
 }
-/* h1標題 快速變色 end */
-
-
 /* h2 標題 底色變色 start */
-/* text-color-transition */
-
 function animationText(text) {
     const strText = text.textContent;
     const splitText = strText.split("");
@@ -222,21 +198,41 @@ function animationText(text) {
         }, 50 * i);
     }
 }
-
 /* h2 標題 底色變色 end */
-
-/* ======================== scroll end ======================== */
-
+/* ======================== 網頁標頭 與 section 動畫效果 end ======================== */
 
 
 
-/* ======================== 導覽列 start ======================== */
+
+
+/* ======================== 導覽列nav start ======================== */
 let previousNavIndex = 1; /* 上一個 nav index */
-function showNavItemAnimate(index) {
-    let currentNavIndex = index;
+let currentNavIndex = 1;
+let isCheckNavTop = true;
+let isNavChangePriceWorkFlow = false;
+let isNavChangeServiceList = true;
+let isNavChangePortfolio = true;
+let isNavFooter = true;
+let isNavClose = false;
+
+/* 導覽列nav 項目item 被點選 */
+function clickNavItem(index) {
+    currentNavIndex = index;
+
+    /* 點選 item 後, 關閉 nav 高度top 偵測, 避免動畫重疊 */
+    isCheckNavTop = false;
+    moveBlueBottom();
+    window.setTimeout(() => {
+        /* 延遲開啟 */
+        isCheckNavTop = true;
+    }, 3500);
+}
+
+
+/* 藍色底線位移 */
+function moveBlueBottom() {
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
-    let isRight = ((currentNavIndex - previousNavIndex) > 0);/* 判斷 藍色底線 位移方向為 左或右 */
-    let moveDefault = isRight ? -150 : 150;
+    let moveDefault = 150;
     let deviceWidth = window.innerWidth;
 
     let styleLeft = 0;
@@ -244,7 +240,7 @@ function showNavItemAnimate(index) {
     if(deviceWidth < 800) {
         styleLeft = 14;
         styleLeftSpace = 15;
-        moveDefault = isRight ? -80 : 80;
+        moveDefault = 80;
     } 
 
     textBounceBottomBox.style.left = (styleLeft + currentNavIndex * styleLeftSpace) + "%";
@@ -268,9 +264,51 @@ function showNavItemAnimate(index) {
         duration: 800,
         iterations: 1,
     });
-
-    previousNavIndex = currentNavIndex;
 }
+
+/* 導覽列nav 所在高度top, 與其 底線動畫判斷 */
+function checkNavTop() {
+    if((priceWorkFlowTop * 0.65)<=scrollTop && scrollTop<=(priceWorkFlowTop * 0.8) && !isNavClose) {
+        /* scroll 到 合作流程 前, 導覽列 自動縮小 */
+        //navClose();
+    }
+
+    if(!isCheckNavTop) {
+        return; /* 關閉 nav 高度判斷 */
+    }
+    let padding = 0.8;
+    if(priceWorkFlowTop*padding <= scrollTop && scrollTop <= serviceListTop*padding && isNavChangePriceWorkFlow) { 
+        defaultCheck();
+        currentNavIndex = 1;
+        moveBlueBottom();
+        isNavChangePriceWorkFlow = false; 
+    }
+    else if(serviceListTop*padding <= scrollTop && scrollTop <= portfolioBlockTop*padding && isNavChangeServiceList) {
+        defaultCheck();
+        currentNavIndex = 2;
+        moveBlueBottom();
+        isNavChangeServiceList = false;     
+    }
+    else if(portfolioBlockTop*padding <= scrollTop && scrollTop <= closedfooter && isNavChangePortfolio) { 
+        defaultCheck();
+        currentNavIndex = 3;
+        moveBlueBottom();
+        isNavChangePortfolio = false;
+    }
+    else if(closedfooter <= scrollTop && isNavFooter) { 
+        defaultCheck();
+        currentNavIndex = 4;
+        moveBlueBottom();
+        isNavFooter = false;
+    }
+    function defaultCheck() {
+        isNavChangePriceWorkFlow = true;
+        isNavChangeServiceList = true;
+        isNavChangePortfolio = true;
+        isNavFooter = true;
+    }
+}
+
 
 /* 導覽列縮放 */
 let navCloseIcon = document.querySelector("#nav-close");
@@ -386,7 +424,7 @@ navShowIcon.addEventListener("click", () => {
     
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
     textBounceBottomBox.style.display = "flex";
-    showNavItemAnimate();
+    moveBlueBottom(currentNavIndex);
     isNavClose = false
 });
 /* ======================== 導覽列 end ======================== */
@@ -433,7 +471,6 @@ document.addEventListener("mousemove", (e) => {
 
 
 /* 報價流程 輪播圖 start */
-
 let moveIndex = 1; /* 需要移動至哪個 輪播圖塊 */
 function moveFlowSlide(index) {
     moveIndex = index;
