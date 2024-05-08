@@ -435,74 +435,13 @@ document.addEventListener("mousemove", (e) => {
 /* 報價流程 輪播圖 start */
 
 let moveIndex = 1; /* 需要移動至哪個 輪播圖塊 */
-
-/* 上方bar被點選 */
-let flowTab1 = document.querySelector("#flowTab1");
-let flowTab2 = document.querySelector("#flowTab2");
-let flowTab3 = document.querySelector("#flowTab3");
-let flowTab4 = document.querySelector("#flowTab4");
-flowTab1.addEventListener("click", () => {
-    moveIndex = 1;
+function moveFlowSlide(index) {
+    moveIndex = index;
     defaultStyle();
     setStyle();
     slideMove();
-    showSlideList()
-});
-flowTab2.addEventListener("click", () => {
-    moveIndex = 2;
-    defaultStyle();
-    setStyle();
-    slideMove();
-    showSlideList()
-});
-flowTab3.addEventListener("click", () => {
-    moveIndex = 3;
-    defaultStyle();
-    setStyle();
-    slideMove();
-    showSlideList()
-});
-flowTab4.addEventListener("click", () => {
-    moveIndex = 4;
-    defaultStyle();
-    setStyle();
-    slideMove();
-    showSlideList()
-});
-
-/* 下方 icon 列 被點選 */
-let flowIcon1 = document.querySelector("#flowIcon1");
-let flowIcon2 = document.querySelector("#flowIcon2");
-let flowIcon3 = document.querySelector("#flowIcon3");
-let flowIcon4 = document.querySelector("#flowIcon4");
-flowIcon1.addEventListener("click", () => {
-    moveIndex = 1;
-    defaultStyle();
-    setStyle();
-    slideMove();
-    showSlideList()
-});
-flowIcon2.addEventListener("click", () => {
-    moveIndex = 2;
-    defaultStyle();
-    setStyle();
-    slideMove();
-    showSlideList()
-});
-flowIcon3.addEventListener("click", () => {
-    moveIndex = 3;
-    defaultStyle();
-    setStyle();
-    slideMove();
-    showSlideList()
-});
-flowIcon4.addEventListener("click", () => {
-    moveIndex = 4;
-    defaultStyle();
-    setStyle();
-    slideMove();
-    showSlideList()
-});
+    showSlideList();
+}
 
 
 
