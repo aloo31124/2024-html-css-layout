@@ -234,17 +234,17 @@ function clickNavItem(index) {
 function moveBlueBottom() {
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
     let moveDefault = 150;
+    let styleLeft = 55;
+    let styleLeftSpace = 130;
+    
     let deviceWidth = window.innerWidth;
-
-    let styleLeft = 0;
-    let styleLeftSpace = 20;
     if(deviceWidth < 800) {
-        styleLeft = 14;
-        styleLeftSpace = 15;
+        styleLeft = 28.5;
+        styleLeftSpace = 65;
         moveDefault = 80;
     } 
 
-    textBounceBottomBox.style.left = (styleLeft + currentNavIndex * styleLeftSpace) + "%";
+    textBounceBottomBox.style.left = (styleLeft + (currentNavIndex - 1) * styleLeftSpace) + "px";
     //textBounceBottomBox.style.transition  = "0.5s"; // 會造成水平位移 彈跳效果 卡頓
 
     let textBounceBottom = document.querySelector(".text-bounce-bottom");
@@ -271,7 +271,7 @@ function moveBlueBottom() {
 function checkNavTop() {
     if((priceWorkFlowTop * 0.65)<=scrollTop && scrollTop<=(priceWorkFlowTop * 0.8) && !isNavClose) {
         /* scroll 到 合作流程 前, 導覽列 自動縮小 */
-        navClose();
+        //navClose();
     }
 
     if(!isCheckNavTop) {
@@ -326,6 +326,10 @@ function navClose() {
     navCentent.style.minWidth = "0px";
 
 
+    let textBottomContainer = document.querySelector(".text-bounce-bottom-container");
+    textBottomContainer.style.display = "none";
+    let closeIcon = document.querySelector(".fa-close");
+    closeIcon.style.display = "none";
     let logo = document.querySelector(".logo");
     logo.style.display = "none";
     let itemList = document.querySelector(".item-list");
@@ -362,19 +366,22 @@ function navClose() {
         iterations: 1,
     });
 
-    navCentent.style.width = '55px';
+    navCentent.style.width = '60px';
     navCentent.style.height = '60px';
     // 關閉 icon , 上下 間距一樣
     
-    /* 關閉後, top, right 調整 */
-    checkCloseIconPosition(navCentent);
-    
-    navShowIcon.style.display = "block";
+    /* 關閉後, top, right 調整 */    
+    navShowIcon.style.display = "flex";
     isNavClose = true;
+    checkCloseIconPosition(navCentent);
 }
 
 /* 關閉後, top, right 調整 */
 function checkCloseIconPosition(navCentent) {
+    if(!isNavClose) {
+        return;
+    }
+
     let deviceWidth = window.innerWidth;
     if(1500 < deviceWidth) {
         navCentent.style.transform = 'translateX(46vw)';  
@@ -437,10 +444,13 @@ navShowIcon.addEventListener("click", () => {
     logo.style.display = "flex";
     let itemList = document.querySelector(".item-list");
     itemList.style.display = "flex";
-
-    
+    let closeIcon = document.querySelector(".fa-close");
+    closeIcon.style.display = "flex";
+    let textBottomContainer = document.querySelector(".text-bounce-bottom-container");
+    textBottomContainer.style.display = "flex";    
     let textBounceBottomBox = document.querySelector(".text-bounce-bottom-box");
     textBounceBottomBox.style.display = "flex";
+
     moveBlueBottom(currentNavIndex);
     isNavClose = false
 });

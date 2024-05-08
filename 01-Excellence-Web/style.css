@@ -200,7 +200,7 @@ nav {
     justify-content: center;
     margin: 0.5% auto;
     position: fixed;
-    top: 3px;
+    top: 3.5px;
     z-index: var(--z-index-top1-nav);
 }
 
@@ -215,15 +215,16 @@ nav .text-bounce-bottom-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
     /* align-items: center;  */ /* 造成 藍色底線無法位移*/
 }
 
 nav .text-bounce-bottom-box {
     height: 5px;
     width: 7%;
-    position: relative;
-    top: -15%;
-    left: 20%;
+    position: absolute;
+    bottom: -4px;
+    left: 55px;
 
     display: flex;
     flex-direction: column;
@@ -246,15 +247,20 @@ nav .nav-centent {
 
     background: var(--primary-white);
 
-    padding: 0 5px;
     height: 60px;
     border-radius: 30px;
     box-shadow: 1px 5px 10px var(--light-gray);
 }
 
-nav .nav-centent .logo img {
+nav .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+}
+
+nav .logo img {
     width: 40px;
-    padding: 0 0 0 20px;
 }
 
 nav .nav-centent .item-list {
@@ -262,11 +268,11 @@ nav .nav-centent .item-list {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 10px;
 }
 
 
 nav .nav-centent .item-list .item {
+    width: 110px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -274,6 +280,9 @@ nav .nav-centent .item-list .item {
     cursor: pointer;
     white-space:nowrap;
     transition: 1s;
+}
+nav .fa-close {
+    padding: 1rem;
 }
 
 
@@ -974,14 +983,30 @@ input[type="radio"]:nth-of-type(12):checked ~.portfolio-slide{
 
     /* 上方導覽列 start */
     nav .text-bounce-bottom-container .text-bounce-bottom-box {
-        left: 29%;
         width: 7px;
+        left: 28.5px;
     }
-    nav .text-bounce-bottom-container .nav-centent {
-        width: 350px;
+    nav .logo {
+        margin-left: 25px;
     }
-    nav .text-bounce-bottom-container .nav-centent .item-list label {
+    nav .logo img {
+        width: 35px;
+    }
+    nav .nav-centent {
+        width: 430px;
+    }
+    nav .text-bounce-bottom-container {
+        width: 260px;
+    }
+    nav .item-list {
+        width: 260px;
+    }
+    nav .item-list label {
         display: none;
+    }
+    nav .item-list .item {
+        width: 10px;
+        padding: 0;
     }
     /* 上方導覽列 end */
     
