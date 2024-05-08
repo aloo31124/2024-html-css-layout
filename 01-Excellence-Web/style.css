@@ -200,6 +200,7 @@ nav {
     justify-content: center;
     margin: 0.5% auto;
     position: fixed;
+    top: 3px;
     z-index: var(--z-index-top1-nav);
 }
 

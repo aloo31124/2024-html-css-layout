@@ -61,9 +61,10 @@ window.addEventListener('resize', () => {
     } else if(!isNavClose){
         navCentent.style.width = "350px";        
     }
-
+    checkCloseIconPosition(navCentent);
     /* 導覽列nav 所在高度top, 與其 底線動畫判斷 */
     checkNavTop();
+
 });
 
 
@@ -270,7 +271,7 @@ function moveBlueBottom() {
 function checkNavTop() {
     if((priceWorkFlowTop * 0.65)<=scrollTop && scrollTop<=(priceWorkFlowTop * 0.8) && !isNavClose) {
         /* scroll 到 合作流程 前, 導覽列 自動縮小 */
-        //navClose();
+        navClose();
     }
 
     if(!isCheckNavTop) {
@@ -364,10 +365,26 @@ function navClose() {
     navCentent.style.width = '55px';
     navCentent.style.height = '60px';
     // 關閉 icon , 上下 間距一樣
-    navCentent.style.transform = 'translateX('+ moveVw * 5.5 +'vw)';  
+    
+    /* 關閉後, top, right 調整 */
+    checkCloseIconPosition(navCentent);
     
     navShowIcon.style.display = "block";
     isNavClose = true;
+}
+
+/* 關閉後, top, right 調整 */
+function checkCloseIconPosition(navCentent) {
+    let deviceWidth = window.innerWidth;
+    if(1500 < deviceWidth) {
+        navCentent.style.transform = 'translateX(46vw)';  
+    }
+    else if(800<=deviceWidth && deviceWidth<=1500) {
+        navCentent.style.transform = 'translateX(44vw)';  
+    }
+    else if(deviceWidth<=800) {
+        navCentent.style.transform = 'translateX(41vw)';  
+    }    
 }
 
 navShowIcon.addEventListener("click", () => {   
